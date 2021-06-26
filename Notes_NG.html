@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Presentation_template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* .note - a div with 'i' in circle
+       .note-code - a div without 'i' in circle. Just for having <pre> as overflow: auto*/
+
+        * {
+
+            box-sizing: border-box;
+        }
+        pre .correct {
+            background-color: rgba(20, 200, 20, 0.6);
+            border: medium, solid, green;
+            color: black;
+            margin-top: -1rem;
+            margin-bottom: -1rem;
+            padding: 10px;
+        }
+        pre .incorrect {
+            background-color: rgba(200, 20, 20, 0.6);
+            border: medium, solid, red;
+            color: black;
+            margin-top: -1rem;
+            margin-bottom: -1rem;
+            padding: 10px;
+        }
+        h5:before{
+            display: block;
+            content:'';
+            position: relative;
+            height: 0.5rem;
+            width: 90%;
+            border-bottom: thin gray solid;
+        }
+
+        @media screen and (min-width: 800px) {
+            .controls {
+                bottom: 1rem;
+                background-color: rgba(200, 200, 200, 0.8);
+                width: 200px;
+                height: 2rem;
+                border-radius: 5px;
+            }
+            .button {
+                background-color: #124191;
+                color: white;
+                line-height: 1.5rem;
+                height: 1.5rem;
+                text-align: center;
+                width: 1.5rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.2s;
+                font-weight: bold;
+            }
+            .input {
+                width: 3rem;
+                height: 1.5rem;
+                line-height: 1.5rem;
+                border-radius: 5px;
+            }
+            .slide {
+                margin: 0.5rem 1rem;
+            }
+            .copyright {
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .controls {
+                width: 80%;
+                background-color: transparent;
+                bottom: 1rem;
+                height: 3rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 0.2rem;
+                border-radius: 3000px;
+                padding: 0.3rem;
+            }
+            .input {
+                width: 3em;
+                height: 3rem;
+                line-height: 3rem;
+                border-radius: 3000px;
+                font-size: 2rem;
+            }
+            .slide-wrapper {
+                overflow: hidden;
+            }
+            .slide {
+                min-height: 95vh;
+                height: auto;
+                overflow: hidden;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                margin-bottom: 5rem;
+            }
+            .button {
+                border-radius: 50%;
+                width: 3rem;
+                height: 3rem;
+                padding: 8px;
+                margin: 5px;
+                background-color: rgba(200, 200, 200, 0.8);
+                z-index: 3;
+                cursor: pointer;
+                transition: 0.2s;
+                font-size: 2rem;
+                font-weight: bolder;
+                line-height: 2rem;
+                text-align: center;
+            }
+
+            .button:hover {
+                transition: 0.2s;
+                transform: scale(1.2);
+            }
+            .copyright {
+                display: none;
+            }
+            .title>span {
+                font-size: 2rem;
+            }
+            .title {}
+        }
+
+
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 0.5em;
+        }
+
+        .nested-list {
+            list-style-type: square;
+            font-size: 80%;
+
+        }
+
+        .nested-list>li {
+            margin-top: 0.5em;
+            margin-left: 2em;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .link {
+            text-decoration: underline;
+            font-style: italic;
+            word-break: break-all;
+            transition: 0.3s;
+        }
+
+        .link:hover {
+            box-shadow: inset 0 0 1em gold, 0 0 1em gold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        body {
+            background-color: rgb(120, 120, 120);
+        }
+
+        .important>b {
+            background-color: rgb(250, 250, 150);
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        .title {
+            position: absolute;
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 100;
+            font-size: 5rem;
+            color: white;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 2rem;
+            width: auto;
+            line-height: 5rem;
+            white-space: nowrap;
+        }
+
+
+        .title-comment {
+            font-size: 2rem;
+            display: inline-block;
+        }
+
+        .banner-neg {
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-origin: content-box;
+            padding-right: 6vw;
+            padding-bottom: 3vh;
+        }
+
+        .banner {
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-origin: content-box;
+            padding-right: 6vw;
+            padding-bottom: 3vh;
+        }
+
+        .slide-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            /* background-color: rgb(120, 120, 120); */
+            width: 98vw;
+        }
+
+        .inline-image {
+            position: relative;
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            padding: 5px;
+        }
+
+        .inline-image-border {
+            border: solid black thin;
+            border-radius: 5px;
+        }
+
+        .path {
+            background-color: rgba(139, 255, 100, 0.994);
+        }
+
+        .outofdate {
+            text-decoration: line-through;
+            background-color: transparent;
+            color: rgb(180, 180, 180);
+        }
+
+        .view-control-wrapper {
+            display: flex;
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 3;
+        }
+
+        .slide {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            width: 93vw;
+            height: 95vh;
+            overflow: hidden;
+            position: relative;
+            border: black thin solid;
+            line-height: 1.3em;
+            padding: 2rem;
+            background-color: white;
+            text-align: justify;
+            text-justify: inter-word;
+
+            color: gray;
+            font-size: 150%;
+        }
+
+        .slide-center-content {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        .copyright {
+            position: absolute;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 200;
+            left: 6vw;
+            bottom: 5vh;
+            font-size: 0.5em;
+            color: gray;
+        }
+
+        .copyright-white {
+            color: white;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 1rem;
+        }
+
+        .slide-extended {
+            /* overflow: auto; */
+            min-height: 95vh;
+            height: auto;
+        }
+
+        .slide-title {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #124191;
+            line-height: 2rem;
+        }
+
+        .slide-blue {
+            background-color: #124191;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .expand-all {
+            background-color: #124191;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .expand-all:hover {
+            background-color: rgb(18, 56, 145, 0.5);
+            transition: 0.2s;
+            color: yellow;
+        }
+
+        .general {
+            /* position: relative; */
+            position: absolute;
+            transform: translateX(-2rem);
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            /* border: #124191 thin solid; */
+            transition: 0.2s;
+            background-color: transparent;
+            height: 1em;
+            line-height: 1em;
+            width: 1em;
+            color: #124191;
+            font-weight: bold;
+
+        }
+
+        .footage-spacing {
+            height: 4rem;
+        }
+
+        .general:hover {
+
+            transition: 0.5s;
+            cursor: pointer;
+            background-color: #124191;
+            color: white;
+        }
+
+        code {
+            background-color: #124191;
+            color: white;
+            display: inline-block;
+            padding: 3px;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 1em;
+        }
+
+        .content-list-active:hover {
+            background-color: rgba(20, 200, 20, 0.8);
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .content-list-unactive {
+            color: rgb(200, 200, 200);
+        }
+
+        .content-list-unactive:hover {
+            background-color: rgba(200, 20, 20, 0.8);
+            border-radius: 5px;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-evenly;
+            position: fixed;
+            align-content: center;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .controls:hover {
+            visibility: visible;
+            transition: 0.2s;
+        }
+
+
+
+        .button-red {
+            background-color: red;
+        }
+
+        .button-round {
+            position: relative;
+            top: 2rem;
+            left: 2rem;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            padding: 8px;
+            margin: 5px;
+            background-color: rgba(200, 200, 200, 0.8);
+            z-index: 3;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .button-round:hover {
+            transition: 0.2s;
+            transform: scale(1.2);
+        }
+
+        .button:hover {
+            transform: scale(1.2);
+            transition: 0.2s;
+        }
+
+        .input {
+            color: black;
+            background-color: white;
+            text-align: center;
+            transition: 0.3s;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .input-error {
+            background-color: red;
+            transition: 0.3s;
+        }
+
+        .note-code {
+            position: relative;
+            width: 80%;
+            background-color: rgb(200, 200, 200);
+            padding: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto;
+        }
+        .note-code pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .note {
+            position: relative;
+            width: 80%;
+            background-color: rgb(200, 200, 200);
+            padding: 1rem;
+            padding-left: 4rem;
+            padding-top: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto;
+        }
+
+        .note:before {
+            content: "i";
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            font-family: Arial;
+            font-style: italic;
+            background: rgb(100, 100, 230);
+            left: 1rem;
+            top: 1rem;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: solid thin gray;
+
+        }
+
+        table td {
+            border: solid thin gray;
+            padding: 1rem;
+
+        }
+
+        table tr:hover {
+            background-color: rgb(180, 156, 245, 0.5))
+        }
+    </style>
+    <script>
+        // .content - a special class for scope slide searching purposes
+        // .slide   = a special class for slides searching purposes and for styling
+        // .general = a stupid name for class added to expandeble class - "+/-" buttons
+        // .expand_all class - a special class for expanding all elements of expandable list
+        // .copyright = a special class for copyright info - added automaticly for each .slide
+        // .page-number = a special class only for slide numeration. Added automaticly
+        function cpright() {
+            // display copywright on each page
+            // Add page numger
+            let d = new Date();
+            let day = parseInt(d.getDate(), 10) < 10 ? '0' + d.getDate() : d.getDate();
+            let month = d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth();
+            let year = d.getFullYear();
+            let date = day + '/' + month + '/' + year;
+
+            var message = `
+		   					${date}  &copy; Marek Gualewicz
+		  				`
+            let items = document.querySelectorAll('.slide')
+            var pNum = 0;
+            for (let item of items) {
+                var div = document.createElement('div');
+                var pageNum = document.createElement('div');
+                pageNum.classList.add('page-number')
+                div.classList.add('copyright')
+                div.innerHTML = message;
+                if (item.classList.contains('slide-blue')) {
+                    div.classList.add('copyright-white')
+                }
+                if (pNum > 0) {
+                    pageNum.innerText = pNum;
+                    item.appendChild(pageNum)
+                }
+                pNum++;
+                item.appendChild(div)
+            }
+
+        }
+        function addFootageSpacing(element) {
+            // footage not overlap content (footage is copyright info)
+            let spacing = document.createElement('div')
+            spacing.classList.add('footage-spacing')
+            element.appendChild(spacing)
+
+        }
+        function addGeneralMarkers(contId) {
+            // add +/- buttons to list in order to make it expandable
+            var items = document.getElementById(contId).querySelectorAll('.expandable');
+
+            for (let item of items) {
+                if (item.querySelector('ul') != null) {
+                    var gen = document.createElement('span');
+                    let id = Math.random().toString(36).substr(2, 9)
+                    var span = `
+					<span id=${id} class='general'>+</span>
+					`
+                    gen.innerText = '+'
+                    gen.classList.add('general');
+                    gen.setAttribute('id', id)
+                    item.prepend(gen)
+                    let element = document.getElementById(id)
+                    element.addEventListener('click', function (e) {
+                        let children = element.parentElement.children
+                        if (element.innerText == '+') {
+                            for (let item of Object.values(children)) {
+                                if (item.classList != null) {
+                                    if (item.classList.contains('hidden')) {
+                                        item.classList.add('show')
+                                        item.classList.remove('hidden')
+                                    }
+                                }
+                                element.innerText = '-'
+                            }
+                        } else if (element.innerText == '-') {
+                            for (let item of Object.values(children)) {
+                                if (item.classList != undefined) {
+                                    if (item.classList.contains('show')) {
+                                        item.classList.add('hidden')
+                                        item.classList.remove('show')
+                                    }
+                                }
+                                element.innerText = '+'
+                            }
+                        }
+                    })
+
+                }
+            }
+            if (document.getElementById(contId).querySelector('.expand-all') != null) {
+                document.getElementById(contId).querySelector('.expand-all').addEventListener('click', function (e) {
+                    // expand all list elements
+                    let hidden = document.getElementById(contId).querySelectorAll('.hidden')
+                    let shown = document.getElementById(contId).querySelectorAll('.show')
+                    let general = document.getElementById(contId).querySelectorAll('.general')
+                    if (hidden.length > 0) {
+                        for (let h of hidden) {
+                            h.classList.add('show')
+                            h.classList.remove('hidden')
+                        }
+                        if (general.length > 0) {
+                            for (let item of general) {
+                                item.innerText = '-'
+                            }
+                        }
+                    } else if (shown.length > 0) {
+                        for (let h of shown) {
+                            h.classList.add('hidden')
+                            h.classList.remove('show')
+                        }
+                        if (general.length > 0) {
+                            for (let item of general) {
+                                item.innerText = '+'
+                            }
+                        }
+                    }
+                })
+            } else {
+                console.warn("No expand-all class. If there are more expandable lists THINK about querySelectorAll!!")
+            }
+        }
+        class SlideShow {
+            constructor(containerId) {
+                this.slides = document.getElementById(containerId).querySelectorAll('.slide') // list of all slides in doc
+                this.container = document.getElementById(containerId) // element that containes slideshow
+                this.nextId = Math.random().toString(36).substr(2, 9) // next button
+                this.prevId = Math.random().toString(36).substr(2, 9)
+                this.currentSlideId = Math.random().toString(36).substr(2, 9) // text box with editable slide number
+                this.firstSlideId = Math.random().toString(36).substr(2, 9); // button - return to content slide
+                this.closeId = Math.random().toString(36).substr(2, 9);   // close show mode button
+                this.presentationButtonId = Math.random().toString(36).substr(2, 9); // enter show slide mode (presentation)
+                this.currentSlide = 0; // currently viewed slide in slide show mode
+                this.homeButtonId = Math.random().toString(36).substr(2, 9); // button returning to content in view mode (not presentation)
+                this.mode = 'show' // or 'view'  - show for presentation
+                if (this.slides.length == 0) {
+                    throw Error('No slides to manage')
+                }
+            }
+            showSlide(i) {
+                // show slide nr i, hide rest slides
+                for (let item of this.slides) {
+                    item.classList.add('hidden')
+                }
+                this.slides[i].classList.remove('hidden')
+                this.slides[i].classList.add('show')
+                this.currentSlide = i;
+                let pageNum = document.getElementById(this.currentSlideId)
+                if (pageNum != null) {
+                    pageNum.innerText = i;
+                }
+            }
+            showAllSlides() {
+                for (let item of this.slides) {
+                    item.classList.remove('hidden')
+                    item.classList.add('show')
+                }
+            }
+            start() {
+                this.showSlide(0);
+            }
+            removeViewControls() {
+                // Entering presentation mode. Make home and presentation button disappear
+                let pb = document.querySelector('.view-control-wrapper')
+                if (pb != undefined) {
+                    pb.remove();
+                }
+            }
+            slideShowMode() {
+                // Enter presentation mode
+                this.start();
+                this.removeViewControls();
+                this.placeControls();
+                this.mode = 'show'
+                // this.makeContentLinks();
+            }
+            viewMode() {
+                // Exit presentation mode - enter veiw mode
+                let t1 = performance.now()
+                this.showAllSlides();
+                this.removeControls();
+                this.placeViewControls();
+                // this.makeContentLinks();
+                this.mode = 'view'
+                let t2 = performance.now()
+            }
+            removeControls() {
+                // enter view mode (exit presentatio mode)
+                document.querySelector('.controls').remove();
+            }
+            placeViewControls() {
+                // Place home and presentation buttons in view mode (not in presentation mode)
+                let element = document.createElement('div');
+                let wrapper = undefined;
+                element.classList.add('button-round');
+                element.setAttribute('id', this.presentationButtonId);
+                // element is clipboard (presentation) button
+                element.innerHTML = `
+					<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%231a1a1a%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAnalytics%2C%20board%2C%20presentation%3C%2Ftitle%3E%3Cg%20id%3D%22_06%22%20data-name%3D%2206%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M27.5%2C7H4.5a2.5%2C2.5%2C0%2C0%2C1%2C0-5h23a2.5%2C2.5%2C0%2C0%2C1%2C0%2C5ZM4.5%2C4a.5.5%2C0%2C0%2C0%2C0%2C1h23a.5.5%2C0%2C0%2C0%2C0-1Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M27%2C23H5a1%2C1%2C0%2C0%2C1-1-1V6A1%2C1%2C0%2C0%2C1%2C5%2C5H27a1%2C1%2C0%2C0%2C1%2C1%2C1V22A1%2C1%2C0%2C0%2C1%2C27%2C23ZM6%2C21H26V7H6Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M16%2C30a1%2C1%2C0%2C0%2C1-1-1V22a1%2C1%2C0%2C0%2C1%2C2%2C0v7A1%2C1%2C0%2C0%2C1%2C16%2C30Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M17%2C30H15a1%2C1%2C0%2C0%2C1%2C0-2h2a1%2C1%2C0%2C0%2C1%2C0%2C2Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+				`
+                this.container.prepend(element);
+                let home = document.createElement('div');
+                home.classList.add('button-round');
+                home.setAttribute('id', this.homeButtonId);
+                // home button
+                home.innerHTML = `
+					<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20424.098%20424.098%22%20style%3D%22enable-background%3Anew%200%200%20424.098%20424.098%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23010002%3B%22%20d%3D%22M351.191%2C401.923H72.901c-4.487%2C0-8.129-3.633-8.129-8.129V242.262l-56.664-0.114c-3.284-0.008-6.243-1.992-7.495-5.023c-1.252-3.04-0.553-6.527%2C1.764-8.852L206.104%2C24.546c1.853-1.845%2C4.503-2.666%2C7.047-2.276c2.414%2C0.39%2C4.511%2C1.845%2C5.731%2C3.942l47.43%2C47.43V58.499c0-4.487%2C3.633-8.129%2C8.129-8.129h47.755c4.495%2C0%2C8.129%2C3.642%2C8.129%2C8.129v79.156l91.39%2C91.398c2.325%2C2.325%2C3.024%2C5.828%2C1.764%2C8.868c-1.26%2C3.032-4.227%2C5.007-7.511%2C5.007c-0.008%2C0-0.008%2C0-0.016%2C0l-56.64-0.114v150.98C359.32%2C398.29%2C355.686%2C401.923%2C351.191%2C401.923z%20M81.03%2C385.666h262.033V234.67c0-2.162%2C0.854-4.235%2C2.39-5.755c1.528-1.52%2C3.585-2.374%2C5.739-2.374c0.008%2C0%2C0.008%2C0%2C0.016%2C0l45.105%2C0.089l-79.855-79.863c-1.528-1.528-2.382-3.593-2.382-5.747V66.628h-31.498v26.645c0%2C3.284-1.975%2C6.251-5.015%2C7.511c-3.032%2C1.268-6.527%2C0.569-8.86-1.764l-57.038-57.038l-183.95%2C183.95l45.203%2C0.089c4.487%2C0.008%2C8.112%2C3.642%2C8.112%2C8.129C81.03%2C234.149%2C81.03%2C385.666%2C81.03%2C385.666z%22%2F%3E%3C%2Fsvg%3E"/>
+				`
+                let viewControlsWrapper = document.createElement('div')
+                viewControlsWrapper.classList.add('view-control-wrapper')
+                this.container.prepend(viewControlsWrapper)
+                wrapper = document.querySelector('.view-control-wrapper')
+                wrapper.prepend(element);
+                wrapper.prepend(home);
+                // this.makeContentLinks();
+                document.getElementById(this.presentationButtonId).addEventListener('click', function () {
+                    this.slideShowMode();
+                }.bind(this));
+                document.getElementById(this.homeButtonId).addEventListener('click', function () {
+                    let scrollTo = document.querySelector('.content').parentElement.offsetTop;
+                    window.scrollTo(0, scrollTo)
+                }.bind(this));
+            }
+            placeControls() {
+                // controls for presentation mode with event listeners:
+                // For text box:
+                // click -> remember current value (value present when area was clicked)
+                // input -> check if inserted value is correct. If not temporarly add 'input-error' class to mark this
+                // keydown => on enter blur (lose focus)
+                var that = this;
+                var currentVal = undefined;
+                let cont = document.createElement('div')
+                cont.classList.add('controls')
+                cont.innerHTML = `
+					<div class="button" id=${this.firstSlideId}><<</div>
+					<div class="button" id=${this.prevId}><</div>
+					<div class="input" id=${this.currentSlideId} contenteditable>0</div>
+					<div class="button" id=${this.nextId}>></div>
+					<div class="button button-red" id=${this.closeId}>&times;</div>
+				`
+                this.container.appendChild(cont)
+                function nextSlide(e) {
+                    if (this.currentSlide < this.slides.length) {
+                        this.currentSlide++;
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    }
+                }
+                function prevSlide(e) {
+                    if (this.currentSlide > 0) {
+                        this.currentSlide--;
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    }
+                }
+                function firstSlide(e) {
+                    // this.currentSlide = 0;
+                    var homeSlideNum = 0;
+                    var found = false;
+                    for (let sl of this.slides) {
+                        if (sl.querySelector(".content")) {
+                            found = true;
+                        } else {
+                            if (found == false) {
+                                homeSlideNum++;
+                            }
+                        }
+                    }
+                    if (found == true) {
+                        this.currentSlide = homeSlideNum
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    } else {
+                        throw new Error("Slide with class 'content' not found!")
+                    }
+                }
+                function onFocusOut(e) {
+                    var currentSlideVal = document.getElementById(this.currentSlideId).innerText
+                    if (document.getElementById(this.currentSlideId).innerText != '') {
+                        this.showSlide(document.getElementById(this.currentSlideId).innerText)
+                    } else {
+                        console.log(this.currentSlide)
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                    }
+                }
+                // this.container.addEventListener()
+                document.getElementById(this.currentSlideId).addEventListener('click', function (e) {
+                    var thisElement = document.getElementById(this.currentSlideId)
+                    currentVal = parseInt(e.target.innerText, 10);
+                    thisElement.innerText = '';
+                }.bind(this))
+
+
+                document.getElementById(this.currentSlideId).addEventListener('input', function (e) {
+                    console.dir(e)
+                    var thisElement = document.getElementById(this.currentSlideId)
+
+                    // let currentVal = parseInt(thisElement.innerText, 10);
+
+                    let isValid = ((/^\d+$/.test(e.target.innerText) && (parseInt(e.target.innerText, 10) >= 0) && (parseInt(e.target.innerText, 10) <= this.slides.length)) || (e.target.innerText == ''))
+                    if (!isValid) {
+                        console.error("Not valid")
+                        thisElement.innerText = currentVal
+                        thisElement.classList.add('input-error');
+                        setTimeout(() => {
+                            thisElement.classList.remove('input-error')
+                        }, 200)
+                    } else {
+                        // lastValidValue = e.target.innerText;
+                        console.log('valid value')
+                    }
+                }.bind(this))
+                document.getElementById(this.currentSlideId).addEventListener('keydown', function (e) {
+                    if (e.key != 'Enter') {
+
+                    } else {
+                        // if (e.target.innerText == '') {
+                        // 	e.target.innerText = lastValidValue;
+                        // }
+                        e.target.blur()
+                    }
+                    // }.bind(this))
+                }.bind(this))
+
+                document.getElementById(this.currentSlideId).addEventListener('focusout', onFocusOut.bind(this))
+                document.getElementById(this.nextId).addEventListener('click', nextSlide.bind(this));
+                document.getElementById(this.prevId).addEventListener('click', prevSlide.bind(this))
+                document.getElementById(this.firstSlideId).addEventListener('click', firstSlide.bind(this))
+                document.getElementById(this.closeId).addEventListener('click', function (e) {
+                    this.currentSlide = undefined;
+                    this.viewMode();
+                }.bind(this))
+                //keyboard events
+                document.querySelector('body').addEventListener('keydown', function (e) {
+                    if (this.mode = 'show') {
+                        if (e.key == "PageDown") {
+                            nextSlide.bind(this)();
+                        } else if (e.key == "PageUp") {
+                            prevSlide.bind(this)();
+                        } else if (e.key == "Home") {
+                            console.log("Home pressed")
+                            firstSlide.bind(this)();
+                        }
+                    }
+                }.bind(this))
+            }
+            linkSlide(element, slideNr) {
+                element.addEventListener('click', function (e) {
+                    // show slide when li element in 'content' slide clicked
+                    if (this.mode == 'show') {
+                        this.showSlide(slideNr)
+                    } else {
+                        let scrollTo = this.slides[slideNr].offsetTop;
+                        window.scrollTo(0, scrollTo)
+                    }
+                }.bind(this))
+            }
+            makeContentLinks() {
+                // when content slide created search each li.innerText in this slide and if any other slide in presentation maches exectly this li element - create a js link to it
+
+                var contentList = this.container.querySelector('.content').querySelectorAll('li')
+                var slides = this.container.querySelectorAll('.slide')
+                var slideN = 0; // slide number
+                var t1 = performance.now();
+                for (var item of contentList) {
+                    var found = false
+                    slideN = 0;
+                    // console.log(item.innerText)
+
+                    for (let slide of slides) {
+
+                        var st = slide.querySelector('.slide-title')
+
+                        if (st != null) {
+                            // console.log(st.innerText.trim())
+                            // console.log(item.innerText.trim())
+                            if ((st.innerText.trim() == item.innerText.trim()) && found == false) {
+                                found = true;
+                                this.linkSlide(item, slideN)
+                                item.classList.add('content-list-active')
+                                let pageNum = document.createElement('span')
+                                pageNum.innerText = '(Page ' + slideN + ') ';
+                                item.prepend(pageNum);
+                            }
+                        }
+                        slideN++;
+                    }
+                    if (found == false) {
+                        console.warn(item.innerText.trim() + 'slide not implemented')
+                        item.classList.add('content-list-unactive')
+                    }
+                }
+                var t2 = performance.now();
+            }
+        }   // SlideShow
+
+        document.addEventListener('DOMContentLoaded', function (event) {
+            var slideList = document.querySelectorAll('.slide')
+            var show = new SlideShow('wrapper')
+
+            cpright();
+            addGeneralMarkers('slide-3')
+            for (let item of slideList) {
+                addFootageSpacing(item);
+            }
+            show.makeContentLinks()
+            show.slideShowMode();
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="slide-wrapper  slide-extended" id="wrapper">
+        <div class="banner-neg slide slide-blue" name="title-slide" id="slide-0">
+
+            <div class="title">
+                <span><a href = "https://www.tektutorialshub.com/angular-tutorial/#introduction-to-angular" target="_blank">Angular Notes</a></br>
+                </span>
+                <span class="title-comment">
+                    by Marek Gudalewicz
+
+                </span>
+            </div>
+        </div>
+
+
+        <!-- Use blank lines for slide separation -->
+
+
+
+        <div class="banner slide slide-extended" name="content-slide" id="slide-1">
+            <div class="slide-title">
+                Scope:
+                <hr>
+            </div>
+            <ul class="content">
+                <li>Starting an application</li>
+                <li>Filesystem</li>
+                <li>Binding data in angular</li>
+                <li>Services and dependency injection</li>
+                <li>Modules</li>
+                <li>Components</li>
+                <li>Nested components</li>
+                <li>Directives</li>
+                <li>Pipes</li>
+                <li>Custom directives</li>
+                <li>Custom pipes</li>
+                <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
+           </ul>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="starting application" id="slide-2">
+            <div class="slide-title">
+                Starting an application
+                <hr>
+                <a href="https://www.tektutorialshub.com/angular/angular-create-first-application/" target="_blank">Link</a>
+                <ul class="nested-list">
+                    <li><code>npm install -g @angular/cli@latest</code></li>
+                    <li><code>ng --version</code></li>
+                    <li><code>ng new myFirstApp</code>  this command will create a project folder arrange filesystem, install and configure typeScript, install libraries and dependencies,
+                        install Karma and Protractor for testing.
+                    </li>
+                    <li><code>ng serve</code> will This lauches the project, and observes any changes, if they are made it will refresh brawser. Available under http://localhost:4200/</li>
+                    <li><code>npm start</code>  can be used in stead of ng serve</li>
+                </ul>
+            </div>
+
+            <ul class = "nested-list">
+                <li>List element - this is just a list with nested elements geting smaller
+                    <ul>
+                        <li>smaller
+                            <ul>
+                                <li>And smaller</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            
+
+
+        </div>
+
+
+        
+
+        <div class="banner slide slide-extended" name="Installation" id="slide-3">
+            <a href="#">
+                <div class="slide-title">
+                    Filesystem
+                </div>
+            </a>
+            <hr> 
+<a href="https://www.tektutorialshub.com/angular/angular-create-first-application/" target="_blank">Link</a>
+            <ul>
+                <li>
+                    <span class="expand-all">
+                        <b>Types</b>
+                    </span>
+                    <ul class="main show">
+                        <li class = "expandable"><b>e2e</b>: end to end tests
+                            <ul class="subobject hidden">
+                                <li class = "expandable"><b>src</b>: Developed applicatoin
+                                    <ul class="subobject hidden">
+                                        <li>app.e2e-spec.ts</li>
+                                        <li>app.po.ts</li>
+                                    </ul>
+                                </li>
+                                <li>protractor.conf.js</li>
+                                <li>tsconfig.e2e.json</li>
+                            </ul>
+                        </li>
+                        <li>node_modules</li>
+                        <li class = "expandable">
+                            <b>src</b>
+                            <ul class="subobject hidden">
+                                <li class = "expandable"><b>app</b>
+                                    <ul class="subobject hidden">
+                                        <li>app-routing.module.ts</li>
+                                        <li>app.component.css</li>
+                                        <li>app.component.html</li>
+                                        <li>app.component.spec.ts</li>
+                                        <li>app.component.ts</li>
+                                        <li>app.module.ts: <b>root module of application</b></li>
+                                    </ul>
+                                </li>
+                                <li class = "expandable"><b>assets</b>
+                                    <ul class="subobject hidden">
+                                        <li>.gitkeep</li>
+                                    </ul>
+                                </li>
+                                <li class = "expandable"><b>environments</b>
+                                    <ul class="subobject hidden">
+                                        <li>environment.prod.ts</li>
+                                        <li>enfironment.ts</li>
+                                    </ul>                       
+                                </li>
+                                <li>favicon.ico</li>
+                                <li>index.html</li>
+                                <li>main.ts</li>
+                                <li>polyfills.ts</li>
+                                <li>styles.css</li>
+                                <li>test.ts</li>
+
+                            </ul>
+                        </li>
+                        <li><a href = "http://editorconfig.org" target = "_blank">.editorconfig</a>: file for VSC Visual Studio Code sonciguration</li>
+                        <li>.gitignore: for listing files not tracked by git</li>
+                        <li>angular.json: configuration file for angular cli</li>
+                        <li>browserslist: ensures compatibliity of angular app with different browsers</li>
+                        <li>karma.conf.js: karma test runner config</li>
+                        <li>package-lock.json: list exect versions of dependencies</li>
+                        <li>package.json: list of dependencies</li>
+                        <li>README.md: Readme file in mark down format</li>
+                        <li>tsconfig.app.json: ts config file for compiling code</li>
+                        <li>tsconfig.json: ts compiler config</li>
+                        <li>tsconfig.spec.json: config for tests</li>
+                        <li>tsling.json: static code analysis tool used for code quality checl.</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div class="banner slide slide-extended" name="BindingDataInAnglular" id="slide-4">
+            <div class="slide-title">
+                Binding data in angluar
+            </div>
+            <hr>
+            Binding is allowing automatic sync between data in component and view. There can be one direction data flow, or two direction data binding. In angular there are:
+            <ul class="nested-list">
+                <li>property binding</li>
+                <li>interpolation: one way variable to text in html binding</li>
+                <li>Attribute binding: in case there is no HTML propery like in aria case <code>&lt;button [attr.aria-label]="closeLabel"></code></li>
+                <li>Event binding</li>
+                <li>Two way data binding: the same as property binding + event binding used together.</li>
+            </ul>
+            <h3>Interpolation</h3>
+            <div class="note">
+                <pre>
+let someStringVariable: string = 'someString';
+&lt;p>This is someString{{someStringVariable}}&lt;/p>
+                </pre>
+                Now every time someStringVariable changes in component, view will be updated. But in case p element in view changes, someStringVariable in component will remain unchanged.
+            </div>
+
+            <h3>Property binding</h3>
+            Binds a property in component to property in HTML. Used like this <code>[binding-target]='binding-source'</code>. Binding source can be a template expression, property in component,
+            method in component or expression containing all of them. Style and class binding is a property binding, but for more information see chapter related to directives.
+            <div class="note">
+                <pre>
+        &lt;h1 [innerText] = "title">&lt;/h1>
+        &lt;button [disabled] = 'isDisabled'>X<button>
+                </pre>
+                In above example title variable is bound to innerText property, so it will show up as content of h1.
+            </div>
+
+            <h3>Event binding</h3>
+            Is a one way binding from <b>view to component</b>, so opposite direction as property or interpolation. <code>&lt;button (click)="onSave()">Save&lt;/button></code>. This
+            example ilustrates how event binding should be used.
+
+            <h3><a href="https://www.tektutorialshub.com/angular/ngmodel-two-way-data-binding-in-angular/" target="_blank">Two way biniding</a></h3>
+            This is a commination of property binding and event binding. Often a <code>ngModel</code> directive is used for this binding.
+            <code>ngModelChange</code> is a angular specyfic event, that is an output of ngModel, and is triggered every time an event occures.
+            <div class="note">
+                <pre>
+&lt;input type = "text" [value] = "name" (input)="name=&event.target.value"                    
+                </pre>
+                equals to 
+                <pre>
+&lt;input type = [(value)]='name'>
+                </pre>
+<b>Note</b>: if <i>Property ‘value’ does not exist on type ‘EventTarget’</i> occures, it means that there is no guarantee, that velue property exists on input element. In this case:
+<ul class="nested-list">
+    <li>Cast can be used <code>($any($event.target).value)</code></li>
+    <li>fullTemplateCheck in tsconfing.json can be set to true</li>
+</ul>
+<b>NOTE</b>: If this banana in the box syntax is used [()], then there needs to be a valueChange property under element. eg <code>[(somePropery)] = 'vlaue'</code>, there needs to be a 
+<code>someProperyChange</code> property under elemnt. If there is no such property, this will not work. In such case <mark>ngModel</mark> comes handy.
+<pre>
+    import { FormsModule } from '@angular/forms';
+
+    &lt;input type="text" name="value" [(ngModel)]="value">
+    &lt;p> You entered {{value}}&lt;/p>
+    &lt;button (click)="clearValue()">Clear&lt;/button>
+</pre>
+<mark>This is important, that ngModel is in <code>@angular/forms</code>, not angular core library, so it has to be imported.</mark>
+            </div>
+            <h4>ngModelChange</h4>
+            <div class="note">
+                In below case there will be 2 events triggered when input is changed in order of occurance. ngModelChange is triggered every time input changes, and JS change event 
+                will be triggered every time input loses focus.
+                <pre>
+    &lt;input [ngModel]="firstName (ngModelChange)="firstName = $event" (ngModelChange)="firstNameChanged($event)"/>
+                </pre>
+            </div>
+        </div>
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Services and dependency injection
+            </div>
+            <hr>
+        </div>
+
+
+
+        <div class="banner slide slide-extended" name="modules" id="slide-5">
+            <div class="slide-title">
+                Modules
+            </div>
+            <hr>
+        </div>
+
+
+
+        <div class="banner slide slide-extended" name="components" id="slide-6">
+            <div class="slide-title">
+                Components
+            </div>
+            <hr>
+            A component is a piece of web application havnig its own view, logic and styling. In angluar component has a HTML template, styling file and a class written in TypeScript. 
+            Some components have their services: additional classes with reusable logical services. For example communication with server shoud be done with service, as this feature 
+            would be used in other classes and it putting it into class with comonent would deny single responsibility principle.
+            A component is a js module, so it is a separate file importing angular libraries, exporting a class and is decorated with a <code>@Component</code> function taking: selector, template, styling and dependencies
+            as arguments.
+            <div class="note">
+                <pre>
+            import { Component } from '@angular/core';
+
+            @Component({
+                selector: 'app',                    // HTML  tag, where component will be injected
+                template: '&lt;h1>{{title}}&lt;',   // this can be substituted with templateURI
+                style: 'h1{color: blue;}'           // styleURI
+            })
+                </pre>
+            </div>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="nestedComponents" id="slide-7">
+            <div class="slide-title">
+                Nested components
+            </div>
+            <hr>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="Directives" id="slide-8">
+            <div class="slide-title">
+                Directives
+            </div>
+            <hr>
+            A directive is a sort of angular specific attribute, that is a part of HTML template. Its task is to manipulate DOM (change appeariance or behavior, or even add HTML elemens)
+            <ul class = "nested-list">
+                <li>Component directives
+                    <ul>
+                        <li>Directives containing a template (have their own view)</li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>Structural directives
+                    <ul>
+                        <li>Can change DOM layout by adding or removing elements.</li>
+                        <li>Start with an asterix <quote>*</quote></li>
+                        <li>
+                            <code>*ngFor</code> can add elements using list that is defined in TS component.
+                            <div class="note">
+<pre>
+    &lt;tr *ngFor="let car of cars">
+        &lt;td>{{car.nrOfSeets}}&lt;/td>
+        &lt;td>{{car.horsePower}}&lt;/td>
+        &lt;td>{{car.has4WD}}&lt;/td>
+    &lt;/tr>
+</pre>
+This will put a row in table for every car in car list.     
+                            </div>
+                        </li>
+                        <li>
+                            <code>*ngSwitch</code> 
+                            choses one <b>or more</b> components depending on variable content. Bounded to <code>*ngSwitchCase</code> and <code>*ngSwitchDefault</code>
+                        </li>
+                        <li>
+                            <code>*ngIf</code> Html element having this directive renders if condition is met                          
+                        </li>
+                    </ul>
+                </li>
+                <li>Attribute directives
+                    <ul>
+
+                    </ul>
+                </li>
+            </ul>
+
+        <h3><a href="https://www.tektutorialshub.com/angular/angular-ngswitch-directive/">*ngSwitch</a></h3>
+        <div class="note">
+            <ul class="nested-list">
+                <li>Structural directive</li>
+                <li>Bound to expression, so if expression somewhere in class will change elements will be rerendered</li>
+                <li><code>*ngSwitchCase</code> is should be used only in element tested in ngSwitch element</li>
+                <li>Each element with ngSwitchCase matching expression will be added to DOM, not only first one</li>
+                <li><code>ngSwitchDefault</code> element is rendered only if none of ngSwitchCase elements are matched</li>
+                <li>There can be more than one ngSwitchDefault elements. If nonoe ngSwitchCase is matched tan all ngSwitchDefault will be added</li>
+                <li>ngSwitchDefault can be anywhere in ngSwitch block, does not have to be at the bottom</li>
+                <li>There can be elements inside ngSwitch statement without any of ngSwitchCase or ngSwitchDefault directives. In such case they are displayed normally.</li>
+                <li>Empty string as an expression is 0</li>
+                <li><code>ngTemplateOutlet</code> is a directive that places <code>ng-template</code> instead of <code>ng-container</code> having a ngTemplateOutlet directive (example below)</li>
+            </ul>
+    <pre>
+        &lt;div [ngSwitch]="someExpression">
+            &lt;div *ngSwitchCase="matchExpression1">someTemplate&lt;/div>
+            &lt;div *ngSwitchCase="matchExpression2">someOtherTemplate&lt;/div>
+            &lt;div *ngSwitchDefault="lastExpression">finalExpression&lt;/div>
+        &lt;/div>
+    </pre>    
+    
+    <h3>ngTemplateOutlet</h3>
+    <pre>
+&lt;ng-container [ngSwitch]="selectedValue4"> 
+&lt;ng-container *ngSwitchCase="'One'">
+    &lt;ng-container *ngTemplateOutlet="sharedTemplate12">&lt;/ng-container>
+&lt;/ng-container>
+&lt;ng-container *ngSwitchCase="'Two'">
+    &lt;ng-container *ngTemplateOutlet="sharedTemplate12">&lt;/ng-container>
+&lt;/ng-container>
+&lt;ng-container *ngSwitchCase="'Three'">
+    &lt;ng-container *ngTemplateOutlet="sharedTemplate34">&lt;/ng-container>
+&lt;/ng-container>
+&lt;ng-container *ngSwitchCase="'Four'">
+    &lt;ng-container *ngTemplateOutlet="sharedTemplate34">&lt;/ng-container>
+&lt;/ng-container>
+&lt;ng-template #sharedTemplate12>Shared between 1,2&lt;/ng-template>
+&lt;ng-template #sharedTemplate34>Shared between 3,4&lt;/ng-template>
+&lt;ng-container *ngSwitchDefault>Default Template&lt;/ng-container>
+/ng-container>
+    </pre>
+        </div>
+
+        <h3>*ngIf</h3>
+        <div class="note">
+            <ul class="nested-list">
+                <li>Renders only if condition is true</li>
+                <li>Structural directive</li>
+                <li>ngIf != [hidden] = 'condition', because ngIf removes element from dom, it does not hide it.</li>
+                <li>Is boud to condition variable, so if variable changes from false to true elent should appear, and if statement changes to false then element will be removed.</li>
+                <li>else statemet can be simulated with negation <code>*ngIf = "!condition"</code>, but cleaner way is to use 'else' block like in example below.</li>
+            </ul>
+<pre>
+    &lt;div *ngIf="someCondition">
+        This div will be rendered only if someCondition is met
+    &lt;div>
+</pre>
+<b>else block</b>
+<pre>
+    &lt;div *ngIf="condition; else elseBlock">
+        content to render, when the condition is true 
+    &lt;/div>
+        
+    &lt;ng-template #elseBlock>
+        content to render, when the condition is false 
+    &lt;/ng-template>}}
+</pre>
+<code>ng-template</code> can be used anywhere in code, but good to place after if directive for readibility. Will not render if condition is false.
+There is a possibility to use if then else statement:
+<pre>
+    &lt;p *ngIf="showMe; then thenBlock2 else elseBlock2">
+        This is not rendered
+    &lt;/p>
+    
+    &lt;ng-template #thenBlock2>
+        &lt;p>ShowMe is checked Using thenblock</p>
+    &lt;/ng-template>
+    
+    &lt;ng-template #elseBlock2>
+        &lt;p>ShowMe is unchecked Using elseBlock</p>
+    &lt;/ng-template>
+</pre>
+
+<h3><a href="https://www.tektutorialshub.com/angular/angular-ngclass-directive/">ngClass</a></h3>
+    Used to add or remove classes from element.
+    <ul class="nested-class">
+        <li>
+            <code><element [ngClass]="'cssClass1 cssClass2'">...</element></code> 
+            this will evaluate expression (in this case 'cssClass1 and cssClass2' so not too much to evaluate), and add classes from evaluated expression.
+        </li>
+        <li>
+            <code><element ngClass="cssClass1 cssClass2">...</element></code> 
+            This adds classes to element without evaluation
+        </li>
+        <li>
+            <code><element [ngClass]="['cssClass1', 'cssClass2']">...</element></code>
+            This does the same as first example, binds expression to calss, but with array.
+        </li>
+        <li><code><element [ngClass]="{'cssClass1': true, 'cssClass2': true}">...</element></code> This adds classes with true value, and removes classes with false value</li>
+        <li><code>let someString = 'class1 class2', &lt;element [ngClass]=someString></code> This will bind a string to class, and each time string changes classes in DOM will be updated</li>
+        <li>
+            <code>let someArray = ['class1', 'class2'], &lt;element [ngClass]=someArray></code>
+            This will bind someArray to element class attribute, and each time someArray is changed class attribute is updated
+        </li>
+        <li>
+            <code>class CssClass {red: boolean= true; size20: boolean: true;}; cssClass: CssClass = new CssClass(); &lt;div [ngClass]=cssClass</code>
+            In this case if classes in cssClass change class attribute in DOM will also change.
+        </li>
+
+    </ul>
+        </div>  
+<h3><a href = "https://www.tektutorialshub.com/angular/angular-ngstyle-directive/" target = "_blank">ngStyle</a></h3>
+        Modifies elements style
+        <ul class="nested-class">
+            <li>
+                <code>&lt;element [ngStyle]="{'font-size': '20px'}</code> binds stlye to expression, and that expression in this case is constatn, so noting will be reevaluated
+            </li>
+            <li>
+                <code>let size = '20px'; &lt;element [ngStyle]="{font-size': size}</code> in this case font size of element is bound to size variable, so it will change as often as 
+                size variable changes.
+            </li>
+            <li><code>let size = 20; &lt;element [ngStlye]="{'font-size.px': size}"</code> this binds font size of element to size variable. Here size is a number and size will be in pixels.</li>
+            <li>Style can be bound to a controller class, and every time styling in that class chages, element styling will also change (see below)</li>
+        </ul>
+        <div class="note">
+            <pre>
+class StyleClass {
+    'color': string = 'red';
+    'font-size.rem': number: 1.2;
+}
+someStyling: StyleClass = new StyleClass();
+&lt;div [ngStyle] = "someStyling">
+            </pre>
+            Every time someting in someStyling changes, element style will also change.
+        </div>
+
+        <h3><a href = "https://www.tektutorialshub.com/angular/angular-track-by-to-improve-ngfor-performance/" target="_blank">*ngFor</a></h3>
+        This will iterate through a TS list and insert element to DOM for every elemetn in the list. However every time something little changes in this list whole list will have to be 
+        rerendered. To manipulate elements in DOM that changed, and leave rest there should be a sort of unique ID to track those elements (like in react). For this there is a <code>trackedBy</code>
+        keyword
+        <div class="note">
+            <pre>
+trackByFn(index, item) {
+    return item.title;
+}
+
+&lt;ul>
+    &lt;li *ngFor="let movie of movies; let i=index;trackBy: trackByFn;">
+        {{i}}. {{ movie.title }} - {{movie.director}} &lt;button (click)="remove(i)">remove&lt;/button>
+    &lt;/li>
+&lt;/ul>               
+            </pre>
+        </div>
+        <h3>ngModel</h3>
+        <div class="note">
+            This directive is used for 2 way binding. If it is used then angular sets property binding and event binding at the same time.
+        </div>
+    </div>
+
+
+
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Pipes
+            </div>
+            <hr>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Custom directives
+            </div>
+            <hr>
+        </div>
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Custom pipes
+            </div>
+            <hr>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Dummy slide
+            </div>
+            <hr>
+        </div>
+
+
+
+        <div class="banner-neg slide slide-blue" name="title-slide" id="slide-99">
+            <div class="title">
+                <span>The End</br>
+                </span>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!--main container -->
+
+</body>
+
+</html>
