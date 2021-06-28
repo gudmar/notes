@@ -1,0 +1,2967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEyLjIwMzc4NDE3OTY4NzVweCIgaGVpZ2h0PSIxMjIuMDIxMjQwMjM0Mzc1cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMTkzLjg5ODEwNzkxMDE1NjI2IDEzLjk4OTM3OTg4MjgxMjUgMTEyLjIwMzc4NDE3OTY4NzUgMTIyLjAyMTI0MDIzNDM3NSIgc3R5bGU9ImJhY2tncm91bmQ6I2UwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPjxkZWZzPjxmaWx0ZXIgaWQ9ImVkaXRpbmctbGVnbyIgeD0iLTEwMCUiIHk9Ii0xMDAlIiB3aWR0aD0iMzAwJSIgaGVpZ2h0PSIzMDAlIj48ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwMCIgcmVzdWx0PSJmMSI+PC9mZUZsb29kPjxmZUZsb29kIGZsb29kLWNvbG9yPSIjZmYwIiByZXN1bHQ9ImYyIj48L2ZlRmxvb2Q+PGZlTW9ycGhvbG9neSBvcGVyYXRvcj0iZGlsYXRlIiByYWRpdXM9IjMiIGluPSJTb3VyY2VBbHBoYSI+PC9mZU1vcnBob2xvZ3k+PGZlQ29udm9sdmVNYXRyaXggb3JkZXI9IjUsNSIgZGl2aXNvcj0iMSIgcmVzdWx0PSJjbTEiIGtlcm5lbE1hdHJpeD0iMCAxIDEgMSAwICAxIDAgMCAwIDEgIDEgMCAwIDAgMSAgMSAwIDAgMCAxICAwIDEgMSAxIDAiPjwvZmVDb252b2x2ZU1hdHJpeD48ZmVDb21wb3NpdGUgb3BlcmF0b3I9ImluIiBpbj0iZjEiIGluMj0iY20xIiByZXN1bHQ9ImMxIj48L2ZlQ29tcG9zaXRlPjxmZU1vcnBob2xvZ3kgb3BlcmF0b3I9ImRpbGF0ZSIgcmFkaXVzPSIzIj48L2ZlTW9ycGhvbG9neT48ZmVDb252b2x2ZU1hdHJpeCBvcmRlcj0iNSw1IiBkaXZpc29yPSIxIiByZXN1bHQ9ImNtMiIga2VybmVsTWF0cml4PSIwIDEgMSAxIDAgIDEgMCAwIDAgMSAgMSAwIDAgMCAxICAxIDAgMCAwIDEgIDAgMSAxIDEgMCI+PC9mZUNvbnZvbHZlTWF0cml4PjxmZUNvbXBvc2l0ZSBvcGVyYXRvcj0iaW4iIGluPSJmMiIgaW4yPSJjbTIiIHJlc3VsdD0iYzIiPjwvZmVDb21wb3NpdGU+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJjMiI+PC9mZU1lcmdlTm9kZT48ZmVNZXJnZU5vZGUgaW49ImMxIj48L2ZlTWVyZ2VOb2RlPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyI+PC9mZU1lcmdlTm9kZT48L2ZlTWVyZ2U+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNlZGl0aW5nLWxlZ28pIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMTkuOTE1MzEwMzgyODQzMDIsIDEwMi44MzIxODc2NTI1ODc4OSkiPjxwYXRoIGQ9Ik0tNi45OCA4LjgzTC02Ljk4IDguODNMLTYuOTggOC44M1EtMy43MSA4LjQ1LTEuNjYgNC4yMkwtMS42NiA0LjIyTC0xLjY2IDQuMjJRMC40NS0wLjA2IDIuMzctOS45MkwyLjM3LTkuOTJMOC41OC00Mi4yNEwyMi40Ni00Mi4yNEwxNi4yNi05LjkyTDE2LjI2LTkuOTJRMTMuODkgMi42MiA5Ljk4IDcuNTVMOS45OCA3LjU1TDkuOTggNy41NVE3Ljk0IDEwLjExIDUuMzQgMTEuMTRMNS4zNCAxMS4xNEw1LjM0IDExLjE0UTIuNzUgMTIuMTYtMC4wNiAxMi4xNkwtMC4wNiAxMi4xNkwtMC4wNiAxMi4xNlEtMi44OCAxMi4xNi00LjcwIDExLjE0TC00LjcwIDExLjE0TC00LjcwIDExLjE0US02LjUzIDEwLjExLTYuOTggOC44M1pNNDguODMtMjkuNTdMNDguODMtMjkuNTdMNDguODMtMjkuNTdRNDkuNzktMzEuNDkgNDkuNzktMzMuMjhMNDkuNzktMzMuMjhMNDkuNzktMzMuMjhRNDkuNzktMzUuMDcgNDkuNjAtMzYuMDZMNDkuNjAtMzYuMDZMNDkuNjAtMzYuMDZRNDkuNDEtMzcuMDYgNDguOTYtMzcuODJMNDguOTYtMzcuODJMNDguOTYtMzcuODJRNDgtMzkuNDkgNDYuMDgtMzkuNDlMNDYuMDgtMzkuNDlMNDYuMDgtMzkuNDlRNDMuNzEtMzkuNDkgNDEuNzktMzcuNzZMNDEuNzktMzcuNzZMNDEuNzktMzcuNzZRMzkuNzQtMzUuOTcgMzkuNzQtMzMuMTVMMzkuNzQtMzMuMTVMMzkuNzQtMzMuMTVRMzkuNzQtMzEuMzYgNDAuOTktMjkuOThMNDAuOTktMjkuOThMNDAuOTktMjkuOThRNDIuMjQtMjguNjEgNDQuMTYtMjcuMzNMNDQuMTYtMjcuMzNMNDQuMTYtMjcuMzNRNDYuMDgtMjYuMDUgNDguMjYtMjQuNzdMNDguMjYtMjQuNzdMNDguMjYtMjQuNzdRNTAuNDMtMjMuNDkgNTIuMzUtMjEuOTVMNTIuMzUtMjEuOTVMNTIuMzUtMjEuOTVRNTYuNzctMTguNDMgNTYuNzctMTMuNzBMNTYuNzctMTMuNzBMNTYuNzctMTMuNzBRNTYuNzctMTAuNTAgNTUuMDctNy43OEw1NS4wNy03Ljc4TDU1LjA3LTcuNzhRNTMuMzgtNS4wNiA1MC41Ni0zLjA3TDUwLjU2LTMuMDdMNTAuNTYtMy4wN1E0NC40MiAxLjI4IDM2LjI5IDEuMjhMMzYuMjkgMS4yOEwzNi4yOSAxLjI4UTI5LjcwIDEuMjggMjYuMzAtMC44NkwyNi4zMC0wLjg2TDI2LjMwLTAuODZRMjIuOTEtMy4wMSAyMi45MS02LjI3TDIyLjkxLTYuMjdMMjIuOTEtNi4yN1EyMi45MS0xMi4xMCAyNy40Ni0xMy41N0wyNy40Ni0xMy41N0wyNy40Ni0xMy41N1EyOC43NC0xNC4wMiAzMC42OS0xNC4wMkwzMC42OS0xNC4wMkwzMC42OS0xNC4wMlEzMi42NC0xNC4wMiAzNC44OC0xMy4xOEwzNC44OC0xMy4xOEwzNC44OC0xMy4xOFEzMy44Ni0xMC41NiAzMy44Ni04LjE5TDMzLjg2LTguMTlMMzMuODYtOC4xOVEzMy44Ni0zLjA3IDM3LjUwLTMuMDdMMzcuNTAtMy4wN0wzNy41MC0zLjA3UTM5Ljg3LTMuMDcgNDEuODItNC44MEw0MS44Mi00LjgwTDQxLjgyLTQuODBRNDMuNzgtNi41MyA0My43OC04LjQ4TDQzLjc4LTguNDhMNDMuNzgtOC40OFE0My43OC0xMC40MyA0Mi41My0xMS44NEw0Mi41My0xMS44NEw0Mi41My0xMS44NFE0MS4yOC0xMy4yNSAzOS40Mi0xNC4zN0wzOS40Mi0xNC4zN0wzOS40Mi0xNC4zN1EzNy41Ny0xNS40OSAzNS40Mi0xNi41OEwzNS40Mi0xNi41OEwzNS40Mi0xNi41OFEzMy4yOC0xNy42NiAzMS40Mi0xOS4yMEwzMS40Mi0xOS4yMEwzMS40Mi0xOS4yMFEyNy4wNy0yMi43MiAyNy4wNy0yOC4zNUwyNy4wNy0yOC4zNUwyNy4wNy0yOC4zNVEyNy4wNy0zMiAyOC44Ni0zNC44NUwyOC44Ni0zNC44NUwyOC44Ni0zNC44NVEzMC42Ni0zNy43MCAzMy41NC0zOS42MkwzMy41NC0zOS42MkwzMy41NC0zOS42MlEzOS4zMC00My41MiA0Ni4zNy00My41Mkw0Ni4zNy00My41Mkw0Ni4zNy00My41MlE1My40NC00My41MiA1Ni44Ni00MS40MUw1Ni44Ni00MS40MUw1Ni44Ni00MS40MVE2MC4yOS0zOS4zMCA2MC4yOS0zNS43MUw2MC4yOS0zNS43MUw2MC4yOS0zNS43MVE2MC4yOS0zMi41OCA1Ny44Ni0zMC41OUw1Ny44Ni0zMC41OUw1Ny44Ni0zMC41OVE1NS43NC0yOC45MyA1My4xOC0yOC45M0w1My4xOC0yOC45M0w1My4xOC0yOC45M1E1MC42Mi0yOC45MyA0OC44My0yOS41N1oiIGZpbGw9IiNmZmYiPjwvcGF0aD48L2c+PC9nPjxzdHlsZT50ZXh0IHtmb250LXNpemU6IDY0cHg7Zm9udC1mYW1pbHk6IEFyaWFsIEJsYWNrO2RvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsO3RleHQtYW5jaG9yOiBtaWRkbGU7fTwvc3R5bGU+PC9zdmc+'>
+    <title>Java Script</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* .note - a div with 'i' in circle
+       .note-code - a div without 'i' in circle. Just for having <pre> as overflow: auto*/
+
+        * {
+
+            box-sizing: border-box;
+        }
+        pre .correct {
+            background-color: rgba(20, 200, 20, 0.6);
+            border: medium, solid, green;
+            color: black;
+            margin-top: -1rem;
+            margin-bottom: -1rem;
+            padding: 10px;
+        }
+        pre .incorrect {
+            background-color: rgba(200, 20, 20, 0.6);
+            border: medium, solid, red;
+            color: black;
+            margin-top: -1rem;
+            margin-bottom: -1rem;
+            padding: 10px;
+        }
+        h5:before{
+            display: block;
+            content:'';
+            position: relative;
+            height: 0.5rem;
+            width: 90%;
+            border-bottom: thin gray solid;
+        }
+
+        @media screen and (min-width: 800px) {
+            .controls {
+                bottom: 1rem;
+                background-color: rgba(200, 200, 200, 0.8);
+                width: 200px;
+                height: 2rem;
+                border-radius: 5px;
+            }
+            .button {
+                background-color: #124191;
+                color: white;
+                line-height: 1.5rem;
+                height: 1.5rem;
+                text-align: center;
+                width: 1.5rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.2s;
+                font-weight: bold;
+            }
+            .input {
+                width: 3rem;
+                height: 1.5rem;
+                line-height: 1.5rem;
+                border-radius: 5px;
+            }
+            .slide {
+                margin: 0.5rem 1rem;
+            }
+            .copyright {
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .controls {
+                width: 80%;
+                background-color: transparent;
+                bottom: 1rem;
+                height: 3rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 0.2rem;
+                border-radius: 3000px;
+                padding: 0.3rem;
+            }
+            .input {
+                width: 3em;
+                height: 3rem;
+                line-height: 3rem;
+                border-radius: 3000px;
+                font-size: 2rem;
+            }
+            .slide-wrapper {
+                overflow: hidden;
+            }
+            .slide {
+                min-height: 95vh;
+                height: auto;
+                overflow: hidden;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                margin-bottom: 5rem;
+            }
+            .button {
+                border-radius: 50%;
+                width: 3rem;
+                height: 3rem;
+                padding: 8px;
+                margin: 5px;
+                background-color: rgba(200, 200, 200, 0.8);
+                z-index: 3;
+                cursor: pointer;
+                transition: 0.2s;
+                font-size: 2rem;
+                font-weight: bolder;
+                line-height: 2rem;
+                text-align: center;
+            }
+
+            .button:hover {
+                transition: 0.2s;
+                transform: scale(1.2);
+            }
+            .copyright {
+                display: none;
+            }
+            .title>span {
+                font-size: 2rem;
+            }
+            .title {}
+        }
+
+
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 0.5em;
+        }
+
+        .nested-list {
+            list-style-type: square;
+            font-size: 80%;
+
+        }
+
+        .nested-list>li {
+            margin-top: 0.5em;
+            margin-left: 2em;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .link {
+            text-decoration: underline;
+            font-style: italic;
+            word-break: break-all;
+            transition: 0.3s;
+        }
+
+        .link:hover {
+            box-shadow: inset 0 0 1em gold, 0 0 1em gold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        body {
+            background-color: rgb(120, 120, 120);
+        }
+
+        .important>b {
+            background-color: rgb(250, 250, 150);
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        .title {
+            position: absolute;
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 100;
+            font-size: 5rem;
+            color: white;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 2rem;
+            width: auto;
+            line-height: 5rem;
+            white-space: nowrap;
+        }
+
+
+        .title-comment {
+            font-size: 2rem;
+            display: inline-block;
+        }
+
+        .banner-neg {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAAAyCAYAAAErVwn1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozMDNEOTcxRkNEOEExMUUzQjU5MUQ3QzYyMjYwQUM3RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozMDNEOTcyMENEOEExMUUzQjU5MUQ3QzYyMjYwQUM3RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjMwM0Q5NzFEQ0Q4QTExRTNCNTkxRDdDNjIyNjBBQzdEIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjMwM0Q5NzFFQ0Q4QTExRTNCNTkxRDdDNjIyNjBBQzdEIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Iy4HhAAACSpJREFUeNpi/P//PwO1ABMDFQHIsLtAjOy811A+OmbAQpsh64W5jBHNQJgYIxL/PxofBE4i62VC0/wfTfN/LPJNuAxnHLQRABBAVHMZEzW9hx7lL7EkhS4gXojEP4AeOTAXrUdSJIYlKXwC4jg0sU1AzIbutSAkBR1YkgEflqTiC8S/YeKDL7ABAoiqCZOaKQCUlSZBsTma/CRo7IPAZCB+Ay00YPgomlrkeHODii1Cki9CM38qVFwRRRQYUnf/QwDDfwRgQOK/xiLOgEU9CHQD8QcoewsWtQew6A2C0stgckxYSjlYHnhBRsiD9AlA2d5AzI1HHQyshdKRQPyXnDTFisb/TUIy+TekEzpAAA06RzENxqJgUAEWaNkAy225SHKdQMwJxHlQ/i0gFkSS/wsta5YB8TRoQs9Hkp8MzVl9QFwOxL/Q5DmhdoACJQe5XEIHsHLjDZbyChvQwlGe4eOjm5mCq0wCgaU4QjMFqTpGrpbtcZQ3jHhipgRKw0rt2ehp6C+SAVHQqMQWvcQUkiBwkYC6bij9AIh1oOy72CyBtRlA6eEMEAsTU3SgsS8BsT6Odi0IPMFReishp6E/SHHrjSVN4QPY0kgnHnls6UkYJkhJFfKXlGphtKQetg4CCKBBWeOPxtpoIA3fQLqLY+QGXz58g6TmFVRMCI85hDD6GM1/pM4iMqjAolcDh/4DBFoDRPsXPSXdxWLYJyJr/rdIYoehrQpWLJgFrRUKAhkE7DgLdUs7lP8RqX12g4w+JQx8wCOHM5AUoBb7I4nxQjW7keCQpdDGwR8s+C8Wx2FrRn1AimEjqFgMVK0AmTkHORB+QiOLkVBA4SqTNkE1/0AS20lkC5paAOaBj0hiSwgUA8QG0DcgbgbiBiguxaKWi9jWPCdUzW9CSRINzADiVhyRANLPjyb2Go+nYKlmA1IKh8k5Eih7QEAEi/mgAGghoO8rEJuAszqwnfQTRwcSHa8l0AEA4TX/SQcGODqVc3C4Ix6LGY+w6L8BxLFoYkfx+A+Gv6Dp6R9tTI62k0YDiW4AIIBGs9toKhoNoNEAGg2g0QAaugDUtZgG7WCii2fh0MMNHa4AdUiZof2bb1A50IxsCXSYghVHVwXW79oP7eXD7AbNSalA2SC9mTjsnwq1GwbEgTicAbKOwZUI/SAwEa2fCfJHNvaeHW5wGUfTXAhNnSBU/Ml/8oARVP8uIrpA+NzYQGQXShaHO1ywqceXxUBTSsVEpkQOIJYmMxWfJXLkAD01gmYzdQkMp2ADj3CI7yamDJqNxu8BYgkiLDXCMuaEa0ANlJznkxCAElgCx5MBMU1MCghC489C47cRymK8QPwAT+8dVxazJjJ5w7ARFvW7sYhZYnELNw4zG8nIogwE/IqRgiShsU8oeVOjciAEAoH4GFrWYISO3ZADpmAZqAMBBzTxw8RU89jy89UBrnHlGFAH8UkFyLUUaDICNiR8EE2dDbHtIFU0vhYDZGnHHzoFCGjtI/piiusMhCcAsIHzWKr5BihuhPKRwQdcZZAaWh6sx5JHlbGUQTYklkF6RJZBICyNxQ0bSCiDmMlsfsiB9BMqC0ChC1pep44kdgeLutdYyqx3OLIqaImEMAmx/xRa8yE3Dv2h5gsRof8zmSn4Icj9xBSWGkQU0jexiAkR6ZC9RKj5x4C5AliQAfeqHBjQZIBMRsAAbDUPLvAbrQIJQC+D2EgotNFrJDEyYgm0dN4FqQYlOMCHo4a1ZsA+j3YNja9PwHz0SF1PqxFFRgJV+W+GIQJGh1xHhztGA2g0gEYDaDSAhi4ACNDOtYRGEQTR8ruiIF5UJAkikkUTEXJQ9KAHJSCighBQ0IsgejSiJzFRUBH8HYQo3gRzEESRYBBDFMGLIkjQDcFfNAqKnxwSczAHifuYGnacna6enpldQ6gHDctO90zPTE1VV9erUium0K9MoUKkUCFSKFSIFCpEiskiRK75PEiHWeJ4nUWWcy4M9V9KHmFmosINkbeNEfN9LYy57nDfe2LOA6SiXGDcFaHvh4Tv+mLMuTxMIkSDjmOQLvSl2G44jEGIdthw7Cf9G8LFA/xI5YH0SgBxLsSjn4X+/ySM+R7jvJf4hXQKfXrIY6gh6oH09vHAsR/CuKEE93mHyiuzmLCJomN7RkghG1uwbi830OF6M3qp4AVIlDpQAP0U/rhEKv8LQ4aQKdKL+lm7i+1mirkjcHmLPHqiBJSs6KiitXlOXoaTC/Lk8RYWh4TbWYjAwUTk9yrJZAuw2pBR2UjpqxZIkex9jqYkCphjIcG1bdqsm/w6FNFA8LeFzWc1AY1aZzgG4t1B1jr5iONIAQRNq5YslZimW8zWStYMeYtE4kGCm3E05U1L2+e5DB7qvITXDptmYDv/HhAE6DJrzMYqCxCKwY0JAtTBAgSA19Nn6AfOzVeyMB5s3plP2nlLHhf4lKX/eV54105hZ6SBNW4XP2STCYHwHPoP81vOVsT0wbRRsAqUhyZ2ZEzok8y0q4vfzhrhvUWDfQ6tL6bSVkI/389OMnM617BmgznYUsW5gaT6znAMgg++1mlhQS0piXtkSGFJ8nJR5wy5Kdss/Xbxg1zPHtiMlA8oC25WFkRev3rVXf69WvCYkNp/n0p14ioJUE6fWKxOr8W9b7NcA2bwQhZC5KObVfZtSz/w6t8ILn74a5G8mrW8R1XDJjNOq+ExSJE5lvDaEl6Rl8cwn8rp60Ec5hcFU7csYwE6Tl6xw2rgSPidz8zgpC288H4pLH7rY57rBbvwUWuqpoj9nCzxKOX4X4G9LaRY7Tf0g7s9mKHHea3YDgjHO/l6sxytzWYK5XAEgBSrp8W2znNJSlV/w/hTbPUx0hCCrT1BigCqCi8InAPpUYWJ6mGk2FaE7qNH6H/O4Xm0xpwDKh7PEdIwgngcc55As+P7C7ezlvMPoZglSGkneCNuPGT3sX5Avu+3BGuGk6zebRtVs9kVPUPRqWMbyCs1tIq101zWntMcXHK/LzzN37znMcBmtkswnQ1Uym8ObhE84PWQC+DZbOXrm+Zdx6YRiZLNvHAfi1hj9fPapJXnOBqxRMnx/l4hAw29g9e/o4ZtlxFlNipSQ6P4ChUihQqRQoVIoVAhUqgQKSYD/gK/k8Z0ugAHQQAAAABJRU5ErkJggg==");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-origin: content-box;
+            padding-right: 6vw;
+            padding-bottom: 3vh;
+        }
+
+        .banner {
+            background: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2287px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2087%2016%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Asketch%3D%22http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%2Fns%22%20fill-color%3D%22%23124191%22%20class%3D%22ng-isolate-scope%22%3E%3Ctitle%3Enokia_logo%3C%2Ftitle%3E%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%3Cdefs%3E%3C%2Fdefs%3E%3Cg%20id%3D%22Assets%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20sketch%3Atype%3D%22MSPage%22%3E%3Cg%20sketch%3Atype%3D%22MSArtboardGroup%22%20transform%3D%22translate%28-30.000000%2C%20-30.000000%29%22%20id%3D%22nokia_logo%22%20fill%3D%22%23124191%22%3E%3Cg%20sketch%3Atype%3D%22MSLayerGroup%22%20transform%3D%22translate%2830.000000%2C%2030.000000%29%22%3E%3Cpath%20d%3D%22M4.17572293%2C15.7391698%20L0%2C15.7391698%20L0%2C0.267169811%20L7.22183121%2C0.267169811%20L15.5067803%2C11.8179623%20L15.5067803%2C0.267169811%20L19.6825032%2C0.267169811%20L19.6825032%2C15.7391698%20L12.607242%2C15.7391698%20L4.17572293%2C3.99124528%20L4.17572293%2C15.7391698%22%20id%3D%22Fill-1%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M39.6617484%2C10.9554717%20C39.6617484%2C13.1058113%2039.3129172%2C13.8472453%2038.734949%2C14.5584906%20C37.848879%2C15.6175094%2036.5605032%2C15.9356981%2034.0765701%2C15.9356981%20L26.9467261%2C15.9356981%20C24.462793%2C15.9356981%2023.1727548%2C15.6175094%2022.2875159%2C14.5584906%20C21.710379%2C13.8472453%2021.3607166%2C13.1058113%2021.3607166%2C10.9554717%20L21.3607166%2C4.99079245%20C21.3607166%2C2.84045283%2021.710379%2C2.09992453%2022.2875159%2C1.38777358%20C23.1730318%2C0.327849057%2024.4630701%2C0.00966037736%2026.9470032%2C0.00966037736%20L34.0765701%2C0.00966037736%20C36.5605032%2C0.00966037736%2037.8491561%2C0.327849057%2038.734949%2C1.38777358%20C39.3129172%2C2.09992453%2039.6620255%2C2.84045283%2039.6620255%2C4.99079245%20L39.6620255%2C10.9554717%20M33.9009076%2C12.0150943%20C34.8545828%2C12.0150943%2035.1909459%2C11.9544151%2035.4192516%2C11.7276981%20C35.6337038%2C11.5157736%2035.7279076%2C11.2428679%2035.7279076%2C10.3341887%20L35.7279076%2C5.61116981%20C35.7279076%2C4.70249057%2035.6337038%2C4.43139623%2035.4192516%2C4.21856604%20C35.1909459%2C3.99124528%2034.8545828%2C3.93116981%2033.9009076%2C3.93116981%20L27.1215573%2C3.93116981%20C26.1678822%2C3.93116981%2025.8317962%2C3.99124528%2025.6040446%2C4.21856604%20C25.3890382%2C4.43139623%2025.2953885%2C4.70249057%2025.2953885%2C5.61116981%20L25.2953885%2C10.3341887%20C25.2953885%2C11.2428679%2025.3890382%2C11.5157736%2025.6040446%2C11.7276981%20C25.8317962%2C11.9544151%2026.1678822%2C12.0150943%2027.1215573%2C12.0150943%20L33.9009076%2C12.0150943%22%20id%3D%22Fill-2%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M41.3671146%2C0.267169811%20L45.7301369%2C0.267169811%20L45.7301369%2C15.7391698%20L41.3671146%2C15.7391698%20L41.3671146%2C0.267169811%20Z%20M53.101586%2C0.267169811%20L58.8615955%2C0.267169811%20L51.0878408%2C7.50430189%20L59.8557229%2C15.7391698%20L53.6922994%2C15.7391698%20L45.7301369%2C7.66973585%20L53.101586%2C0.267169811%20L53.101586%2C0.267169811%20Z%22%20id%3D%22Fill-3%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M60.6603344%2C0.267169811%20L65.0250191%2C0.267169811%20L65.0250191%2C15.7391698%20L60.6603344%2C15.7391698%20L60.6603344%2C0.267169811%20Z%22%20id%3D%22Fill-4%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M81.661414%2C15.7391698%20L80.3705446%2C13.0439245%20L71.9271115%2C13.0439245%20L70.6512038%2C15.7391698%20L65.8304618%2C15.7391698%20L73.5651497%2C0.266867925%20L78.9890732%2C0.266867925%20L86.7229299%2C15.7391698%20L81.661414%2C15.7391698%20M73.4432389%2C9.68362264%20L78.8685478%2C9.68362264%20L76.1554777%2C4.08211321%20L73.4432389%2C9.68362264%22%20id%3D%22Fill-5%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-origin: content-box;
+            padding-right: 6vw;
+            padding-bottom: 3vh;
+        }
+
+        .slide-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            /* background-color: rgb(120, 120, 120); */
+            width: 98vw;
+        }
+
+        .inline-image {
+            position: relative;
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            padding: 5px;
+        }
+
+        .inline-image-border {
+            border: solid black thin;
+            border-radius: 5px;
+        }
+
+        .path {
+            background-color: rgba(139, 255, 100, 0.994);
+        }
+
+        .outofdate {
+            text-decoration: line-through;
+            background-color: transparent;
+            color: rgb(180, 180, 180);
+        }
+
+        .view-control-wrapper {
+            display: flex;
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 3;
+        }
+
+        .slide {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            width: 93vw;
+            height: 95vh;
+            overflow: hidden;
+            position: relative;
+            border: black thin solid;
+            line-height: 1.3em;
+            padding: 2rem;
+            background-color: white;
+            text-align: justify;
+            text-justify: inter-word;
+
+            color: gray;
+            font-size: 150%;
+        }
+
+        .slide-center-content {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        .copyright {
+            position: absolute;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 200;
+            left: 6vw;
+            bottom: 5vh;
+            font-size: 0.5em;
+            color: gray;
+        }
+
+        .copyright-white {
+            color: white;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 1rem;
+        }
+
+        .slide-extended {
+            /* overflow: auto; */
+            min-height: 95vh;
+            height: auto;
+        }
+
+        .slide-title {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #124191;
+            line-height: 2rem;
+        }
+
+        .slide-blue {
+            background-color: #124191;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .expand-all {
+            background-color: #124191;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .expand-all:hover {
+            background-color: rgb(18, 56, 145, 0.5);
+            transition: 0.2s;
+            color: yellow;
+        }
+
+        .general {
+            /* position: relative; */
+            position: absolute;
+            transform: translateX(-2rem);
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            /* border: #124191 thin solid; */
+            transition: 0.2s;
+            background-color: transparent;
+            height: 1em;
+            line-height: 1em;
+            width: 1em;
+            color: #124191;
+            font-weight: bold;
+
+        }
+
+        .footage-spacing {
+            height: 4rem;
+        }
+
+        .general:hover {
+
+            transition: 0.5s;
+            cursor: pointer;
+            background-color: #124191;
+            color: white;
+        }
+
+        code {
+            background-color: #124191;
+            color: white;
+            display: inline-block;
+            padding: 3px;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 1em;
+        }
+
+        .content-list-active:hover {
+            background-color: rgba(20, 200, 20, 0.8);
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .content-list-unactive {
+            color: rgb(200, 200, 200);
+        }
+
+        .content-list-unactive:hover {
+            background-color: rgba(200, 20, 20, 0.8);
+            border-radius: 5px;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-evenly;
+            position: fixed;
+            align-content: center;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .controls:hover {
+            visibility: visible;
+            transition: 0.2s;
+        }
+
+
+
+        .button-red {
+            background-color: red;
+        }
+
+        .button-round {
+            position: relative;
+            top: 2rem;
+            left: 2rem;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            padding: 8px;
+            margin: 5px;
+            background-color: rgba(200, 200, 200, 0.8);
+            z-index: 3;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .button-round:hover {
+            transition: 0.2s;
+            transform: scale(1.2);
+        }
+
+        .button:hover {
+            transform: scale(1.2);
+            transition: 0.2s;
+        }
+
+        .input {
+            color: black;
+            background-color: white;
+            text-align: center;
+            transition: 0.3s;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .input-error {
+            background-color: red;
+            transition: 0.3s;
+        }
+
+        .note-code {
+            position: relative;
+            width: 80%;
+            background-color: rgb(200, 200, 200);
+            padding: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto;
+        }
+        .note-code pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .note {
+            position: relative;
+            width: 80%;
+            background-color: rgb(200, 200, 200);
+            padding: 1rem;
+            padding-left: 4rem;
+            padding-top: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto;
+        }
+
+        .note:before {
+            content: "i";
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            font-family: Arial;
+            font-style: italic;
+            background: rgb(100, 100, 230);
+            left: 1rem;
+            top: 1rem;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: solid thin gray;
+            font-weight: normal;
+        }
+
+        table td {
+            border: solid thin gray;
+            padding: 1rem;
+
+        }
+
+        table tr:hover {
+            background-color: rgb(180, 156, 245, 0.5)
+        }
+    </style>
+    <script>
+        // .content - a special class for scope slide searching purposes
+        // .slide   = a special class for slides searching purposes and for styling
+        // .general = a stupid name for class added to expandeble class - "+/-" buttons
+        // .expand_all class - a special class for expanding all elements of expandable list
+        // .copyright = a special class for copyright info - added automaticly for each .slide
+        // .page-number = a special class only for slide numeration. Added automaticly
+        function cpright() {
+            // display copywright on each page
+            // Add page numger
+            let d = new Date();
+            let day = parseInt(d.getDate(), 10) < 10 ? '0' + d.getDate() : d.getDate();
+            let month = d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth();
+            let year = d.getFullYear();
+            let date = day + '/' + month + '/' + year;
+
+            var message = `
+		   					${date}  &copy; Nokia 2020 - Enabling SCF - Version 1.0 - Marek Gualewicz - DoclD </br> Confidential
+		  				`
+            let items = document.querySelectorAll('.slide')
+            var pNum = 0;
+            for (let item of items) {
+                var div = document.createElement('div');
+                var pageNum = document.createElement('div');
+                pageNum.classList.add('page-number')
+                div.classList.add('copyright')
+                div.innerHTML = message;
+                if (item.classList.contains('slide-blue')) {
+                    div.classList.add('copyright-white')
+                }
+                if (pNum > 0) {
+                    pageNum.innerText = pNum;
+                    item.appendChild(pageNum)
+                }
+                pNum++;
+                item.appendChild(div)
+            }
+
+        }
+        function addFootageSpacing(element) {
+            // footage not overlap content (footage is copyright info)
+            let spacing = document.createElement('div')
+            spacing.classList.add('footage-spacing')
+            element.appendChild(spacing)
+
+        }
+        function addGeneralMarkers(contId) {
+            // add +/- buttons to list in order to make it expandable
+            var items = document.getElementById(contId).querySelectorAll('.expandable');
+
+            for (let item of items) {
+                if (item.querySelector('ul') != null) {
+                    var gen = document.createElement('span');
+                    let id = Math.random().toString(36).substr(2, 9)
+                    var span = `
+					<span id=${id} class='general'>+</span>
+					`
+                    gen.innerText = '+'
+                    gen.classList.add('general');
+                    gen.setAttribute('id', id)
+                    item.prepend(gen)
+                    let element = document.getElementById(id)
+                    element.addEventListener('click', function (e) {
+                        let children = element.parentElement.children
+                        if (element.innerText == '+') {
+                            for (let item of Object.values(children)) {
+                                if (item.classList != null) {
+                                    if (item.classList.contains('hidden')) {
+                                        item.classList.add('show')
+                                        item.classList.remove('hidden')
+                                    }
+                                }
+                                element.innerText = '-'
+                            }
+                        } else if (element.innerText == '-') {
+                            for (let item of Object.values(children)) {
+                                if (item.classList != undefined) {
+                                    if (item.classList.contains('show')) {
+                                        item.classList.add('hidden')
+                                        item.classList.remove('show')
+                                    }
+                                }
+                                element.innerText = '+'
+                            }
+                        }
+                    })
+
+                }
+            }
+            if (document.getElementById(contId).querySelector('.expand-all') != null) {
+                document.getElementById(contId).querySelector('.expand-all').addEventListener('click', function (e) {
+                    // expand all list elements
+                    let hidden = document.getElementById(contId).querySelectorAll('.hidden')
+                    let shown = document.getElementById(contId).querySelectorAll('.show')
+                    let general = document.getElementById(contId).querySelectorAll('.general')
+                    if (hidden.length > 0) {
+                        for (let h of hidden) {
+                            h.classList.add('show')
+                            h.classList.remove('hidden')
+                        }
+                        if (general.length > 0) {
+                            for (let item of general) {
+                                item.innerText = '-'
+                            }
+                        }
+                    } else if (shown.length > 0) {
+                        for (let h of shown) {
+                            h.classList.add('hidden')
+                            h.classList.remove('show')
+                        }
+                        if (general.length > 0) {
+                            for (let item of general) {
+                                item.innerText = '+'
+                            }
+                        }
+                    }
+                })
+            } else {
+                console.warn("No expand-all class. If there are more expandable lists THINK about querySelectorAll!!")
+            }
+        }
+        class SlideShow {
+            constructor(containerId) {
+                this.slides = document.getElementById(containerId).querySelectorAll('.slide') // list of all slides in doc
+                this.container = document.getElementById(containerId) // element that containes slideshow
+                this.nextId = Math.random().toString(36).substr(2, 9) // next button
+                this.prevId = Math.random().toString(36).substr(2, 9)
+                this.currentSlideId = Math.random().toString(36).substr(2, 9) // text box with editable slide number
+                this.firstSlideId = Math.random().toString(36).substr(2, 9); // button - return to content slide
+                this.closeId = Math.random().toString(36).substr(2, 9);   // close show mode button
+                this.presentationButtonId = Math.random().toString(36).substr(2, 9); // enter show slide mode (presentation)
+                this.currentSlide = 0; // currently viewed slide in slide show mode
+                this.homeButtonId = Math.random().toString(36).substr(2, 9); // button returning to content in view mode (not presentation)
+                this.mode = 'show' // or 'view'  - show for presentation
+                if (this.slides.length == 0) {
+                    throw Error('No slides to manage')
+                }
+            }
+            showSlide(i) {
+                // show slide nr i, hide rest slides
+                for (let item of this.slides) {
+                    item.classList.add('hidden')
+                }
+                this.slides[i].classList.remove('hidden')
+                this.slides[i].classList.add('show')
+                this.currentSlide = i;
+                let pageNum = document.getElementById(this.currentSlideId)
+                if (pageNum != null) {
+                    pageNum.innerText = i;
+                }
+            }
+            showAllSlides() {
+                for (let item of this.slides) {
+                    item.classList.remove('hidden')
+                    item.classList.add('show')
+                }
+            }
+            start() {
+                this.showSlide(0);
+            }
+            removeViewControls() {
+                // Entering presentation mode. Make home and presentation button disappear
+                let pb = document.querySelector('.view-control-wrapper')
+                if (pb != undefined) {
+                    pb.remove();
+                }
+            }
+            slideShowMode() {
+                // Enter presentation mode
+                this.start();
+                this.removeViewControls();
+                this.placeControls();
+                this.mode = 'show'
+                // this.makeContentLinks();
+            }
+            viewMode() {
+                // Exit presentation mode - enter veiw mode
+                let t1 = performance.now()
+                this.showAllSlides();
+                this.removeControls();
+                this.placeViewControls();
+                // this.makeContentLinks();
+                this.mode = 'view'
+                let t2 = performance.now()
+            }
+            removeControls() {
+                // enter view mode (exit presentatio mode)
+                document.querySelector('.controls').remove();
+            }
+            placeViewControls() {
+                // Place home and presentation buttons in view mode (not in presentation mode)
+                let element = document.createElement('div');
+                let wrapper = undefined;
+                element.classList.add('button-round');
+                element.setAttribute('id', this.presentationButtonId);
+                // element is clipboard (presentation) button
+                element.innerHTML = `
+					<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%231a1a1a%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAnalytics%2C%20board%2C%20presentation%3C%2Ftitle%3E%3Cg%20id%3D%22_06%22%20data-name%3D%2206%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M27.5%2C7H4.5a2.5%2C2.5%2C0%2C0%2C1%2C0-5h23a2.5%2C2.5%2C0%2C0%2C1%2C0%2C5ZM4.5%2C4a.5.5%2C0%2C0%2C0%2C0%2C1h23a.5.5%2C0%2C0%2C0%2C0-1Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M27%2C23H5a1%2C1%2C0%2C0%2C1-1-1V6A1%2C1%2C0%2C0%2C1%2C5%2C5H27a1%2C1%2C0%2C0%2C1%2C1%2C1V22A1%2C1%2C0%2C0%2C1%2C27%2C23ZM6%2C21H26V7H6Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M16%2C30a1%2C1%2C0%2C0%2C1-1-1V22a1%2C1%2C0%2C0%2C1%2C2%2C0v7A1%2C1%2C0%2C0%2C1%2C16%2C30Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M17%2C30H15a1%2C1%2C0%2C0%2C1%2C0-2h2a1%2C1%2C0%2C0%2C1%2C0%2C2Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+				`
+                this.container.prepend(element);
+                let home = document.createElement('div');
+                home.classList.add('button-round');
+                home.setAttribute('id', this.homeButtonId);
+                // home button
+                home.innerHTML = `
+					<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20424.098%20424.098%22%20style%3D%22enable-background%3Anew%200%200%20424.098%20424.098%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23010002%3B%22%20d%3D%22M351.191%2C401.923H72.901c-4.487%2C0-8.129-3.633-8.129-8.129V242.262l-56.664-0.114c-3.284-0.008-6.243-1.992-7.495-5.023c-1.252-3.04-0.553-6.527%2C1.764-8.852L206.104%2C24.546c1.853-1.845%2C4.503-2.666%2C7.047-2.276c2.414%2C0.39%2C4.511%2C1.845%2C5.731%2C3.942l47.43%2C47.43V58.499c0-4.487%2C3.633-8.129%2C8.129-8.129h47.755c4.495%2C0%2C8.129%2C3.642%2C8.129%2C8.129v79.156l91.39%2C91.398c2.325%2C2.325%2C3.024%2C5.828%2C1.764%2C8.868c-1.26%2C3.032-4.227%2C5.007-7.511%2C5.007c-0.008%2C0-0.008%2C0-0.016%2C0l-56.64-0.114v150.98C359.32%2C398.29%2C355.686%2C401.923%2C351.191%2C401.923z%20M81.03%2C385.666h262.033V234.67c0-2.162%2C0.854-4.235%2C2.39-5.755c1.528-1.52%2C3.585-2.374%2C5.739-2.374c0.008%2C0%2C0.008%2C0%2C0.016%2C0l45.105%2C0.089l-79.855-79.863c-1.528-1.528-2.382-3.593-2.382-5.747V66.628h-31.498v26.645c0%2C3.284-1.975%2C6.251-5.015%2C7.511c-3.032%2C1.268-6.527%2C0.569-8.86-1.764l-57.038-57.038l-183.95%2C183.95l45.203%2C0.089c4.487%2C0.008%2C8.112%2C3.642%2C8.112%2C8.129C81.03%2C234.149%2C81.03%2C385.666%2C81.03%2C385.666z%22%2F%3E%3C%2Fsvg%3E"/>
+				`
+                let viewControlsWrapper = document.createElement('div')
+                viewControlsWrapper.classList.add('view-control-wrapper')
+                this.container.prepend(viewControlsWrapper)
+                wrapper = document.querySelector('.view-control-wrapper')
+                wrapper.prepend(element);
+                wrapper.prepend(home);
+                // this.makeContentLinks();
+                document.getElementById(this.presentationButtonId).addEventListener('click', function () {
+                    this.slideShowMode();
+                }.bind(this));
+                document.getElementById(this.homeButtonId).addEventListener('click', function () {
+                    let scrollTo = document.querySelector('.content').parentElement.offsetTop;
+                    window.scrollTo(0, scrollTo)
+                }.bind(this));
+            }
+            placeControls() {
+                // controls for presentation mode with event listeners:
+                // For text box:
+                // click -> remember current value (value present when area was clicked)
+                // input -> check if inserted value is correct. If not temporarly add 'input-error' class to mark this
+                // keydown => on enter blur (lose focus)
+                var that = this;
+                var currentVal = undefined;
+                let cont = document.createElement('div')
+                cont.classList.add('controls')
+                cont.innerHTML = `
+					<div class="button" id=${this.firstSlideId}><<</div>
+					<div class="button" id=${this.prevId}><</div>
+					<div class="input" id=${this.currentSlideId} contenteditable>0</div>
+					<div class="button" id=${this.nextId}>></div>
+					<div class="button button-red" id=${this.closeId}>&times;</div>
+				`
+                this.container.appendChild(cont)
+                function nextSlide(e) {
+                    if (this.currentSlide < this.slides.length) {
+                        this.currentSlide++;
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    }
+                }
+                function prevSlide(e) {
+                    if (this.currentSlide > 0) {
+                        this.currentSlide--;
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    }
+                }
+                function firstSlide(e) {
+                    // this.currentSlide = 0;
+                    var homeSlideNum = 0;
+                    var found = false;
+                    for (let sl of this.slides) {
+                        if (sl.querySelector(".content")) {
+                            found = true;
+                        } else {
+                            if (found == false) {
+                                homeSlideNum++;
+                            }
+                        }
+                    }
+                    if (found == true) {
+                        this.currentSlide = homeSlideNum
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                        this.showSlide(this.currentSlide);
+                    } else {
+                        throw new Error("Slide with class 'content' not found!")
+                    }
+                }
+                function onFocusOut(e) {
+                    var currentSlideVal = document.getElementById(this.currentSlideId).innerText
+                    if (document.getElementById(this.currentSlideId).innerText != '') {
+                        this.showSlide(document.getElementById(this.currentSlideId).innerText)
+                    } else {
+                        console.log(this.currentSlide)
+                        document.getElementById(this.currentSlideId).innerText = this.currentSlide;
+                    }
+                }
+                // this.container.addEventListener()
+                document.getElementById(this.currentSlideId).addEventListener('click', function (e) {
+                    var thisElement = document.getElementById(this.currentSlideId)
+                    currentVal = parseInt(e.target.innerText, 10);
+                    thisElement.innerText = '';
+                }.bind(this))
+
+
+                document.getElementById(this.currentSlideId).addEventListener('input', function (e) {
+                    console.dir(e)
+                    var thisElement = document.getElementById(this.currentSlideId)
+
+                    // let currentVal = parseInt(thisElement.innerText, 10);
+
+                    let isValid = ((/^\d+$/.test(e.target.innerText) && (parseInt(e.target.innerText, 10) >= 0) && (parseInt(e.target.innerText, 10) <= this.slides.length)) || (e.target.innerText == ''))
+                    if (!isValid) {
+                        console.error("Not valid")
+                        thisElement.innerText = currentVal
+                        thisElement.classList.add('input-error');
+                        setTimeout(() => {
+                            thisElement.classList.remove('input-error')
+                        }, 200)
+                    } else {
+                        // lastValidValue = e.target.innerText;
+                        console.log('valid value')
+                    }
+                }.bind(this))
+                document.getElementById(this.currentSlideId).addEventListener('keydown', function (e) {
+                    if (e.key != 'Enter') {
+
+                    } else {
+                        // if (e.target.innerText == '') {
+                        // 	e.target.innerText = lastValidValue;
+                        // }
+                        e.target.blur()
+                    }
+                    // }.bind(this))
+                }.bind(this))
+
+                document.getElementById(this.currentSlideId).addEventListener('focusout', onFocusOut.bind(this))
+                document.getElementById(this.nextId).addEventListener('click', nextSlide.bind(this));
+                document.getElementById(this.prevId).addEventListener('click', prevSlide.bind(this))
+                document.getElementById(this.firstSlideId).addEventListener('click', firstSlide.bind(this))
+                document.getElementById(this.closeId).addEventListener('click', function (e) {
+                    this.currentSlide = undefined;
+                    this.viewMode();
+                }.bind(this))
+                //keyboard events
+                document.querySelector('body').addEventListener('keydown', function (e) {
+                    if (this.mode = 'show') {
+                        if (e.key == "PageDown") {
+                            nextSlide.bind(this)();
+                        } else if (e.key == "PageUp") {
+                            prevSlide.bind(this)();
+                        } else if (e.key == "Home") {
+                            console.log("Home pressed")
+                            firstSlide.bind(this)();
+                        }
+                    }
+                }.bind(this))
+            }
+            linkSlide(element, slideNr) {
+                element.addEventListener('click', function (e) {
+                    // show slide when li element in 'content' slide clicked
+                    if (this.mode == 'show') {
+                        this.showSlide(slideNr)
+                    } else {
+                        let scrollTo = this.slides[slideNr].offsetTop;
+                        window.scrollTo(0, scrollTo)
+                    }
+                }.bind(this))
+            }
+            makeContentLinks() {
+                // when content slide created search each li.innerText in this slide and if any other slide in presentation maches exectly this li element - create a js link to it
+
+                var contentList = this.container.querySelector('.content').querySelectorAll('li')
+                var slides = this.container.querySelectorAll('.slide')
+                var slideN = 0; // slide number
+                var t1 = performance.now();
+                for (var item of contentList) {
+                    var found = false
+                    slideN = 0;
+                    // console.log(item.innerText)
+
+                    for (let slide of slides) {
+
+                        var st = slide.querySelector('.slide-title')
+
+                        if (st != null) {
+                            // console.log(st.innerText.trim())
+                            // console.log(item.innerText.trim())
+                            if ((st.innerText.trim() == item.innerText.trim()) && found == false) {
+                                found = true;
+                                this.linkSlide(item, slideN)
+                                item.classList.add('content-list-active')
+                                let pageNum = document.createElement('span')
+                                pageNum.innerText = '(Page ' + slideN + ') ';
+                                item.prepend(pageNum);
+                            }
+                        }
+                        slideN++;
+                    }
+                    if (found == false) {
+                        console.warn(item.innerText.trim() + 'slide not implemented')
+                        item.classList.add('content-list-unactive')
+                    }
+                }
+                var t2 = performance.now();
+            }
+        }   // SlideShow
+
+        document.addEventListener('DOMContentLoaded', function (event) {
+            var slideList = document.querySelectorAll('.slide')
+            var show = new SlideShow('wrapper')
+
+            cpright();
+            addGeneralMarkers('slide-4')
+            for (let item of slideList) {
+                addFootageSpacing(item);
+            }
+            show.makeContentLinks()
+            show.slideShowMode();
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="slide-wrapper  slide-extended" id="wrapper">
+        <div class="banner-neg slide slide-blue" name="title-slide" id="slide-0">
+            <div class="title">
+                <span>Java Script</br>
+                </span>
+                <span class="title-comment">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDx0ZXh0IGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIwIiB4PSIxLjUiIHk9IjIwIiBpZD0ic3ZnXzEiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EsIEFyaWFsLCBzYW5zLXNlcmlmIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjI2LzA2LzIwMjAgYnkgTWFyZWsgR3VkYWxld2ljejwvdGV4dD4KPC9zdmc+"
+                    />
+                </span>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="content-slide" id="slide-1">
+            <div class="slide-title">
+                Scope:
+                <hr>
+            </div>
+            <ul class="content">
+                <li>About</li>
+                <li>npm, npx, node</li>
+                <li>Types</li>
+                <li>Arrays</li>
+                <li>Objects</li>
+                <li>Copy arrays and objects</li>
+                <li>Variables</li>
+                <li>Operators</li>
+                <li>Generators iterators</li>
+                <li>Loops</li>
+                <li>Functions</li>
+                <li>Types in details: Number</li>
+                <li>Types in details: String</li>
+                <li>this</li>
+                <li>Classes</li>
+                <li>Console</li>
+                <li>Mouse position on side</li>
+            </ul>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="About" id="slide-2">
+            <div class="slide-title">
+                About
+                <hr>
+            </div>
+        </div>
+
+
+        
+
+        <div class="banner slide slide-extended" name="npm, npx, node" id="slide-3">
+            <a href="#">
+                <div class="slide-title">
+                    npm, npx, node
+                </div>
+            </a>
+            <hr>
+            
+            <h3>npm</h3>
+            <div>
+                Node package manager: 
+                <ul class = "nested-list">
+                    <li>Default package manager for Node.js</li>
+                    <li>Repository for open source Node.js projects</li>
+                    <li>Written with js</li>
+                    <li>Name of company managing repo attached to npm tool</li>
+                    <li>cli for installation of packages and manage their version</li>
+                    <li>npm on package installation creates link to installed package:
+                            <ul>
+                                <li>Local: <code>./node_modules/.bin/</code></li>
+                                <li>Global: <code>usr/local/bin</code> or <code>%AppData%/npm</code> for Windows</li>
+                            </ul>
+                    </li>
+                    <li><code>./node_modules/.bin/some-package</code> - a run command</li>
+                    <li><code>package-name</code> This should work if package is installed globaly</li>
+                    <li>Only after creation a <code>package.json</code> package can be run with <code>npm run package-name</code> command</li>
+                </ul>
+            </div>
+            <div>
+                NPX: node package execute:
+                <ul class="nested-list">
+                    <li>Is a application for executing node modules downloaded from npm repo</li>
+                    <li>Is capable of installing locally and 'temporarly' packages before running them if they are not found</li>
+                    <li>Simple command like <code>npx some-package</code> is capable of installing localy package and run it in one command. Just for tests.</li>
+                    <li>Packages are run either localy without specifying their local path or from global path, or installed locally and run if they are not found anywhere.</li>
+                    <li>This is more like running packages from external repo, then my own created js files.</li>
+                    <li>Good for running just say <code>npx create-react-app</code> as this will be run only once per developement cycle of application to install environment</li>
+                </ul>
+            </div>
+            <div>
+                Yarn - like npm, but stores packages in cashe and makes it possible to install them from cash in case of problems with npm repo.
+            </div>
+            <div>
+                Node.js: Environment to develop server side apps in JS.
+            </div>
+            <h3>package.json</h3>
+            <ul class="nested-list">
+                <li>Used by npm to handle dependencies, store metadata, store commands needed to compile, run scripts</li>
+                <li>Node.js is aware of only 'name' and 'version' fields</li>
+                <li>created with <code>npm init</code> command. Then can be extended</li>
+                <li>When <code>npm install some-package --save-dependencies</code> is run then new data are added to package.json, so it can install those dependencies with project with one command later on</li>
+                <li>Should be stored in repo</li>
+            </ul>
+            <h3>package-lock.json vs npm-shrinkwrap.json</h3>
+            <ul>
+                <li>2.3.4 - package version. 2 means a major feature, 3 is a minor feature, but still capable of causing huge problems with the application, 5 is a bug fix. Should not affect regression</li>
+                <li>^2.3.4 - this ^ indicates, that a newest minor feature version should be installed, ~ maens that latest patch version needs to be installed.</li>
+                <li>package-lock.josn will ensure, that the exect same packages are installed when npm install is run</li>
+                <li>npm-shrinkwrap.json does the same as package-lock.json, however it is stronger (it coveres package-lock.json) and it can be put into a subfolder, where package-lock is ignored
+                    everywhere outside root folder of application.
+                </li>
+                <li>npm-shrinkwrap can be published - available if I create a dependency package</li>
+                <li>Shoud be commited. node_modules is not commited, so space is saved and every future user has the same package versions.</li>
+                <li>Lock file is not published to NPM software registry - so if I create a package it becomes a dependency to other software, so package_lock would not be in root folder and 
+                    it would be igronred anyway. So my dependencies would be merged into a whole project dependency list.
+                </li>
+                <li><b>paclage-lock file has complete tree of exect dependencies.</b> Package.json has no dependencies of my dependencies, so it is a shoalow version, moreover contains not exect 
+                    version, but only a version with possibility to install newer version of the file.
+                </li>
+
+            </ul>
+            
+        </div>
+
+
+
+
+    
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Types
+            </div>
+            <hr>
+
+            <ul>
+                <li class="expandable">
+                    <span class="expand-all">
+                        <b>Types</b>
+                    </span>
+                    <ul class="main show">
+                        <li class = "expandable">
+                            <b><Numbers</b>
+                                <ul class="subobject hidden">
+                                    <li>-Infinity, Infinity and NaN do belong to <code>Number</code></li>
+                                    <li>Floanting and integers</li>
+                                    <li>Number/0 is Infinity, string/number if NaN, so no fatal error expected due to not valid calculations</li>
+                                    <li>(2<sup>53</sup>-1) and -(2<sup>53</sup>-1) are upper and down limits of Number</li>
+                                    <li>Nubmer.MAX_VALUE and Number.MIN_VALUE</li>
+                                    <li>Nubmer.MAX_SAFE_INTEGER and Number.MIN_SAFE_INTEGER are for checking if a number is <mark>in floating point range</mark>
+                                        If a number is outside this range, floating point number will be approximation of a real value
+                                    </li>
+                                    <li><code>Number.isSafeInteger()</code> checks if a number is in max safe integer range</li>
+                                </ul>
+                        </li>
+                        <li class="expandable">
+                            <b>BigInt</b>
+                                <ul class="subobject hidden">
+                                    <li>1234567890123456789012345678901234567890n - where n means that it is a bigInt</li>
+                                </ul>
+                        </li>
+                        <li class="expandable">
+                            <b>String</b>
+                                <ul class="subobject hidden">
+                                    <li>'', "" or `` bounds string. Where if in `` there can be ${expression} used to evaluate expression inside</li>
+                                    <li>No char type</li>
+                                </ul>
+                        </li>
+                        <li class="expandable">
+                            <b>Boolean</b>
+                            <ul class="subobject hidden">
+                                <li>Boolean(undefined) == false</li>
+                                <li>Boolean(null) == false </li>
+                                <li>Boolean('') == false</li>
+                                <li>Boolean(0) == false</li>
+                                <li>Boolean({}) == true</li>
+                                <li>Boolean([]) == ture</li>
+                                <li>Mainly every not empty value is evaluated ture</li>
+                            </ul>
+                        </li>
+                        <li class="expandable">
+                            <b>Null</b>
+                        </li>
+                        <li class="expandable">
+                            <b>Undefined</b>
+                        </li>
+                        <li class="expandable">
+                            <b>Symbol</b> - a unique identifier used as a key of objects. Object key can only be Symbol or string. Where symbol is not convertable to string 
+                            and it can be obtained with Symbol() function
+                        </li>
+                        <li class = "expandable">
+                            <b>Object</b>
+                            <ul class="subobject hidden">
+                                <li>The only one <b>non primitive</b> type, as it may contain more then one value</li>
+                                <li>Contains functions and arrays</li>
+                                <li>Function is an object implementing a caller</li>
+                                <li>Sequence of iterating (<mark>enumerating</mark>) over an object is random, if iterated via keys (in operator), in case of array (of operator) this is a sequence of adding items to an object</li>
+                                <li>Object is a collection of properties. Property has attributes: 
+                                    <ul class="subobject hidden">
+                                        <li>Value: can value be retrieved by a get access</li>
+                                        <li>Writable: if false property cannot be changed</li>
+                                        <li>Enumerable: <mark>if true property will be enumerated in for..in loop</mark></li>
+                                        <li>Configurable: if false property cannot be deleted</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Object has methods:
+                                    <ul class="subobject hidden">
+                                        <li class = "expandable">
+                                            Object.assign(destinationObject, sourceObjects)
+                                            <ul class="subobject hidden">
+                                                <li>If properties from soruces do not exist in destination they will be copied there</li>
+                                                <li>Uses get and set methods</li>
+                                                <li>Can be used to merge sources to destination</li>
+                                                <li>If destination is a new object (empty) this will create a copy</li>
+                                                <li>Do not use for nested objects, as <mark>only references</mark> will be copied from nested objects</li>
+                                                <li>Nested copy can be done with parse stringify combination</li>
+                                            </ul>
+                                        </li>
+                                        <li class = "expandable">
+                                            Object.defineProperty(object, property, descriptor), where descriptor is a object with below properties
+                                            <ul class="subobject hidden">
+                                                <li>value: value of added key</li>
+                                                <li>writable: can be modified later on</li>
+                                                <li>enumerable: will be visible when enumerated with for..in loop</li>
+                                                <li>Configurable: can be deleted</li>
+                                            </ul>
+                                        </li>
+                                        <li>Object.defineProperies(objectInstance, {property1, property2...}) - like define property but for object of  properties</li>
+                                        <li>Object.freeze(), Object.seal() - makes it impossible to modify or delete values from object</li>
+                                        <li>Object.getOwnPropertyNames() - get each propery - enumeratable and not enumerable</li>
+                                        <li>Object.getOwnPropertyDescriptors() - get a descriptor(value, writabel, enumerable, Configurable) of a property</li>
+                                        <li>Object.is(), - check if 2 values are eqal</li>
+                                        <li>Object.isExtensible() - can be extended</li>
+                                        <li>Object.isFrozen, Object.isSealed, Object.keys, Object.values</li>
+                                        <li>Object.prototype - <makr>Can be used to add a property/method to each Object</makr></li>
+                                        <li>Object._defineGetter Object._defineSetter - overwritting, definig setters and getters to object</li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mutable</th>
+                        <th>Immutable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Object</td>
+                        <td>Undefined</td>
+                    </tr>
+                    <tr>
+                        <td>Set</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>Array (as it is object)</td>
+                        <td>Number</td>
+                    </tr>
+                    <tr>
+                        <td>Map (as it is object)</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>BigInt</td>
+                    </tr>
+                    <tr>
+                        <td>Function</td>
+                        <td>Symbol</td>
+                    </tr>
+                    <tr>
+                        <td>Almost every object made with new keyword</td>
+                        <td>null</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        <ul class="nested-list">
+            Not basic types
+            <li>
+                <ul class="nested-list">
+                    Set:
+                        <li>Only unique values may be storred - no error, just will not be added</li>
+                        <li>Multiple objects that are recursivly equal can be stored here. It is not easy to compare a object</li>
+                </ul>
+                <ul class="nested-list">
+                    Map:
+                        <li>Object used to store array of pairs (array of arrays) [key, value]</li>
+                        <li><mark>Key can be of any type: object, function, string, number, boolean</mark></li>
+                        <li>New pairs may be added <code>myMap.set(key, value)</code> and read <code>myMap.get(key, value)</code></li>
+                        <li>Adding a second entry with the same kay will result in overwritting a previous value</li>
+                        <li><code>for(let item of myMap) console.log(item)</code> will write arrays [key, value] for each entry</li>
+                        <li><code>Map.length</code> is always 0</li>
+                        <li>Alternative to object if:
+                            <ul class="nested-list">
+                                <li>Keys are not known before runtime</li>
+                                <li>keys should be other values than string or symbol</li>
+                                <li>Key value pairs are added/removed ofen - better performance than in object</li>
+                            </ul>
+                        </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+        <script>
+            addGeneralMarkers('slide-4')
+        </script>
+
+
+
+<div class="banner slide slide-extended" name="arrays" id="slide-5">
+    <div class="slide-title">
+        Arrays
+    </div>
+        </hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Method</th>
+                    <th>Arguments</th>
+                    <th>Returns</th>
+                    <th>Mutating?</th>
+                    <th>Description</th>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><code>array.push(item)</code></td>
+                    <td>item</td>
+                    <td>Added element</td>
+                    <td>Mutating</td>
+                    <td>Add item to end of array</td>
+
+                </tr>
+                <tr>
+                    <td><code>arr.pop()</code></td>
+                    <td> - </td>
+                    <td>Removed element</td>
+                    <td>Mutating</td>
+                    <td>Remove last element from the list</td>
+                </tr>
+                <tr>
+                    <td><code>arr.shift()</code></td>
+                    <td> - </td>
+                    <td>Removed element</td>
+                    <td>Mutating</td>
+                    <td>Remove first element from the list</td>
+                </tr>
+                <tr>
+                    <td><code>arr.unshift()</code></td>
+                    <td>item</td>
+                    <td>Added element</td>
+                    <td>Mutating</td>
+                    <td>Add element to the begining of array</td>
+                </tr>
+                <tr>
+                    <td><code>arr.splice(start, nrOfDel, item...)</code></td>
+                    <td>
+                        start: index of element to strt mutating array from<br>
+                        nrOfDel: Number of items to delete starting from <i>start</i> position<br>
+                        item...: item1, item2, item3... items to be added after <i>start</i> index
+                    </td>
+                    <td>
+                        In case items are deleted retunrs array of deleted items<br>
+                        In case items are added retruns empty array
+                    </td>
+
+                    <td>Mutating</td>
+                    <td>Modify array</td>
+                </tr>
+                <tr>
+                    <td><code>array.slice(start, end)</code></td>
+                    <td>start: start index <br> end: end index</td>
+                    <td>new array that is a subarray between start and end indexes</td>
+                    <td>Not mutating</td>
+                    <td>Return new subarray</td>
+                </tr>
+                <tr>
+                    <td><code>array1.concat(item1, item2 ..)</code></td>
+                    <td>item1 ... items are elements or arrays. Any number</td>
+                    <td>new array that consists of array1 and items concatenated together</td>
+                    <td>Not mutating</td>
+                    <td>Concatenate arrays, create new array, do not mute original items and arrays</td>
+                </tr>
+                <tr>
+                    <td><code>array1.forEach((item, index, array) => {})</code></td>
+                    <td>function that takes:<br>
+                        item - current item in iteration process<br>
+                        index - current indes in iteration process<br>
+                        array - this gives access to processed array
+                    </td>
+                    <td>undefined</td>
+                    <td>Mutating</td>
+                    <td>
+                        Runs callback function for each array item
+                        This method is available for Map, Set objects, but not for Objects themself.
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><code>arr.indexOf(item, from)</code><br><code>arr.lastIndexOf(item, from)</code></td>
+                    <td>item - item that is looked for <br> from - index to start searching from</td>
+                    <td>index of element in array, or -1 if not found</td>
+                    <td>Not mutating</td>
+                    <td>Searches array for first element === to item from start or end of array</td>
+                </tr>
+                <tr>
+                    <td><code>arr.includes(item, from</code></td>
+                    <td>item - item that is looked for <br> from - index to start searching from</td>
+                    <td>true in case element is in array, <br> false if element is not in array</td>
+                    <td>Not mutating</td>
+                    <td>Searches array for first element === to item</td>
+                </tr>
+                <tr>
+                    <td><code>arr.find((item, index, array) => {}, thisArg)</code></td>
+                    <td>callback with arguments:
+                        <ul class="nested-list">
+                            <li><b>item</b> current item in iteration process</li>
+                            <li><b>index</b> current item index in iteration process</li>
+                            <li><b>array</b> access to whole searched array</li>
+                        </ul>
+                        thisArg - meaning of this
+                    </td>
+                    <td>Callback has to return <b>true</b> if it finds element matching criteria, then find returns found element. If nothing is found then find returns <b>undefined</b></td>
+                    <td>Not mutating</td>
+                    <td>Searches array for element. This method stops as soon as it finds first element matching cirteria</td>
+                </tr>
+                <tr>
+                    <td><code>arr.findIndex((item, index, array) => {}, thisArg)</code></td>
+                    <td>callback with arguments:
+                        <ul class="nested-list">
+                            <li><b>item</b> current item in iteration process</li>
+                            <li><b>index</b> current item index in iteration process</li>
+                            <li><b>array</b> access to whole searched array</li>
+                        </ul>
+                        thisArg - meaning of this
+                    </td>
+                    <td>Callback has to return <b>true</b> if it finds element matching criteria, then find returns index of found element. If nothing is found then find returns -1<b-1</b></td>
+                    <td>Not mutating</td>
+                    <td>Searches array for element. This method stops as soon as it finds first element matching criteria</td>
+                </tr>
+                <tr>
+                    <td><code>arr.filter((item, index, array) => {})</code></td>
+                    callback that takes:
+                    <td><ul class="nested-list">
+                        <li><b>item</b></li>
+                        <li><b>index</b></li>
+                        <li><b>array</b></li>
+                    </ul></td>
+                    <td>new array that is a array of found elements</td>
+                    <td>Not mutating</td>
+                    <td>Find and return array of elements matching criteria</td>
+                </tr>
+                <tr>
+                    <td><code>arr.map((item, index, array) => {}, thisArg)</code></td>
+                    callback that takes:
+                    <td><ul class="nested-list">
+                        <li><b>item</b></li>
+                        <li><b>index</b></li>
+                        <li><b>array</b></li>
+                    </ul>
+                        thisArg is meaning of <code>this</code>
+                    </td>
+                    <td>new array, that is a copy of original array with action from callback performed on each element</td>
+                    <td>Not mutating</td>
+                    <td>Perform an action from callback on </td>
+                </tr>
+                <tr>
+                    <td><code>arr.sort((item, index, array) => {}, thisArg)</code></td>
+                    callback that takes:
+                    <td>
+                        No args, or callback taking
+                        <ul class="nested-list">
+                            <li><b>a</b> as first item to be compared</li>
+                            <li><b>b</b> as second item to be compared</li>
+                        </ul>
+                        thisArg is meaning of <code>this</code>
+                        Callback should return:
+                        <ul>
+                            <li><b>-1</b> in case a &lt; b</li>
+                            <li><b>0</b> in case a == b</li>
+                            <li><b>1</b> in case a > b</li>
+                        </ul>
+                    </td>
+                    <td><b>Reference</b> to original, modified array</td>
+                    <td>Mutating</td>
+                    <td>Sort original array. In case no callback is passed, elements will be sorted as strings.</td>
+                </tr>
+                <tr>
+                    <td><code>arr.reverse()</code></td>
+                    <td> - </td>
+                    <td><b>Reference</b> to original, modified array</td>
+                    <td>Mutating</td>
+                    <td>Reverse order of elements in array</td>
+                </tr>
+                <tr>
+                    <td><code>str.split(delim, limit)</code></td>
+                    <td><ul>
+                        <li><b>delim</b> a separator used to distinguish elements in string</li>
+                        <li><b>limit</b> max numnber of elements in created array</li>
+                    </ul></td>
+                    <td>new array</td>
+                    <td>Not mutating</td>
+                    <td>Converts string into array, using delim as separator</td>
+                </tr>
+                <tr>
+                    <td><code>arr.join(glue)</code></td>
+                    <td><b>glue</b> element that will be put between elements of array in newly created string</td>
+                    <td>string consisitn of array elements glued with <i>glue</i> element</td>
+                    <td>Not mutating</td>
+                    <td>Join array elements with <i>glue</i> element. In case of objects conversion to string has to be handeled</td>
+                </tr>
+                <tr>
+                    <td><code>arr.reduce((accumulator, item, index, array) => {})</code></td>
+                    <td>
+                        Callback taking: 
+                        <ul>
+                            <li><b>accumulator</b> Result of callback in previous itemration</li>
+                            <li><b>item</b> array element in current iteration</li>
+                            <li><b>index</b> index of current iteration</li>
+                            <li><b>array</b> access to array</li>
+                        </ul>
+                        callback should return array reduced so far (accumulator + current)
+                    </td>
+                    <td>Return array reduced to single value, like SUM or AVERAGE in excel</td>
+                    <td>Not mutating</td>
+                    <td>Reduce array to a singel value</td>
+                </tr>
+                <tr>
+                    <td><code>arr.isArray()</code></td>
+                    <td> - </td>
+                    <td>true if arr is an array, false if it is not an array</td>
+                    <td>Not mutating</td>
+                    <td>Tell if arr is an array. typeof would only state that element is an object.</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+<script>
+    function camelize(str){
+        let arrNoMinus = str.split('-');
+        let changeFirstLetterToCapital = function(str) {
+                return str.split('').map((element, index) => {
+                if (index == 0) {
+                    return element.toUpperCase()
+            
+            }   else {
+                return element
+            }}).join('');
+            
+        }
+        let camelizeEachArrayElementButForFirstAndReduce = function(accumulator, item, index, arr){
+                if (index == 0) {
+                    return accumulator + item;
+                } else {
+                    return accumulator + changeFirstLetterToCapital(item)
+                }
+            }
+        
+        return arrNoMinus.reduce(camelizeEachArrayElementButForFirstAndReduce)
+    }
+
+    console.log(camelize('background-color'))
+    console.log(camelize('color'))
+    console.log(camelize('top-left-border-radius'))
+
+</script>
+
+
+
+
+
+
+
+<div class="banner slide slide-extended" name="Objects" id="slide-6">
+    <div class="slide-title">
+        Objects
+        </hr>
+    </div>
+    <ul class="nested-list">
+        <li>Each object is a set of Key, value pares</li>
+        <li>Key can be a type of string or Symbol only</li>
+        <li>
+            Properties keyed with a Symbol do not show in
+            <ul class ="nested-object">
+                <li><code>JSON.stringify()</code></li>
+                <li><code>Object.keys()</code></li>
+            </ul>
+        </li>
+        <li>Objects symbol keyed show in <code>Reflect.ownKeys()</code></li>
+        <li>Stored value can be of any type, including object iself (nested objects)</li>
+        <li>Each property added to object (key, value pare) has a descriptor:
+            <ul class="nested-list">
+                <li><b>Enumerable</b>: if true property will show during for-in iteration. Default: false</li>
+                <li><b>Configurable</b>: if this porperty descriptor may be changed, and if property may be deleted. Default: false</li>
+                <li><b>Value</b>: value associated with the property. Default: undefined.</li>
+                <li><b>Writable</b>: If true value related to this porperty can be changed.</li>
+                <li><b>get()</b>: property getter</li>
+                <li><b>set()</b>: property setter</li>
+            </ul>
+
+        </li>
+    </ul>
+    <div class="note">
+        <h3>Proxy</h3>
+        Object used to override some behaviors of operators or object methods. Accepts arguments:
+        <ul class="nested-list">
+            <li><b>target</b>: object that is virtualized by the proxy, can be defined earlier, or set to {}</li>
+            <li><b>handler</b>: object with propertis (traps):</li>
+            <ul class="nested-list">
+                <li><b>handler.getPrototypeOf(target)</b></li>
+                <li><b>handler.serPrototypeOf(target, newPrototype)</b></li>
+                <li><b>handler.isExtensible(target)</b></li>
+                <li><b>handler.preventExtensions(target)</b></li>
+                <li><b>handler.getOwnPropertyDescriptor(garget)</b></li>
+                <li>
+                    <b>handler.defineProperty(target, property, descriptor)</b>
+                </li>
+                <li><b>handler.has(target)</b>: trap for <code>in</code></li>
+                <li><b>handler.get(target)</b>: trap for getting value</li>
+                <li>handler.set(target, key, value): trap for setting value</li>
+                <li><b>handler.deleteProperty(target)</b>: trap for delete operator</li>
+                <li><b>handler.ownKeys(target)</b>: trap for getOwnPropertyNames and getOwnPropertySymbols</li>
+                <li><b>handler.apply(target, thisArg, argList)</b>: trap for a function call</li>
+                <li><b>handler.constructor(target, argList, newTarget)</b> trap for <code>new</code> operator. newTarget is something poxy was assigned to.</li>
+            </ul>
+        </ul>
+        <pre>
+                let p = new Proxy({}, trapHandler);
+                let trapHandler = {
+                    get: function() {},
+                    set: function(obj, prop, value) {console.log(arg) ;   obj[prop] = value;},
+                    ....
+                }
+                //now lets say operation p = 5 will be overwritten
+            </pre>      
+    </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>args</th>
+                    <th>returns</th>
+                    <th>mutates original</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Reflect.ownKeys(targetObject)</code></td>
+                    <td>targetObject</td>
+                    <td>concatenated Object.getOwnPropertyNames() and Object.getOwnPropertySymbols()</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.getPrototypeOf()</code></td>
+                    <td>obj: objest thats prototype we want</td>
+                    <td>prototype</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.setPrototypeOf(obj, newPrototype)</code></td>
+                    <td><ul class="nested-list">
+                        <li>obj</li>
+                        <li>newPrototype</li>
+                    </ul></td>
+                    <td> - </td>
+                    <td>Mutating</td>
+                    <td>
+                        <ul class="nested-list">
+                            <li>Set new prototype to an object</li>
+                            <li>Throws TypeError if target object is not extensible</li>
+                            <li>Should not be used. Dirty method. Instead better to extend object, or create new with new prototype</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Object.isExtensible(obj)</td>
+                    <td>target object</td>
+                    <td>true/false indicating if object is extensible</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td>Object.preventExtentions(target)</td>
+                    <td>target object</td>
+                    <td> - </td>
+                    <td>Mutating (behavior)</td>
+                    <td>New properties cannot be added to target from this point. <mark>Deleting properties is still possible</mark></td>
+                </tr>
+                <tr>
+                    <td>Object.getOwnPropertyDescriptor(target, prop)</td>
+                    <td>
+                        <ul class="nested-list">
+                            <li><b>target</b></li>
+                            <li><b>prop</b>: property thats descriptor is wanted</li>
+                        </ul>
+                    </td>
+                    <td>Property descriptor (value, writable, get, set, configurable, enumerable</td>
+                    <td>Not mutating</td>
+                    <td>TypeError if target is not an object </td>
+                </tr>
+                <tr>
+                    <td>Object.defineProperty(target, prop, descriptor)</td>
+                    <td>
+                        <ul class="nested-list">
+                            <li><b>target</b></li>
+                            <li><b>prop</b></li>
+                            <li><b>descriptor</b>: set, get, enumerable, configurable, extentionable, value, writable</li>
+                        </ul>
+                    </td>
+                    <td> - </td>
+                    <td>Not mutating</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Object.create(proto, [objectProperties]</td>
+                    <ul class="nested-list">
+                            <li><b>proto</b>: new objects prototype</li>
+                            <li><b>objectProperites</b></li>
+                    </ul>
+                    <td>New object</td>
+                    <td> - </td>
+                    <td>eg. <code>Object.create({a: 1, b: 2});</code></td>
+                </tr>
+                <tr>
+                    <td>Object.assign(target, sources)</td>
+                    <td>
+                        <ul class="nested-list">
+                            <li><b>target</b></li>
+                            <li><b>sources</b>: a set of objects thats properties will be rewritten</li>
+                        </ul>
+                    </td>
+                    <td>New object</td>
+                    <td> Non mutating </td>
+                    <td>Rewrites with getters and setters. Does not take into accoutn properties forbidden with descriptors</td>
+                </tr>
+                <tr>
+                        <td>Object.defineProperty(target, property, descriptor)</td>
+                        <td>
+                            <ul class="nested-list">
+                                <li><b>target</b></li>
+                                <li><b>property</b>: name</li>
+                                <li><b>descriptor</b>: </li>
+                            </ul>
+                        </td>
+                        <td>Target object</td>
+                        <td>Mutating</td>
+                        <td>Sets new property to target object</td>
+                    </tr>
+                <tr>
+                    <td>Object.definePropertis(target, properties)</td>
+                    <td>
+                        <ul class="nested-list">
+                            <li><b>target</b></li>
+                            <li><b>properties</b>: object descriptors</li>
+                        </ul>
+                    </td>
+                    <td>Target object</td>
+                    <td>Mutating</td>
+                    <td>Sets new properties to target object</td>
+                </tr>
+                <tr>
+                    <td>Object.freeze()</td>
+                    <td>target</td>
+                    <td> - </td>
+                    <td>Mutates behavior</td>
+                    <td>Makes target immutable, however nested objects are linked by reference, so they can still by modified. To prevent this each nesetd object will have to
+                        be frozen independedly
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>Object.getOwnPropertyDescriptor(target, prop)</code></td>
+                    <td>
+                        <ul class="neseted-list">
+                            <li><b>target</b></li>
+                            <li><b>prop</b></li>
+                        </ul>
+                    </td>
+                    <td>Target property descriptor object</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.getOwnPropertyNames(target)</code></td>
+                    <td>target</td>
+                    <td>Array of all property names: enumarables and not enumerables</td>
+                    <td>Not mutating</td>
+                    <td>Does not return symbols</td>
+                </tr>
+                <tr>
+                    <td><code>Object.getOwnPropertySymbols(target)</code></td>
+                    <td>target</td>
+                    <td>Array of all property symbols: enumarables and not enumerables</td>
+                    <td>Not mutating</td>
+                    <td>Does not return names</td>
+                </tr>
+    
+                <tr>
+                    <td>Object.is(a, b)</td>
+                    <td>a, b</td>
+                    <td>
+                        true if objects are equal.
+                        <ul class="nested-list">
+                            <li>(0, -0) false</li>
+                            <li>(+0, -0) false</li>
+                            <li>(-0, -0) true</li>
+                            <li>(0n, -0n) true</li>
+                            <li>(NaN, 0/0) true</li>
+                            <li>([], []) false</li>
+                            <li>(undefined, undefined) true</li>
+                            <li>({a:1}, {a:1}) false</li>
+                        </ul>
+
+                    </td>
+                    <td> - </td>
+                    <td>Similar to '===', but handles +0 and -0 differently</td>
+                </tr>
+                <tr>
+                    <td><code>Object.isForzen(target)</code></td>
+                    <td>target</td>
+                    <td>true if object is frozen (extensible)</td>
+                    <td>Not mutatnig</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.seal(targt)</code></td>
+                    <td>target</td>
+                    <td>Sealed object</td>
+                    <td>Mutates behavior</td>
+                    <td>Prevents object from having new properties added or having existing properties deleted
+                        Property values can still be modified. Property descriptor <b>cannot</b> be modified
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>Object.isSealed(target)</code></td>
+                    <td>target</td>
+                    <td>true if object is sealed</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.keys(target)</code></td>
+                    <td>target</td>
+                    <td>Returns enumerable properties</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.values(target)</code></td>
+                    <td>target</td>
+                    <td>Array of enumerable values</td>
+                    <td>Not mutating</td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.prototype.hasOwnProperty(target)</code></td>
+                    <td>target</td>
+                    <td>true if object has its own property</td>
+                    <td> - </td>
+                    <td>Excludes properties that are inherited</td>
+                </tr>
+                <tr>
+                    <td><code>Object.prototype.isPrototypeOf()</code></td>
+                    <td>target, obj</td>
+                    <td>true if obj is in prototype chain</td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.prototype.propertyIsEnumerable(prop)</code></td>
+                    <td>prop</td>
+                    <td>True if target property is enumerable</td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td><code>Object.prototype.toString()</code></td>
+                    <td>target</td>
+                    <td>String representation of object. Normally [Object object]</td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                        <td><code>Object.prototype.valueOf()</code></td>
+                        <td>target</td>
+                        <td>value of object. If loggend to console makes sense, if to DOM it is like toString</td>
+                        <td> - </td>
+                        <td> - </td>
+                    </tr>   
+            </tbody>
+        </table>
+        <b><mark>Object prototype methods are invoked like obj.isPrototypeOf({})</mark></b>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="banner slide slide-extended" name="arrays object copy" id="slide-5">
+        <div class="slide-title">
+            Copy arrays and objects
+        </div>
+            </hr>
+            <ul class="nested-list">
+                Arrays
+                <li>Spread operator - shalow copy - <code>let cp = [...someArray]</code><mark>In case of nested arrays references are copied!!! Not safe</mark></li>
+                <li>For loop - beware <mark>If = operator used for nested instances references will be copied</mark></li>
+                <li>Array.map - shallow</li>
+                <li>Array.filter - shallow</li>
+                <li>Array.reduce with newArray.push inside - shallow</li>
+                <li>array.slice(start, end) - return new array from start to end</li>
+                <li>array.concat(item1, item2, ...) - return new array consisting from </li>
+                <li>array.filter(() => true)</li>
+                <li><code>array.map((item, index, arr) => {item})</code> - perform action from callback on each array element and return new array. Original array is not modified</li>
+                <li><code>copy = [...originalArray]</code></li>
+            </ul>
+            <ul class="nested-list">
+                Objects:
+                <li><code>JSON.parse(JSON.stringify(originalObject))</code></li>
+                <li><code>Object.assign({}, originalObject)</code> - Be carefull, nested object will be linked via reference</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+    </div>
+
+
+
+
+
+
+
+        <div class="banner slide slide-extended" name="variables" id="slide-6">
+            <div class="slide-title">
+                Variables
+                </hr>
+            </div>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="operators" id="slide-7">
+            <div class="slide-title">
+                Operators
+                </hr>
+            </div>
+            <ul class="nested-list">
+                <li><code>A++, A--</code> postfix increment/decrement operator</li>
+                <li><code>++A, --A</code> prefix increment / decreemnt opertator</li>
+                <li><code>delete</code> operator deleting property from object</li>
+                <li><code>void</code> operator diskarting expression return value</li>
+                <li><code>typeof</code> operator returning type of object</li>
+                <li><code>+A</code> unary plus operator - <mark>converts</mark> operand to Number type</li>
+                <li><code>-A</code> unary minus operator - unary negation - converts operand to Number and negates it</li>
+                <li><code>~</code> bitwise negation operator - negates each bit of object</li>
+                <li><code>!</code> logical not operatro</li>
+                <li><code>+, -, /, *</code> bipolar sum, minus, division and multiplication operators</li>
+                <li><code>%</code> modulo, reminder</li>
+                <li><code>in</code> checks if object containes give value. 'k' in {'k': 'a'} is ture</li>
+                <li><code>instanceof</code> operator checking of an object is an instance of certain class</li>
+                <li><code>&lt;, >, &lt;=, >=</code> lower then, greater then, lower or equal to, greater or equal to</li>
+                <li><code>==</code> has equal value</li>
+                <li><code>!=</code> inequal</li>
+                <li><code>===</code> identity operator, checkes if object takes the same space in memory. If primitives are concerned, only their 
+                    value is cnocidered</li>
+                <li><code>!==</code> Not identity operator</li>
+                <li><code>&lt;&lt;</code>Bitwise operator. </li>
+                <li><code>>></code> bitwise operator, moves bits to the left. Sign bit is left unaffected</li>
+                <li><code>>>></code> Bitwise unsigned right shift operator, fills zeros from left. Because new sign bit is 0, new value will be always positiv. 
+                    Normally sign bit 1 is minus.
+                </li>
+                <li><code>&lt;&lt;</code> bitwise operator, moves bits to the right, singn, left unaffected</li>
+                <li><code>&</code> bitwise AND</li>
+                <li><code>|</code> bitwise OR</li>
+                <li><code>&&</code> logical AND </li>
+                <li><code>||</code logical OR</li>
+                <li><code>|, &</code> Bitwise or and and</li>
+                <li><code>^</code>bitwise XOR</li>
+                <li><code>condition ? ifTrue : ifFalse</code> <mark>returns</mark> one of statements</li>
+                <li><code>=</code> assign</li>
+                <li><code>*=</code> Multiplication assign</li>
+                <li><code>/=</code> Division assignment</li>
+                <li><code>%=</code> Reminder assignment</li>
+                <li><code>+=, -=</code> addition, substraction assignment</li>
+                <li><code>&lt;&lt;=, >>= </code> left shift assignment, right shift assignment</li>
+                <li><code>>>>=</code> unsigned right shift assignment</li>
+                <li><code>&=</code> bitwise and assignment</li>
+                <li><code>^= </code>bitwise XOR assignment</li>
+                <li><code>|= </code> bitwise or assignment</li>
+                <li><code>[a, b] = arr; {a:a1, b:b1} = obj</code> destructing assignment operatros</li>
+                <li><code></code></li>
+                <li><code></code></li>
+            </ul>
+            <h4>Spread operator</h4>
+            <ul class = 'nested-list'>
+                <li><code>[...list]</code> expands list into values.</li>
+                <li>
+                    if tab = [1, 2, 3, 4] and function takes just arguments (not an array) function(item1, item2 ..) then
+                    spred can be used like <code>function(...tab)</code>
+                </li>
+                <li><code>a = [...tab]</code> clones tab array</li>
+                <li><code>a = [...tab1, ...tab2]</code> concatenates 2 arrays into new array</li>
+                <li>
+                    <code>o1 = {a: 10, b: 20}; o2 = {a: 30, c:50}; o = {...o1, ...o2, h: 89}</code>
+                    this puts o1 properties into o, overrides a property of o (taken from o1) with value from o2, puts h: 89 property to o
+                </li>
+                <li>If function definined with spread, spread has to be at the end <code>function(a, b, ...c)</code></li>
+                <li><mark><code>arguments</code></mark> is a object that can be used to refer to function arguments inside a function body in case 
+                there is not known numner of parameters in function</li>
+            </ul>
+            <h4>Destructing assignment operators:</h4>
+            <ul class="nested-list">
+                <li><code>[a, b] = [1, 2, 3, 4,...]</code> create new variables a = 1 and b = 2. Rest of array values will be ignored</li>
+                <li><code>[a,, c] = [1, 2, 3, 4, ...]</code> create new variables a = 1, c = 3 and comas exclude 2 from assignment</li>
+                <li>
+                    <code>{a, b} = {a: 1, b: 2, c: 4, d: 5}</code>
+                     creates new variables and assigns to them values under keys a and b. In this case a and b names must match keys from object
+                </li>
+                <li><code>{a: aliasA, b: aliasB} = {a: 1, b: 2, c: 3}</code> creates new variables aliasA and aliasB and puts values associated with keys
+                a and b</li>
+                <li><code>{a: alisaA, b: aliasB, {c: aliasC}}</code> creates also aliasC and takes out value from nested object</li>
+                <li><code>function({a, b})</code> and now we can call this function with object having a lot more keys in it, but thanks to 
+                this desctructing assignment only values from a and b will be taken into</li>
+            </ul>
+            <h4>&lt;&lt; or >> operators</h4>
+            <ul>
+                <li>Always 32 bit number is taken into calculations</li>
+                <li>sign is kept</li>
+                <li></li>
+            </ul>
+
+            <div class="note">
+                A way to convert decimal to binary: <code>decimalNumber.toString(2);</code>
+                A way to convert binary to decimal: <code>parseInt(bin, 2).toString(10)</code>
+            </div>
+            <div class="note">
+                <a href = "https://www.youtube.com/watch?v=ZD0wMdJa-Ns">
+                    Negative numbers in computer memory are written in <i>complementary to 2</i> system (uzupełnienie do 2)
+                </a>
+                <ul class="nested-list">
+                    <li>Negative number is negation of each bit + 1 at the end, and there is a special bit (first one) used to represent sign</li>
+                    <li>Special bit is 1 for - and 0 for +</li>
+                    <li>
+                            exapmples for a 3bit computer:
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>To convert (dec)</th>
+                                    <th>To convert (bin)</th>
+                                    <th>Negated bin</th>
+                                    <th>Special sign bit added</th>
+                                    <th>added one to the end</th>
+                                    <th>Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr>
+                                    <td>5</td>
+                                    <td>101</td>
+                                    <td>010</td>
+                                    <td><b>1</b>010</td>
+                                    <td><b>1</b>011</td>
+                                    <td>1011</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>111</td>
+                                    <td>000</td>
+                                    <td><b>1</b>000</td>
+                                    <td><b>1</b>001</td>
+                                    <td>1001</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>000</td>
+                                    <td>111</td>
+                                    <td><b>1</b>111</td>
+                                    <td><b>0</b>000</td>
+                                    <td>0000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        In last case convertion 0 to -0 gives 0, as expected. Moving one from most significant bit to sign bit is made on regular bascis, like 
+                        normal 1, however 1 moved from sign bit further on is ignored.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="variables" id="slide-6">
+                <div class="slide-title">
+                    Generators iterators
+                    </hr>
+                </div>
+                <h3>Iterators</h3>
+                <ul class="nested-list">
+                    <li>Generator is an object having a <code>next()</code> method, returning next object from the collection</li>
+                    <li>next() returns object with 2 properties: <code>value</code> and <code>done</code></li>
+                    <li>value is a value of next object, where done is true if iteratro got to last element of collection, and false if there still is an object</li>
+                    <li>After getting to the last collection element there is no possibility to rewind an iterator</li>
+                    <li>If object has an object having next function returning {value: _, done: _} under [Symbol.iterator] then it is <mark>iterable</mark>, and 
+                        for..of or spread operator can be used on it
+                    </li>
+                </ul>
+                <div class="note">
+                    <h4>Example</h4>
+<pre>
+        function makeIterator(array) {
+            var nextIndex = 0;
+        
+            return {
+               next: function() {
+                   return nextIndex < array.length ?
+                       {value: array[nextIndex++], done: false} :
+                       {done: true};
+               }
+            };
+        }
+</pre>             
+Or with ES6 
+<pre>
+        class MyIterator{
+            constructor(max){
+                this.currentValue = 0;
+                this.maxValue = max
+                this.step = 1
+            }
+            next() {
+                let nextVal = this.currentValue + this.step;
+                this.currentValue++;
+                return {
+                    value: this.currentValue,
+                    done: nextVal >= this.maxValue?true:false
+                }
+            }
+            [Symbol.iterator]() {
+                return {next: () => this.next()}
+            }
+        }
+        let myIter = new MyIterator(10)
+        console.dir(myIter)
+        for(let i of myIter){
+            console.log(i)
+        }
+        console.log([...myIter]) // This will be empty, as itrator is already used
+</pre>       
+                </div>
+
+                <h3>Generators</h3>
+                <ul class="nested-list">
+                    <li>A function having *: <code>function* myGenerator</code></li>
+                    <li>Generator must have a <code>yield</code> keyword that pauses function untill next <code>next()</code> call</li>
+                    <li>Generator is an iterator factory</li>
+                </ul>
+                <div class="note">
+                    Generator as an iterator factory
+<pre>
+    function* idMaker() {
+        while(true){
+            yield date.getDay().toString(36) + date.getHours().toString(36) + date.getMinutes().toString(36) + date.getSeconds().toString(36) + Math.random().toString(36)
+        }
+    }
+
+    let gen = idMaker()
+    let newId = gen.next();
+</pre>                    
+                </div>
+            </div>
+
+<script name="iterator">
+    class MyIterator{
+        constructor(max){
+            this.currentValue = 0;
+            this.maxValue = max
+            this.step = 1
+        }
+        next() {
+            let nextVal = this.currentValue + this.step;
+            this.currentValue++;
+            return {
+                value: this.currentValue,
+                done: nextVal >= this.maxValue?true:false
+            }
+        }
+        [Symbol.iterator]() {
+            return {next: () => this.next()}
+        }
+    }
+    let myIter = new MyIterator(10)
+    console.dir(myIter)
+    for(let i of myIter){
+        console.log(i)
+    }
+    console.log([...myIter]) // This will be empty, as itrator is already used
+
+</script>
+<script name="generator">
+    function* idMaker() {
+        let date = new Date()
+        while(true){
+            yield date.getDay().toString(36) + date.getHours().toString(36) + date.getMinutes().toString(36) + date.getSeconds().toString(36) + Math.random().toString(36)
+        }
+    }
+    function* tenIdMaker() {
+        let id = function() {
+            let date = new Date()
+            return date.getDay().toString(36) + date.getHours().toString(36) + date.getMinutes().toString(36) + date.getSeconds().toString(36) + Math.random().toString(36)
+        }
+        for (let i = 0; i < 9; i++){
+            yield id()
+        }
+        return id()
+    }
+
+    let gen = idMaker()
+    console.log(gen.next());    
+    let gen10 = tenIdMaker();
+    console.log([...gen10])
+</script>
+
+
+
+
+
+
+
+        <div class="banner slide slide-extended" name="content-slide" id="slide-8">
+            <div class="slide-title">
+                Loops
+                </hr>
+            </div>
+            <div class="note-code">
+                <pre>
+while(condition) {
+	instruction
+}
+                </pre> or
+                <pre>
+do{
+	instructions
+} while(condition)
+                </pre>
+            </div>
+            <p>
+                Do while will trigger instructions block at least once, where while can launch 0 or more times.
+            </p>
+            <p>
+                <code>break</code> breakes whole loop execution, where
+                <code>continue</code> breakes only
+                <b>current iteration</b>, so loop will not continue instructions and will go back to begining of loop. These
+                are also available in js
+            </p>
+            <p>
+                <code>for(;;)</code> is an infinite loop
+            </p>
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="Functions" id="slide-8">
+            <div class="slide-title">
+                Functions, rest and spread operator
+                <hr>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="TypesNumber" id="slide-9">
+            <div class="slide-title">
+                Types in details: Number
+                <hr>
+            </div>
+            Number, like in js, is and object with props:
+            <ul class="nested-list">
+                <li>MAX_VALUE, MIN_VALUE</li>
+                <li>NaN</li>
+                <li>NEGATIVE_INFINITY, POSITIVE_INFINITY - numbers exceeding MIN_VALUE and MAX_VALUE constraines</li>
+            </ul>
+            Numbers also have methods similar to JS:
+            <ul class="nested-list">
+                <li>
+                    <code>toExponential()</code> to display e notation</li>
+                <li>
+                    <code>toString()</code>
+                </li>
+                <li>
+                    <code>toFixed()</code> - fixed number of digits next to decimal</li>
+                <li>
+                    <code>toPrecision()</code> - a specified number of digits</li>
+                <li>
+                    <code>valueOf()</code> - a primitive value of number </li>
+            </ul>
+        </div>
+
+
+
+        <script>
+        console.clear(); console.log('Console cleared before slide strings')
+        console.dir(console); console.log('Write aboud usefull console methods')
+        </script>
+
+        <div class="banner slide slide-extended" name="strings" id="slide-10">
+            <div class="slide-title">
+                Types in details: String
+                <hr>
+            </div>
+            In general strings are not mutable, so each method does not mutate a string. But if a method would put a new string in a variable 
+            holding an original string then it would be a mutating method.
+            Wraps a primitive serious of caracters with some helpful methods:
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Args</th>
+                        <th>Retrurns</th>
+                        <th>Mutating</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <code>charAt(position)</code>
+                        </td>
+                        <td>number of index of specified character</td>
+                        <td>string that is a single character at index position</td>
+                        <th>Not mutating</th>
+                        <th>string that is a single character at index position</th>
+                    </tr>
+                    <tr>
+                        <td><code>charCodeAt()</code></td>
+                        <td>index: number of a specified character</td>
+                        <td>Unicode coding (0...65535), historicaly it was ISO-Latin-1: (0...255) identical that in ASCII</td>
+                        <td>Not Mutating</td>
+                        <td>
+                            <a href="https://www.tutorialspoint.com/typescript/typescript_string_charcodeat.htm">Returns a unicode value of char at specific position</a>
+                            Eg: for "This" String.charAt(0) would be 84
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>concat(item, item1 ..)</code></td>
+                        <td>items that will form a new stirng</td>
+                        <td>New string from item strings</td>
+                        <td>Not mutating</td>
+                        <td>str1.concat(str2).<mark>returns a new string</mark></td>
+                    </tr>
+                    <tr>
+                        <td><code>indexOf(searchValue[, startFrom])</code></td>
+                        <td><ul class="nested-list"><li>searchValue: substring to search</li><li>StartFrom: optional</li></ul></td>
+                        <td>
+                            <ul class="nested-list">
+                                <li>In case startFrom is greater then string length: returns string length</li>
+                                <li>Index position form startFrom of substring</li>
+                                <li>-1 in case substing is not found</li>
+                            </ul>
+                        </td>
+                        <td>Not mutating</td>
+                        <td>str1.indexOf('Some substring'[, fromIndex]). Position of a substring begining</td>
+                    </tr>
+                    <tr>
+                        <td><code>lastIndexOf(searchValue[, startFrom])</code></td>
+                        <td><ul class="nested-list"><li>searchValue: substring to search</li><li>StartFrom: optional</li></ul></td>
+                        <td>
+                            Last occurance of substring in a string or -1 in case not found
+                        </td>
+                        <td>Not mutating</td>
+                        <td>Last occurrence</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>str1.localeCompare(str2[, options])</code>
+                        </td>
+                        <td><ul class="nested-list"><li>str1 - first string for comparation</li><li>str2 - second string for comparation</li></ul></td>
+                        <td>
+                            <ul class="nested-list">
+                                <li>-1: if str1 comes <b>before</b> str2</li>
+                                <li> 0: if str1 and str2 are equal</li>
+                                <li>+1: if str1 comes <b>after</b> str2</li>
+                            </ul>
+                        </td>
+                        <td>Not mutating</td>
+                        <td>
+                            str1.localeCompare(str2, options) checks if str1 comes before, after or matches str2. If str1 &lt; str2 then -1, if str1 &gt; str2
+                            then 1, if str1 == str2 then 0. Locale means that comparation rules are based on browser local
+                            settings.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>match(regExp)</code></td>
+                        <td>regExp - regular expression that string will be serched against</td>
+                        <td>array of matches: 'spain SPAIN'.match(/ain/gi) returns ['ain', 'AIN']</td>
+                        <td>Not mutating</td>
+                        <td>Match a regular expression against a string: returns array of matched substrings. '[A-Z]/g' - g for
+                            all matches, without only first.</td>
+                    </tr>
+                    <tr>
+                        <td><code>replace(regExp|substring, newSubstring|function)</code></td>
+                        <td>
+                            <ul class="nested-list">
+                                <li>regExp: object or literal regExp to be searched in given sting</li>
+                                <li>substring: a substring that original string will be searched against
+                                    <ul class="nested-list">
+                                        <li><b>$$</b> inserts $</li>
+                                        <li><b>$&</b> inserts matched substring</li>
+                                        <li><b>$`</b> portion of a string preceding matched substring</li>
+                                        <li><b>$'</b> portion of a string following matched substring</li>
+                                        <li><b>$n</b> </li>
+                                        <li><b>$&lt;Name></b> only for brawsers supporting named capturing groups</li>
+                                    </ul>
+                                </li>
+                                <li>newSubstring: substring for replacement</li>
+                                <li>function: function that will be used to from a new string
+                                    <ul class="nested-list">
+                                        <li><b>match</b>: matched substring</li>
+                                        <li><b>p1, p2...</b> nth string found by a paranthesized capture group (including named captureing groupds), provided the fist argument to replace ras regexp</li>
+                                        <li><b>offset</b>Offset of matched substring within the whole string</li>
+                                        <li><b>string</b> whole examined sting</li>
+                                        <li><b>groups</b> for named capturing groups</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>Not mutating</td>
+                        <td>str.replace(re, newSubstring) - replace in str all matches of re with new substring. Better to learn it when needed.
+                            This method replaces <mark>each</mark> match, so p1, p2 ... are those matches
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>search(regExp)</code>
+                        </td>
+                        <td>regExp</td>
+                        <td>Index of first character of found regular expression, or -1 if no match</td>
+                        <td>Not mutating</td>
+                        <td>str.search(regexp) - return an index of found match, or -1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>slice(start[, end])</code>
+                        </td>
+                        <td>
+                            <ul class="nested-list">
+                                <li><b>start</b>: start positoin of newly created substirng</li>
+                                <li>
+                                    <b>end</b>: end position of newly created substring. If missing then end of sting
+                                </li>
+                            </ul>
+                            Both start and end can be negative values. In this case counting is done from end of string
+                        </td>
+                        <td>New substing between start and end.</td>
+                        <td>Not mutating</td>
+                        <td>"Apples are round and apples are juicy".slice(3, -2) => "les are round ... jui". Return a
+                            <mark>new</mark> substring within strBegin, strEnd constraines.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>split(delimer)</code>
+                        </td>
+                        <td>delimer - a separator that will be used to devide a string</td>
+                        <td>list of substrings</td>
+                        <td>Not mutating</td>
+                        <td>"Apples are round".split(' ') => ['Apples', 'are', 'round']</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>substr()</code>
+                        </td>
+                        <td><ul class="nested-list">
+                            <li>
+                                <b>start</b>: a starting position
+                            </li>
+                            <li>
+                                <b>length</b>
+                            </li>
+                        </ul></td>
+                        <td>new substring</td>
+                        <td>Not mutating</td>
+                        <td>string.substr(start[, length]) -> a new substring. Optional length becomes a end of string.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>substring(startIndex, endIndex)</code>
+                        </td>
+                        <td>
+                            <ul class="nested-list">
+                                <li><b>startIndex</b>: index to start from</li>
+                                <li><b>endIndex</b>: index to end with</li>
+                            </ul>
+                            <b>NOTE!</b> if startIndex > endIndex then function will swap this values and return something, where <code>slice</code> would return '' in this case
+                        </td>
+                        <td>Returns a new substring between start and end</td>
+                        <td>Not mutating</td>
+                        <td>Substring between start and end. Similar to silice, but handesl case where start > end</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>toLocalLowerCase()</code>
+                        </td>
+                        <td>Returns a value of char chain converted to lower case. Takes into account local language settings.
+                            In some languages changing a character to lower case changes this character.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>toLowerCase()</code>
+                        </td>
+                        <td>-</td>
+                        <td>Returns a value of char chain converted to lower case.</td>
+                        <td>Not mutating</td>
+                        <td>Returns a value of char chain converted to lower case.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>toUpperCase()</code>
+                        </td>
+                        <td>-</td>
+                        <td>Returns a value of char chain converted to upper case.</td>
+                        <td>Not mutating</td>
+                        <td>Returns a value of char chain converted to upper case.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>object.toString()</code>
+                        </td>
+                        <td>-</td>
+                        <td>obj.toString() - returnes a string representation of a given object</td>
+                        <td>Not mutating</td>
+                        <td>obj.toString() - returnes a string representation of a given object</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>str.valueOf()</code>
+                        </td>
+                        <td>-</td>
+                        <td>Returns a primitive value of an String object.</td>
+                        <td>Not mutating</td>
+                        <td>Returns a primitive value of an String object.</td>
+                    </tr>
+                    <tr>
+                        <td><code>str.trim()</code></td>
+                        <td>-</td>
+                        <td>Cuts blank spaces from begining and end and returns a new string withouth them</td>
+                        <td>Not mutating</td>
+                        <td>Cuts blank spaces from begining and end and returns a new string withouth them</td>
+                    </tr>
+                    <tr>
+                        <td><code>str.repete(nr)</code></td>
+                        <td>nr - numner of repetitions</td>
+                        <td>returns a string that is made by nr repetitions of original string</td>
+                        <td>Not mutating</td>
+                        <td>returns a string that is made by nr repetitions of original string</td>
+                    </tr>
+                    <tr>
+                        <td><code>includes(substr, start)</code></td>
+                        <td>substr, start</td>
+                        <td>
+                            <ul class="nested-list">
+                                <li><b>true</b> in case of any match</li>
+                                <li><b>false</b> no match</li>
+                            </ul>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>fromCharCode(nr, nr1 ...)</code></td>
+                        <td>nr: UTF-16 charcode</td>
+                        <td>string from charcodes</td>
+                        <td>Not mutating</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+        <div class="banner slide slide-extended" name="arrays" id="slide-11">
+            <div class="slide-title">
+                Types in details: Arrays
+                <hr>
+            </div>
+            Arrays size cannot be changed (due to allocation of sequential memory blocks). Size of once declaired array cannot be changed.
+            Therefor arrays are
+            <i>static</i>. Array elements cannot be deleted (though can be modified)
+            <div class="note-code">
+                <pre>
+var array_name[:datatype];                     //declaration
+array_name = [val1,val2,valn..]                //initialization
+var array_name[:data type] = [val1,val2…valn]  // declaration and initialization at the same time
+var alphas:string[];                           // declaration
+var nums:number[] = [1,2,3,3];                 // declaration and initialization at the same time
+var arr_names = new Array(4);
+var names:string[] = new Array("Mary","Tom","Jack","Jill");
+var [x, y] = arr;                              // If arr is an array, works also for js
+var mArray:number[][] = [[1,2,3],[5,6,7]]      // Multidimension array. In js arrays are single dimensional, so to
+                                               // construct a multi one you need to make array of arrays
+<mark>var arr5: Array&lt;number&gt;;</mark>                 // another <b>valid</b> way to declare an array
+// A way to declare arrays of multiple types: see unions:
+let values: (string | number)[] = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
+let values: Array&lt;string | number&gt; = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
+
+// Arrays can also be readonly:
+let a: number[] = [1, 2, 3, 4];
+let ro: ReadonlyArray&lt;number&gt; = a;  // now attempt to write something to ro[2] will give an error
+                    </pre>
+            </div>
+            Readonly arrays are array type with mutation methods removed!. Moreover there is no readonly array constructor, so default way of array creation has to be used:
+            <code>
+                let roArray: ReadonlyArray&lt;string&gt; = ['something', 'something2']
+            </code>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <code>concat()</code>
+                        </td>
+                        <br> retrun a
+                        <mark>new</mark> array. Usage:</br>
+                        arr.concat(v1, v2 ..) or arr1.concat(arr2)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>every()</code>
+                        </td>
+                        <td>
+                            arr1.every(callback); callback returns true or false. Every returns true if for each array element callback returns true.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>filter()</code>
+                        </td>
+                        <td>
+                            arr1.filter(callback); callback(element[, index[, array]]) returns true or false. Creates a
+                            <mark>new</mark> array with elements fulfilling condition from callback.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>(forEach())</code>
+                        </td>
+                        <td>
+                            arr1.every(callback[, thisArg]); Callback used once per each element of array. ThisArg states what
+                            <i>this</i> will refer to. If undefined: it will be set to global object.
+                        </td>
+                        <tr>
+                            <td>
+                                <code>(indexOf())</code>
+                            </td>
+                            <td>
+                                Returns last index of element stated as arg or -1 if no match found.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <code>(join())</code>
+                            </td>
+                            <td>
+                                returns a string containing all array elements joined with separator given as arg. arr1.join(separator);
+                            </td>
+                            <tr>
+                                <td>
+                                    <code>(lastIndexOf(element))</code>
+                                </td>
+                                <td>
+                                    Return last occurrence of element in arr.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(map())</code>
+                                </td>
+                                <td>
+                                    returns a new array of elements got from invoking a callback on each array element. cpArray = arr.map(callback[, thisObject])
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(pop())</code>
+                                </td>
+                                <td>
+                                    remove last element of array and return it. lastEl = arr1.pop()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(push())</code>
+                                </td>
+                                <td>
+                                    Add a new element to end of array and return new length of this array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(reduce())</code>
+                                </td>
+                                <td>
+                                    [0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {</br>
+                                    return previousValue + currentValue;</br>
+                                    }, startValue);</br>
+                                    Perform a series of operations to reduce whole array to a single element. Like SUM() in excel. This method does operations
+                                    from left to right
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(reduceRight())</code>
+                                </td>
+                                <td>
+                                    Similar to reduce, but does operations from right to left.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(reverse())</code>
+                                </td>
+                                <td>
+                                    Reverses order of array elements.
+                                    <mark>Mutates</mark> existing array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(shift())</code>
+                                </td>
+                                <td>
+                                    Removes a first element of array and returns that element.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(slice())</code>
+                                </td>
+                                <td>
+                                    arr1.slice(begin, end) - returns a
+                                    <mark>new</mark> array. If no args are given just returns a clone of array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(some())</code>
+                                </td>
+                                <td>
+                                    arr1.some(callback[thisObject]) - true if at least one element of array satisfies condition hardcoded in callback.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>sort()</code>
+                                </td>
+                                <td>
+                                    <mark>Mutates</mark> existing array. arr1.sort(callback), where callback returns {-1, 0, 1} - sorts existing array.</br>
+                                    If a > b callback(a, b) returns 1, </br>
+                                    If a = b callback(a, b) returns 0, </br>
+                                    If a > b callback(a, b) returns -1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(splice())</code>
+                                </td>
+                                <td>
+                                    array.splice(index, howMany, [element1][, ..., elementN]);</br>
+                                    Change array by removing
+                                    <b>howMany</b> elements and adding an array of elements. Alteration is done starting from
+                                    <b>index</b> position in matrix. Returns removed elements.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(toString())</code>
+                                </td>
+                                <td>
+                                    Return a string representation of array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>(unshift())</code>
+                                </td>
+                                <td>
+                                    Add one element to the beginning of array
+                                </td>
+                            </tr>
+
+                </tbody>
+            </table>
+            Both
+            <code>for in</code> and
+            <code>for of </code> work for arrays, but for of will not work for objects or tuples, where for in forks for tuples and objects as
+            well.</br>
+            <i>In</i> in array prints keys, where of values of array. So:</br>
+            <div class="note-code">
+                <pre>
+let a = [2, 3, 5, 7]                    
+for (let i in a) {console.log(i)} we will get 0, 1, 2, ,3, 
+for (let i of a) {console.log(i)} we will get 2, 3, 5, 7,
+for (let i in a) {console.log(a[i])} we will get 2, 3, 5, 7
+            </pre>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="banner slide slide-extended" name="this" id="slide-15">
+
+                <div class="slide-title">
+                    this
+                    <hr>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Context</th>
+                            <th>Non strict</th>
+                            <th>Strict</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Global (outside any function)</td>
+                            <td>Refers to global object</td>
+                            <td>Refers to global object</td>
+                        </tr>
+                        <tr>
+                            <td>Function</td>
+                            <td>
+                                <ul class="nested-list">
+                                    <li><code>function f()</code>: non strict, this not set to anything, as at it must refer to object, it refers to global object</li>
+                                    <li><code>() => {}</code></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="nested-list">
+                                    <li><code>function f()</code>: this is set to anything it was set to when it entered function execution. eg <code>window.f()</code> <isindex>
+                                        providing context in this situation
+                                    </li>
+                                    <li>
+                                        In case function f() {"use strict"} is called without contect (eg. <code>f()</code>) then this should be undefined, or in some browsers 
+                                        wrongly will refer to window object
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Object</td>
+                            <td>
+                                this refers to object that function was <mark>called on</mark>, no metter where it was defined
+                                eg<br>
+                                let o = {};<br>
+                                let b = {f: function(){}}
+                                o.c = b.f; // calling c will have this from o
+                            </td>
+                            <td>The same that non strict</td>
+                        </tr>
+                        <tr>
+                            <td>Prototype chain</td>
+                            <td>This is the caller, no metter when found function definition was found</td>
+                            <td>The same as non strict mode</td>
+                        </tr>
+                        <tr>
+                            <td>Getter or setter</td>
+                            <td>Function used as getter or setter will have this from a caller</td>
+                            <td>The same as non strict mode</td>
+                        </tr>
+                        <tr>
+                            <td>call, bind, apply</td>
+                            <td>bind or call function with this defined by call, bind or apply attribute</td>
+                            <td>bind or call function with this defined by call, bind or apply attribute</td>
+                        </tr>
+                        <tr>
+                            <td>event listener</td>
+                            <td>Usually an object that triggered event. Some browsers do not allow this for methods added dynamicly, other that event listeners</td>
+                            <td>Usually an object that triggered event. Some browsers do not allow this for methods added dynamicly, other that event listeners</td>
+                        </tr>
+                        <tr>
+                            <td>inline handler</td>
+                            <td>
+                                <ul class="nested-list">
+                                    <li>&lt;button onclick="alert(this.tagName)> - retruns button</li>
+                                    <li>&lt;button onclick="function(){return this} - this not set, not strict so refer to global window</li>
+                                </ul>
+                            </td>
+                            <td>The same as non strict</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+        <div class="banner slide slide-extended" name="Classes" id="slide-15">
+
+            <div class="slide-title">
+                Classes
+                <hr>
+            </div>
+        </div>
+
+
+
+        <div class="banner slide slide-extended" name="Mouse_position" id="slide-15">
+
+            <div class="slide-title">
+                Mouse position on side
+                <hr>
+            </div>
+            <ul class="nested-list">
+                <li>
+                    <b>MouseEvent.pageX:</b> read only property indicating mouse left position relative to begining of page. 
+                    Takes into account also not visible page parts, scrolling etc. If page is scrolled 200px, mouse is on 100px 
+                    of viewport from left, pageX returns 300. Returned value is a Float.
+                </li>
+                <li>
+                    <b>MouseEvent.pageY:</b> the same as page X, but returns position relative to top of whole document.
+                </li>
+                <li>
+                    <b>MouseEvent.clientX:</b> read only property indicating mouse left position relative to current viewport (beginning of 
+                    screen). No matter how much document is scrolled, returned value will be from begining of <s>screen</s> browser viewport. 
+                    If clicked on left edge of browser edge, will return 0. Difference between this and seceenX is, that screen is physical 
+                    screen, and client is from edge of browser. Browser edge might be not alligned with physical screen.
+                </li>
+                <li>
+                    <b>MouseEvent.clientY:</b> similar to client X, however returns position relative to sceen top.
+                </li>
+                <li>
+                    <b>MouseEvent.movementX; MouseEvent.movementY</b> difference in mouse coordinance between position before mouse movement and
+                    after.
+                </li>
+                <li>
+                    <b>MouseEvent.xOffset, MouseEvent.yOffset</b> mouse position relative to targets object padding box. <mark>Experimental</mark>
+                </li>
+                <li>
+                    <b>MouseEvent.screenX, MouseEvent.screenY:</b> this are coordinance from begining of physical screen.
+                </li>
+                <li>
+                    <b>MouseEvent.relatedTarget</b> holds a target related to mouse event. Eg if mouse was over a div element, that div element will be 
+                    returned.
+                </li>
+            </ul>
+
+            Other mouse event properties:
+            <ul>
+                <li><b>buttons</b> gives indexes of buttons that where pressed during mouse event like mouseleave, mouseover, mouseoutn, mouseenter
+                    Returned value is 1 .. 4 and indicateds nr of mouse button.
+                </li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button">Link</a>
+
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            Other usefull to calculate coordinance:
+            <ul class="nested-list">
+                <li><b>element.getBoundingClientRest()</b>: returns <b>top, left, bottom, right, width, height</b> of element related to screen.
+                    Because of relation to screen, scrolling changes top, left, bottom and right of element. To calculate coordinance relative to 
+                    whole document, <code>window.scrollX</code> and <code>window.scrollY</code> can be used
+                </li>
+                <li><b>window.scrlooX, window.scrollY</b> are distences between whole pages starting point and current screen starting point</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+
+    <!-- </div> -->
+                <div class="banner-neg slide slide-blue" name="title-slide" id="slide-99">
+                    <div class="title">
+                        <span>The End</br>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main container -->
+
+</body>
+
+</html>
