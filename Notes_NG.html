@@ -967,6 +967,7 @@
                 <li>Custom pipes</li>
                 <li>Lasy loading</li>
                 <li>Communication between components</li>
+                <li>Dictionary</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
         </div>
@@ -988,7 +989,10 @@
                     </li>
                     <li><code>ng serve</code> will This lauches the project, and observes any changes, if they are made it will refresh brawser. Available under http://localhost:4200/</li>
                     <li><code>npm start</code>  can be used in stead of ng serve</li>
+                    <li><code>ng generate component componentName</code>: generating a new component. Note - be sure to be in right folder</li>
+                    <li><code>ng generate service serviceName</code>: will be placed in src/app/appname.service.ts</li>
                 </ul>
+                
             </div>
 
             <ul class = "nested-list">
@@ -1174,6 +1178,54 @@ let someStringVariable: string = 'someString';
                 Services and dependency injection
             </div>
             <hr>
+            <a href="https://angular.io/guide/architecture-services">Link</a>
+            Components only task should be providing some kind of user experience. Calcualtions, input validations, server communication is a task
+            for services: separate classes that can be reused in other components. This approach helps avoid code redundancy.
+            To create a service:
+            <ul class="nested-list">
+                <li><code>ng create service serviceName</code>: this will create a service, in src/app</li>
+                <li>
+                    Class that is a service and should be available in components should be decorated with a <code>@Injectable(providedIn: 'root')</code> decorator.
+                    This decorator prepares class for dependency injection.
+                </li>
+                <li>
+                    <code>constructor(private service: SomeServiceClass</code>: when component constructor takes as a parameter a service, 
+                    dependency injector knows that this component uses a service and what service in uses. Then it can provide one.
+                    When Angular discoveres that a component depends on a service it checks if injector has an existing instance of that service. If 
+                    instance does not exist yet it is created with usage of <b>registered provider</b>.
+                </li>
+                <li>
+                    Register a provider. It can be registered in:
+                    <ul class="nested-list">
+                        <li>service itself in <code>@Injectable</code> decorator</li>
+                        <li><code>@NgModule()</code> metadata</li>
+                        <li><code>@Component()</code> decorator metadata</li>
+                    </ul>
+                    If service is created with CLI, provider is registered in @Injectable of created service with the root injector. 
+                </li>
+            </ul>
+            <b>Registration of service and its scope</b>
+            <ul class = "nested-list">
+                <li><b>@Injectable in sevice root level</b>: <mark>the same shared service instance</mark> is available everywhere, and unneeded instances are deleted for optimization</li>
+                <li>
+                    <b>@NgModule</b>: <mark>the same instance of sercive</mark> is available in all module elements.
+                </li>
+                <li><b>@Component</b>: there is an service instance created with each new component instance.</li>
+            </ul>
+            <div class="note">
+                <b>Service example:</b>
+                <pre>
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class RandomGeneratorService {
+    constructor(private someServiceThisServiceDependsOn?: SomeServiceClass){}
+    generate(upperBound: number){
+        return Math.random(upperBound);
+    }
+}
+                </pre>
+            </div>
         </div>
 
 
@@ -1211,7 +1263,7 @@ let someStringVariable: string = 'someString';
 
         <div class="banner slide slide-extended" name="components" id="slide-6">
             <div class="slide-title">
-                Components
+                <a href="https://angular.io/api/core/Component">Components</a>
             </div>
             <hr>
             A component is a piece of web application havnig its own view, logic and styling. In angluar component has a HTML template, styling file and a class written in TypeScript. 
@@ -1233,6 +1285,8 @@ let someStringVariable: string = 'someString';
                 selector: 'app',                    // HTML  tag, where component will be injected
                 template: '&lt;h1>{{title}}&lt;',   // this can be substituted with templateURI
                 style: 'h1{color: blue;}'           // styleURI
+                entryComponents: [] // an array of components to be compiled along with this component
+                // There are a lot more: https://angular.io/api/core/Component
             })
                 </pre>
             </div>
@@ -1508,7 +1562,7 @@ trackByFn(index, item) {
                 <hr>
                 <ul class="nested-list">
                     <li>
-                        Reference
+                        <a href="https://medium.com/@mirokoczka/3-ways-to-communicate-between-angular-components-a1e3f3304ecb">Reference</a>
                         <p>Component using other component has a reference to it. Eg in case of toggied side menu a button toggling menu would have a reference to side menu
                         </p>
                     </li>
@@ -1590,6 +1644,67 @@ export class AppComponent {
                         Dummy slide
                     </div>
                     <hr>
+                </div>
+
+
+
+
+
+            <div class="banner slide slide-extended" name="Dictionary" id="slide-1A">
+                    <div class="slide-title">
+                        Dictionary
+                    </div>
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Phrase</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @ViewChild({selector, read, static})
+                                </td>
+                                <td>
+                                    Decorator used for referencing any element included in current components template (elements owned by 
+                                    children of current component or by parent cannot be referenced this way). It is similar to #someReferenceName
+                                    usage. Directives or services can be referenced this way as well.
+                                </td>
+                                <td>
+                                    <a href="https://blog.angular-university.io/angular-viewchild/">Link</a>
+                                    <pre>
+@ViewChid(ColorSampleComponent)
+primarySampleComponent: ColorSampleComponent;
+Now primarySampleComopnent has reference to 
+instance of ColorSampleComponent
+                                    </pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
 
