@@ -965,6 +965,8 @@
                 <li>Pipes</li>
                 <li>Custom directives</li>
                 <li>Custom pipes</li>
+                <li>Lasy loading</li>
+                <li>Communication between components</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
         </div>
@@ -1088,6 +1090,9 @@
         </div>
 
 
+
+
+
         <div class="banner slide slide-extended" name="BindingDataInAnglular" id="slide-4">
             <div class="slide-title">
                 Binding data in angluar
@@ -1178,6 +1183,28 @@ let someStringVariable: string = 'someString';
                 Modules
             </div>
             <hr>
+            A module can be compared to a folder, or namespace. It is a way to divide a complex application into snaller pieces for readibility. There needs to be at least one module, 
+            as bootstrapping - a proces of loading NG application, is related to loading a root module. Then there are more modules. Most commonly each 'page' should be a module. This 
+            packages are sometimes called <i>features.</i> If a page is too big, it needs to be devided into submodules.</br>
+            Angular itself consists of modules such as:
+            <ul class="nested-list">
+                <li><a href="https://angular.io/api/core#ngmodules">ApplicationModule</a> from @angular/core library configurating the root injector for app.</li>
+                <li>
+                    <a href="https://angular.io/api/platform-browser">BrowserModule, BrowserTransferStateModule, HammerModule</a> from @angular/plafgorm-browser library. All are related to 
+                    angular support for different browsers
+                </li>
+                <li><a href="">https://angular.io/api/platform-server">ServerModule and ServerTransferModule</a> that is a ng module for server</li>
+                <li><a href="https://angular.io/api/forms/FormsModule">FormsModule</a> from @angular/forms library, for making template-driven forms</li>
+                <li><a href="https://angular.io/api/router/RouterModule">RouterModule</a> from @angular/router for lazy page loading using async.</li>
+            </ul>
+            Module consolidate components, diractives and pipes into functional blocks. <code>@NgModule</code> is a decorator taking:
+            <ul class="nested-list">
+                <li><code>declarations[]</code>: an array of pipes, directives and components that are part of current module, and that are needed to be available to other components, directives
+                and pipes of current component. If something is not included in this array, then it will be not visible in current module</li>
+                <li><code>imports[]</code>: is an array of other modules that will be used inside current module.</li>
+                <li><code>providers[]</code>: is an array of services that will be used in this module. It needs to be treated separately, because dependencies are injected</li>
+                <li><code>bootstrap[]</code>: array of components to be loaded while component is loading</li>
+            </ul>
         </div>
 
 
@@ -1192,6 +1219,12 @@ let someStringVariable: string = 'someString';
             would be used in other classes and it putting it into class with comonent would deny single responsibility principle.
             A component is a js module, so it is a separate file importing angular libraries, exporting a class and is decorated with a <code>@Component</code> function taking: selector, template, styling and dependencies
             as arguments.
+            <ul class="nested-list">
+                <li><code>templateURL</code>: path to HTML template file.</li>
+                <li><code>styoeURLs</code>: array of styoe sheets.</li>
+                <li><code>selector</code>: tells angular where to put a component. Is a css selector angular will look for.</li>
+                <li><code>template</code>: in stead for templateURL, is a string HTML template></li>
+            </ul>
             <div class="note">
                 <pre>
             import { Component } from '@angular/core';
@@ -1461,10 +1494,104 @@ trackByFn(index, item) {
 
         <div class="banner slide slide-extended" name="types" id="slide-4">
             <div class="slide-title">
-                Dummy slide
+                Lazy loading
             </div>
             <hr>
         </div>
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+                <div class="slide-title">
+                    Communication between components
+                </div>
+                <hr>
+                <ul class="nested-list">
+                    <li>
+                        Reference
+                        <p>Component using other component has a reference to it. Eg in case of toggied side menu a button toggling menu would have a reference to side menu
+                        </p>
+                    </li>
+                    <li>Through a parent component</li>
+                    <li>Through a service</li>
+                </ul>
+                    <h3><a href="https://angular.io/guide/inputs-outputs">Using parent chid communication</a></h3>
+                    <p>
+                        <code>@input()</code> decorator (import {Input} from @angular/core) can be used for communication from parent to chid:
+                        <div class="note">
+                        <h4>in chid component</h4>
+                            <pre>
+import { Component, Input } from '@angular/core'; // First, import Input
+export class ItemDetailComponent {
+    @Input() item = ''; // decorate the property with @Input()
+}
+                            </pre>
+                            chid components template is 
+                            <pre>
+&lt;p>
+    Today's item: {{item}}
+&lt;/p>                               
+                            </pre>
+                            <h4>parent element will have:</h4>
+                            <pre>
+export class AppComponent {
+    currentItem = 'Television';
+}                                
+                            </pre>
+                            and its template whould include child component with a property binding:
+<pre>
+    &lt;app-item-detail [item]="currentItem">&lt;/app-item-detail>
+</pre>                            
+                        </div>
+                    </p>
+                <code>@output()</code> decorator (imprt {Input, EventEmitter} from @angular/core) can be used for comunication chid to parent with help of event.
+                <div class="note">
+                    <h4>Child component configuration:</h4>
+                    <pre>
+import { Output, EventEmitter } from '@angular/core';                        
+@Output() newItemEvent = new EventEmitter&lt;string>();
+
+addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+                    </pre>
+                    EventEmitter&lt;string>() tells Angular, to create a new event emitter and that data it emits is of string type.
+                    Now template:
+                    <pre>
+&lt;label for="item-input">Add an item:&lt;/label>
+&lt;input type="text" id="item-input" #newItem>
+&lt;button (click)="addNewItem(newItem.value)">Add to parent's list&lt;/button>  
+                    </pre>
+                    #newItem is a template reference vairable. So on click event will be triggered and value passed with this event will be taken from input named #newItem
+                    <h4>Parent configuration</h4>
+                    <pre>
+export class AppComponent {
+    items = ['item1', 'item2', 'item3', 'item4'];
+    
+    addItem(newItem: string) {
+        this.items.push(newItem);
+    }
+    }
+                    </pre>
+                    Now a part of parents template. This event binding binds newItemEvent in child to addItem() function of parent.
+                    <pre>
+    &lt;app-item-output (newItemEvent)="addItem($event)">&lt;/app-item-output>
+                    </pre>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="banner slide slide-extended" name="types" id="slide-4">
+                    <div class="slide-title">
+                        Dummy slide
+                    </div>
+                    <hr>
+                </div>
+
 
 
 
