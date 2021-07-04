@@ -918,7 +918,7 @@
             var show = new SlideShow('wrapper')
 
             cpright();
-            addGeneralMarkers('slide-3')
+            addGeneralMarkers('slide-2')
             for (let item of slideList) {
                 addFootageSpacing(item);
             }
@@ -934,7 +934,7 @@
         <div class="banner-neg slide slide-blue" name="title-slide" id="slide-0">
 
             <div class="title">
-                <span><a href = "https://www.tektutorialshub.com/angular-tutorial/#introduction-to-angular" target="_blank">Angular Notes</a></br>
+                <span>Testing in Angular</br>
                 </span>
                 <span class="title-comment">
                     by Marek Gudalewicz
@@ -954,21 +954,10 @@
                 <hr>
             </div>
             <ul class="content">
-                <li>Starting an application</li>
-                <li>Filesystem</li>
-                <li>Binding data in angular</li>
-                <li>Services and dependency injection</li>
-                <li>Modules</li>
-                <li>Components</li>
-                <li>Nested components</li>
-                <li>Directives</li>
-                <li>Pipes</li>
-                <li>Custom directives</li>
-                <li>Custom pipes</li>
-                <li>Lasy loading</li>
-                <li>Communication between components</li>
+                <li>Testing tools in NG</li>
+                <li>Step by step</li>
+                <li>Test Suite structure</li>
                 <li>Dictionary</li>
-                <li>Lose remarks</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
         </div>
@@ -977,40 +966,23 @@
 
 
 
-        <div class="banner slide slide-extended" name="starting application" id="slide-2">
+        <div class="banner slide slide-extended" name="scf-content" id="slide-2">
             <div class="slide-title">
-                Starting an application
+                Testing tools in NG
                 <hr>
-                <a href="https://www.tektutorialshub.com/angular/angular-create-first-application/" target="_blank">Link</a>
-                <ul class="nested-list">
-                    <li><code>npm install -g @angular/cli@latest</code></li>
-                    <li><code>ng --version</code></li>
-                    <li><code>ng new myFirstApp</code>  this command will create a project folder arrange filesystem, install and configure typeScript, install libraries and dependencies,
-                        install Karma and Protractor for testing.
-                    </li>
-                    <li><code>ng serve</code> will This lauches the project, and observes any changes, if they are made it will refresh brawser. Available under http://localhost:4200/</li>
-                    <li><code>npm start</code>  can be used in stead of ng serve</li>
-                    <li><code>ng generate component componentName</code>: generating a new component. Note - be sure to be in right folder</li>
-                    <li><code>ng g c shared/component-name</code>: this will create a component in src/app/shared. Moreover shortcut like g c works</li>
-                    <li><code>ng generate service serviceName</code>: will be placed in src/app/appname.service.ts</li>
-                </ul>
-                
             </div>
 
-            <ul class = "nested-list">
-                <li>List element - this is just a list with nested elements geting smaller
-                    <ul>
-                        <li>smaller
-                            <ul>
-                                <li>And smaller</li>
-                            </ul>
-                        </li>
+            <ul class="nested-list">
+                <li>E2E: end to end: Protractor. Uses brawser to simulate real behavior</li>
+                <li>
+                    Unit tests: jasmine
+                    <ul class="nested-list">
+                        <li><code>test.ts</code> Initialization file for jasmine tests in Angular. Tests are 
+                        ran every file change. This file does not need to be modified</li>
+                        <li><code>*.spec.ts</code>: Files, where jasmine tests are implemented for every directive, pipe, component or service</li>
                     </ul>
                 </li>
             </ul>
-
-            
-
 
         </div>
 
@@ -1020,706 +992,191 @@
         <div class="banner slide slide-extended" name="Installation" id="slide-3">
             <a href="#">
                 <div class="slide-title">
-                    Filesystem
+                    Step by step
                 </div>
             </a>
             <hr> 
-<a href="https://www.tektutorialshub.com/angular/angular-create-first-application/" target="_blank">Link</a>
-            <ul>
-                <li>
-                    <span class="expand-all">
-                        <b>Types</b>
-                    </span>
-                    <ul class="main show">
-                        <li class = "expandable"><b>e2e</b>: end to end tests
-                            <ul class="subobject hidden">
-                                <li class = "expandable"><b>src</b>: Developed applicatoin
-                                    <ul class="subobject hidden">
-                                        <li>app.e2e-spec.ts</li>
-                                        <li>app.po.ts</li>
-                                    </ul>
-                                </li>
-                                <li>protractor.conf.js</li>
-                                <li>tsconfig.e2e.json</li>
-                            </ul>
-                        </li>
-                        <li>node_modules</li>
-                        <li class = "expandable">
-                            <b>src</b>
-                            <ul class="subobject hidden">
-                                <li class = "expandable"><b>app</b>
-                                    <ul class="subobject hidden">
-                                        <li>app-routing.module.ts</li>
-                                        <li>app.component.css</li>
-                                        <li>app.component.html</li>
-                                        <li>app.component.spec.ts</li>
-                                        <li>app.component.ts</li>
-                                        <li>app.module.ts: <b>root module of application</b></li>
-                                    </ul>
-                                </li>
-                                <li class = "expandable"><b>assets</b>
-                                    <ul class="subobject hidden">
-                                        <li>.gitkeep</li>
-                                    </ul>
-                                </li>
-                                <li class = "expandable"><b>environments</b>
-                                    <ul class="subobject hidden">
-                                        <li>environment.prod.ts</li>
-                                        <li>enfironment.ts</li>
-                                    </ul>                       
-                                </li>
-                                <li>favicon.ico</li>
-                                <li>index.html</li>
-                                <li>main.ts</li>
-                                <li>polyfills.ts</li>
-                                <li>styles.css</li>
-                                <li>test.ts</li>
-
-                            </ul>
-                        </li>
-                        <li><a href = "http://editorconfig.org" target = "_blank">.editorconfig</a>: file for VSC Visual Studio Code sonciguration</li>
-                        <li>.gitignore: for listing files not tracked by git</li>
-                        <li>angular.json: configuration file for angular cli</li>
-                        <li>browserslist: ensures compatibliity of angular app with different browsers</li>
-                        <li>karma.conf.js: karma test runner config</li>
-                        <li>package-lock.json: list exect versions of dependencies</li>
-                        <li>package.json: list of dependencies</li>
-                        <li>README.md: Readme file in mark down format</li>
-                        <li>tsconfig.app.json: ts config file for compiling code</li>
-                        <li>tsconfig.json: ts compiler config</li>
-                        <li>tsconfig.spec.json: config for tests</li>
-                        <li>tsling.json: static code analysis tool used for code quality checl.</li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-
-
-
-
-
-        <div class="banner slide slide-extended" name="BindingDataInAnglular" id="slide-4">
-            <div class="slide-title">
-                Binding data in angluar
-            </div>
-            <hr>
-            Binding is allowing automatic sync between data in component and view. There can be one direction data flow, or two direction data binding. In angular there are:
             <ul class="nested-list">
-                <li>property binding</li>
-                <li>interpolation: one way variable to text in html binding</li>
-                <li>Attribute binding: in case there is no HTML propery like in aria case <code>&lt;button [attr.aria-label]="closeLabel"></code></li>
-                <li>Event binding</li>
-                <li>Two way data binding: the same as property binding + event binding used together.</li>
-            </ul>
-            <h3>Interpolation</h3>
-            <div class="note">
-                <pre>
-let someStringVariable: string = 'someString';
-&lt;p>This is someString{{someStringVariable}}&lt;/p>
-                </pre>
-                Now every time someStringVariable changes in component, view will be updated. But in case p element in view changes, someStringVariable in component will remain unchanged.
-            </div>
-
-            <h3>Property binding</h3>
-            Binds a property in component to property in HTML. Used like this <code>[binding-target]='binding-source'</code>. Binding source can be a template expression, property in component,
-            method in component or expression containing all of them. Style and class binding is a property binding, but for more information see chapter related to directives.
-            <div class="note">
-                <pre>
-        &lt;h1 [innerText] = "title">&lt;/h1>
-        &lt;button [disabled] = 'isDisabled'>X<button>
-                </pre>
-                In above example title variable is bound to innerText property, so it will show up as content of h1.
-            </div>
-
-            <h3>Event binding</h3>
-            Is a one way binding from <b>view to component</b>, so opposite direction as property or interpolation. <code>&lt;button (click)="onSave()">Save&lt;/button></code>. This
-            example ilustrates how event binding should be used.
-
-            <h3><a href="https://www.tektutorialshub.com/angular/ngmodel-two-way-data-binding-in-angular/" target="_blank">Two way biniding</a></h3>
-            This is a commination of property binding and event binding. Often a <code>ngModel</code> directive is used for this binding.
-            <code>ngModelChange</code> is a angular specyfic event, that is an output of ngModel, and is triggered every time an event occures.
-            <div class="note">
-                <pre>
-&lt;input type = "text" [value] = "name" (input)="name=&event.target.value"                    
-                </pre>
-                equals to 
-                <pre>
-&lt;input type = [(value)]='name'>
-                </pre>
-<b>Note</b>: if <i>Property ‘value’ does not exist on type ‘EventTarget’</i> occures, it means that there is no guarantee, that velue property exists on input element. In this case:
-<ul class="nested-list">
-    <li>Cast can be used <code>($any($event.target).value)</code></li>
-    <li>fullTemplateCheck in tsconfing.json can be set to true</li>
-</ul>
-<b>NOTE</b>: If this banana in the box syntax is used [()], then there needs to be a valueChange property under element. eg <code>[(somePropery)] = 'vlaue'</code>, there needs to be a 
-<code>someProperyChange</code> property under elemnt. If there is no such property, this will not work. In such case <mark>ngModel</mark> comes handy.
-<pre>
-    import { FormsModule } from '@angular/forms';
-
-    &lt;input type="text" name="value" [(ngModel)]="value">
-    &lt;p> You entered {{value}}&lt;/p>
-    &lt;button (click)="clearValue()">Clear&lt;/button>
-</pre>
-<mark>This is important, that ngModel is in <code>@angular/forms</code>, not angular core library, so it has to be imported.</mark>
-            </div>
-            <h4>ngModelChange</h4>
-            <div class="note">
-                In below case there will be 2 events triggered when input is changed in order of occurance. ngModelChange is triggered every time input changes, and JS change event 
-                will be triggered every time input loses focus.
-                <pre>
-    &lt;input [ngModel]="firstName (ngModelChange)="firstName = $event" (ngModelChange)="firstNameChanged($event)"/>
-                </pre>
-            </div>
-        </div>
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-            <div class="slide-title">
-                Services and dependency injection
-            </div>
-            <hr>
-            <a href="https://angular.io/guide/architecture-services">Link</a>
-            Components only task should be providing some kind of user experience. Calcualtions, input validations, server communication is a task
-            for services: separate classes that can be reused in other components. This approach helps avoid code redundancy.
-            To create a service:
-            <ul class="nested-list">
-                <li><code>ng create service serviceName</code>: this will create a service, in src/app</li>
-                <li>
-                    Class that is a service and should be available in components should be decorated with a <code>@Injectable(providedIn: 'root')</code> decorator.
-                    This decorator prepares class for dependency injection.
-                </li>
-                <li>
-                    <code>constructor(private service: SomeServiceClass</code>: when component constructor takes as a parameter a service, 
-                    dependency injector knows that this component uses a service and what service in uses. Then it can provide one.
-                    When Angular discoveres that a component depends on a service it checks if injector has an existing instance of that service. If 
-                    instance does not exist yet it is created with usage of <b>registered provider</b>.
-                </li>
-                <li>
-                    Register a provider. It can be registered in:
+                <li>import test utilities:
                     <ul class="nested-list">
-                        <li>service itself in <code>@Injectable</code> decorator</li>
-                        <li><code>@NgModule()</code> metadata</li>
-                        <li><code>@Component()</code> decorator metadata</li>
-                    </ul>
-                    If service is created with CLI, provider is registered in @Injectable of created service with the root injector. 
-                </li>
-            </ul>
-            <b>Registration of service and its scope</b>
-            <ul class = "nested-list">
-                <li><b>@Injectable in sevice root level</b>: <mark>the same shared service instance</mark> is available everywhere, and unneeded instances are deleted for optimization</li>
-                <li>
-                    <b>@NgModule</b>: <mark>the same instance of sercive</mark> is available in all module elements.
-                </li>
-                <li><b>@Component</b>: there is an service instance created with each new component instance.</li>
-            </ul>
-            <div class="note">
-                <b>Service example:</b>
-                <pre>
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class RandomGeneratorService {
-    constructor(private someServiceThisServiceDependsOn?: SomeServiceClass){}
-    generate(upperBound: number){
-        return Math.random(upperBound);
-    }
-}
-                </pre>
-            </div>
-        </div>
-
-
-
-        <div class="banner slide slide-extended" name="modules" id="slide-5">
-            <div class="slide-title">
-                Modules
-            </div>
-            <hr>
-            A module can be compared to a folder, or namespace. It is a way to divide a complex application into snaller pieces for readibility. There needs to be at least one module, 
-            as bootstrapping - a proces of loading NG application, is related to loading a root module. Then there are more modules. Most commonly each 'page' should be a module. This 
-            packages are sometimes called <i>features.</i> If a page is too big, it needs to be devided into submodules.</br>
-            Angular itself consists of modules such as:
-            <ul class="nested-list">
-                <li><a href="https://angular.io/api/core#ngmodules">ApplicationModule</a> from @angular/core library configurating the root injector for app.</li>
-                <li>
-                    <a href="https://angular.io/api/platform-browser">BrowserModule, BrowserTransferStateModule, HammerModule</a> from @angular/plafgorm-browser library. All are related to 
-                    angular support for different browsers
-                </li>
-                <li><a href="">https://angular.io/api/platform-server">ServerModule and ServerTransferModule</a> that is a ng module for server</li>
-                <li><a href="https://angular.io/api/forms/FormsModule">FormsModule</a> from @angular/forms library, for making template-driven forms</li>
-                <li><a href="https://angular.io/api/router/RouterModule">RouterModule</a> from @angular/router for lazy page loading using async.</li>
-            </ul>
-            Module consolidate components, diractives and pipes into functional blocks. <code>@NgModule</code> is a decorator taking:
-            <ul class="nested-list">
-                <li><code>declarations[]</code>: an array of pipes, directives and components that are part of current module, and that are needed to be available to other components, directives
-                and pipes of current component. If something is not included in this array, then it will be not visible in current module</li>
-                <li><code>imports[]</code>: is an array of other modules that will be used inside current module.</li>
-                <li><code>providers[]</code>: is an array of services that will be used in this module. It needs to be treated separately, because dependencies are injected</li>
-                <li><code>bootstrap[]</code>: array of components to be loaded while component is loading</li>
-            </ul>
-        </div>
-
-
-
-        <div class="banner slide slide-extended" name="components" id="slide-6">
-            <div class="slide-title">
-                <a href="https://angular.io/api/core/Component">Components</a>
-            </div>
-            <hr>
-            A component is a piece of web application havnig its own view, logic and styling. In angluar component has a HTML template, styling file and a class written in TypeScript. 
-            Some components have their services: additional classes with reusable logical services. For example communication with server shoud be done with service, as this feature 
-            would be used in other classes and it putting it into class with comonent would deny single responsibility principle.
-            A component is a js module, so it is a separate file importing angular libraries, exporting a class and is decorated with a <code>@Component</code> function taking: selector, template, styling and dependencies
-            as arguments.
-            <ul class="nested-list">
-                <li><code>templateURL</code>: path to HTML template file.</li>
-                <li><code>styoeURLs</code>: array of styoe sheets.</li>
-                <li><code>selector</code>: tells angular where to put a component. Is a css selector angular will look for.</li>
-                <li><code>template</code>: in stead for templateURL, is a string HTML template></li>
-            </ul>
-            <div class="note">
-                <pre>
-            import { Component } from '@angular/core';
-
-            @Component({
-                selector: 'app',                    // HTML  tag, where component will be injected
-                template: '&lt;h1>{{title}}&lt;',   // this can be substituted with templateURI
-                style: 'h1{color: blue;}'           // styleURI
-                entryComponents: [] // an array of components to be compiled along with this component
-                // There are a lot more: https://angular.io/api/core/Component
-            })
-                </pre>
-            </div>
-        </div>
-
-
-
-
-        <div class="banner slide slide-extended" name="nestedComponents" id="slide-7">
-            <div class="slide-title">
-                Nested components
-            </div>
-            <hr>
-        </div>
-
-
-
-
-        <div class="banner slide slide-extended" name="Directives" id="slide-8">
-            <div class="slide-title">
-                Directives
-            </div>
-            <hr>
-            A directive is a sort of angular specific attribute, that is a part of HTML template. Its task is to manipulate DOM (change appeariance or behavior, or even add HTML elemens)
-            <ul class = "nested-list">
-                <li>Component directives
-                    <ul>
-                        <li>Directives containing a template (have their own view)</li>
-                        <li></li>
+                        <li><code>import {async, ComponentFixture, TestBed, inject, tick, fakeAsync} from '@angular/core/testing'</code></li>
+                        <li><code>import {DebugElement} from '@angular/core'</code></li>
+                        <li><code>import {By} from '@angular/platform/browser'</code></li>
+                        <li>import tested element</li>
                     </ul>
                 </li>
-                <li>Structural directives
-                    <ul>
-                        <li>Can change DOM layout by adding or removing elements.</li>
-                        <li>Start with an asterix <quote>*</quote></li>
-                        <li>
-                            <code>*ngFor</code> can add elements using list that is defined in TS component.
-                            <div class="note">
-<pre>
-    &lt;tr *ngFor="let car of cars">
-        &lt;td>{{car.nrOfSeets}}&lt;/td>
-        &lt;td>{{car.horsePower}}&lt;/td>
-        &lt;td>{{car.has4WD}}&lt;/td>
-    &lt;/tr>
-</pre>
-This will put a row in table for every car in car list.     
-                            </div>
-                        </li>
-                        <li>
-                            <code>*ngSwitch</code> 
-                            choses one <b>or more</b> components depending on variable content. Bounded to <code>*ngSwitchCase</code> and <code>*ngSwitchDefault</code>
-                        </li>
-                        <li>
-                            <code>*ngIf</code> Html element having this directive renders if condition is met                          
-                        </li>
+                <li>Describe tested element
+                    <ul class="nested-list">
+                        <li>Fixture: test enviorement for tested element</li>
                     </ul>
                 </li>
-                <li>Attribute directives
-                    <ul>
-
-                    </ul>
-                </li>
-            </ul>
-
-        <h3><a href="https://www.tektutorialshub.com/angular/angular-ngswitch-directive/">*ngSwitch</a></h3>
-        <div class="note">
-            <ul class="nested-list">
-                <li>Structural directive</li>
-                <li>Bound to expression, so if expression somewhere in class will change elements will be rerendered</li>
-                <li><code>*ngSwitchCase</code> is should be used only in element tested in ngSwitch element</li>
-                <li>Each element with ngSwitchCase matching expression will be added to DOM, not only first one</li>
-                <li><code>ngSwitchDefault</code> element is rendered only if none of ngSwitchCase elements are matched</li>
-                <li>There can be more than one ngSwitchDefault elements. If nonoe ngSwitchCase is matched tan all ngSwitchDefault will be added</li>
-                <li>ngSwitchDefault can be anywhere in ngSwitch block, does not have to be at the bottom</li>
-                <li>There can be elements inside ngSwitch statement without any of ngSwitchCase or ngSwitchDefault directives. In such case they are displayed normally.</li>
-                <li>Empty string as an expression is 0</li>
-                <li><code>ngTemplateOutlet</code> is a directive that places <code>ng-template</code> instead of <code>ng-container</code> having a ngTemplateOutlet directive (example below)</li>
-            </ul>
-    <pre>
-        &lt;div [ngSwitch]="someExpression">
-            &lt;div *ngSwitchCase="matchExpression1">someTemplate&lt;/div>
-            &lt;div *ngSwitchCase="matchExpression2">someOtherTemplate&lt;/div>
-            &lt;div *ngSwitchDefault="lastExpression">finalExpression&lt;/div>
-        &lt;/div>
-    </pre>    
-    
-    <h3>ngTemplateOutlet</h3>
-    <pre>
-&lt;ng-container [ngSwitch]="selectedValue4"> 
-&lt;ng-container *ngSwitchCase="'One'">
-    &lt;ng-container *ngTemplateOutlet="sharedTemplate12">&lt;/ng-container>
-&lt;/ng-container>
-&lt;ng-container *ngSwitchCase="'Two'">
-    &lt;ng-container *ngTemplateOutlet="sharedTemplate12">&lt;/ng-container>
-&lt;/ng-container>
-&lt;ng-container *ngSwitchCase="'Three'">
-    &lt;ng-container *ngTemplateOutlet="sharedTemplate34">&lt;/ng-container>
-&lt;/ng-container>
-&lt;ng-container *ngSwitchCase="'Four'">
-    &lt;ng-container *ngTemplateOutlet="sharedTemplate34">&lt;/ng-container>
-&lt;/ng-container>
-&lt;ng-template #sharedTemplate12>Shared between 1,2&lt;/ng-template>
-&lt;ng-template #sharedTemplate34>Shared between 3,4&lt;/ng-template>
-&lt;ng-container *ngSwitchDefault>Default Template&lt;/ng-container>
-/ng-container>
-    </pre>
+                <li>beforeEach: set a TestBed for each spec file</li>
+                <li>write test and <code>ng test</code></li>
+                <li><code>ng test --no-watch --code-coverage</code>, can be puttet to angular.json for generating this reports every time</li>
+           </ul>
         </div>
 
-        <h3>*ngIf</h3>
-        <div class="note">
-            <ul class="nested-list">
-                <li>Renders only if condition is true</li>
-                <li>Structural directive</li>
-                <li>ngIf != [hidden] = 'condition', because ngIf removes element from dom, it does not hide it.</li>
-                <li>Is boud to condition variable, so if variable changes from false to true elent should appear, and if statement changes to false then element will be removed.</li>
-                <li>else statemet can be simulated with negation <code>*ngIf = "!condition"</code>, but cleaner way is to use 'else' block like in example below.</li>
-            </ul>
-<pre>
-    &lt;div *ngIf="someCondition">
-        This div will be rendered only if someCondition is met
-    &lt;div>
-</pre>
-<b>else block</b>
-<pre>
-    &lt;div *ngIf="condition; else elseBlock">
-        content to render, when the condition is true 
-    &lt;/div>
+
+
         
-    &lt;ng-template #elseBlock>
-        content to render, when the condition is false 
-    &lt;/ng-template>}}
-</pre>
-<code>ng-template</code> can be used anywhere in code, but good to place after if directive for readibility. Will not render if condition is false.
-There is a possibility to use if then else statement:
-<pre>
-    &lt;p *ngIf="showMe; then thenBlock2 else elseBlock2">
-        This is not rendered
-    &lt;/p>
-    
-    &lt;ng-template #thenBlock2>
-        &lt;p>ShowMe is checked Using thenblock</p>
-    &lt;/ng-template>
-    
-    &lt;ng-template #elseBlock2>
-        &lt;p>ShowMe is unchecked Using elseBlock</p>
-    &lt;/ng-template>
-</pre>
-
-<h3><a href="https://www.tektutorialshub.com/angular/angular-ngclass-directive/">ngClass</a></h3>
-    Used to add or remove classes from element.
-    <ul class="nested-class">
-        <li>
-            <code><element [ngClass]="'cssClass1 cssClass2'">...</element></code> 
-            this will evaluate expression (in this case 'cssClass1 and cssClass2' so not too much to evaluate), and add classes from evaluated expression.
-        </li>
-        <li>
-            <code><element ngClass="cssClass1 cssClass2">...</element></code> 
-            This adds classes to element without evaluation
-        </li>
-        <li>
-            <code><element [ngClass]="['cssClass1', 'cssClass2']">...</element></code>
-            This does the same as first example, binds expression to calss, but with array.
-        </li>
-        <li><code><element [ngClass]="{'cssClass1': true, 'cssClass2': true}">...</element></code> This adds classes with true value, and removes classes with false value</li>
-        <li><code>let someString = 'class1 class2', &lt;element [ngClass]=someString></code> This will bind a string to class, and each time string changes classes in DOM will be updated</li>
-        <li>
-            <code>let someArray = ['class1', 'class2'], &lt;element [ngClass]=someArray></code>
-            This will bind someArray to element class attribute, and each time someArray is changed class attribute is updated
-        </li>
-        <li>
-            <code>class CssClass {red: boolean= true; size20: boolean: true;}; cssClass: CssClass = new CssClass(); &lt;div [ngClass]=cssClass</code>
-            In this case if classes in cssClass change class attribute in DOM will also change.
-        </li>
-
-    </ul>
-        </div>  
-<h3><a href = "https://www.tektutorialshub.com/angular/angular-ngstyle-directive/" target = "_blank">ngStyle</a></h3>
-        Modifies elements style
-        <ul class="nested-class">
-            <li>
-                <code>&lt;element [ngStyle]="{'font-size': '20px'}</code> binds stlye to expression, and that expression in this case is constatn, so noting will be reevaluated
-            </li>
-            <li>
-                <code>let size = '20px'; &lt;element [ngStyle]="{font-size': size}</code> in this case font size of element is bound to size variable, so it will change as often as 
-                size variable changes.
-            </li>
-            <li><code>let size = 20; &lt;element [ngStlye]="{'font-size.px': size}"</code> this binds font size of element to size variable. Here size is a number and size will be in pixels.</li>
-            <li>Style can be bound to a controller class, and every time styling in that class chages, element styling will also change (see below)</li>
-        </ul>
-        <div class="note">
-            <pre>
-class StyleClass {
-    'color': string = 'red';
-    'font-size.rem': number: 1.2;
-}
-someStyling: StyleClass = new StyleClass();
-&lt;div [ngStyle] = "someStyling">
-            </pre>
-            Every time someting in someStyling changes, element style will also change.
-        </div>
-
-        <h3><a href = "https://www.tektutorialshub.com/angular/angular-track-by-to-improve-ngfor-performance/" target="_blank">*ngFor</a></h3>
-        This will iterate through a TS list and insert element to DOM for every elemetn in the list. However every time something little changes in this list whole list will have to be 
-        rerendered. To manipulate elements in DOM that changed, and leave rest there should be a sort of unique ID to track those elements (like in react). For this there is a <code>trackedBy</code>
-        keyword
-        <div class="note">
-            <pre>
-trackByFn(index, item) {
-    return item.title;
-}
-
-&lt;ul>
-    &lt;li *ngFor="let movie of movies; let i=index;trackBy: trackByFn;">
-        {{i}}. {{ movie.title }} - {{movie.director}} &lt;button (click)="remove(i)">remove&lt;/button>
-    &lt;/li>
-&lt;/ul>               
-            </pre>
-        </div>
-        <h3>ngModel</h3>
-        <div class="note">
-            This directive is used for 2 way binding. If it is used then angular sets property binding and event binding at the same time.
-        </div>
-    </div>
-
-
-
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-            <div class="slide-title">
-                Pipes
-            </div>
-            <hr>
-        </div>
-
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-            <div class="slide-title">
-                Custom directives
-            </div>
-            <hr>
-        </div>
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-            <div class="slide-title">
-                Custom pipes
-            </div>
-            <hr>
-        </div>
-
-
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-            <div class="slide-title">
-                Lazy loading
-            </div>
-            <hr>
-        </div>
-
-
-
-        <div class="banner slide slide-extended" name="types" id="slide-4">
-                <div class="slide-title">
-                    Communication between components
-                </div>
-                <hr>
+        <div class="banner slide slide-extended" name="Installation" id="slide-4">
+                <a href="#">
+                    <div class="slide-title">
+                        Test suite structure
+                    </div>
+                </a>
+                <hr> 
                 <ul class="nested-list">
-                    <li>
-                        <a href="https://medium.com/@mirokoczka/3-ways-to-communicate-between-angular-components-a1e3f3304ecb">Reference</a>
-                        <p>Component using other component has a reference to it. Eg in case of toggied side menu a button toggling menu would have a reference to side menu
-                        </p>
+                    <li>Each test starts with import statements</li>
+                    <li><code>describe</code> is a function runnig test suite. Each describe is one test suite. Takes test suite name and callback</li>
+                    <li>In describe there are functions that should be called:
+                        <ul class="nested-list">
+                            <li><code>beforeEach(cb)</code> is a test setup. Here classes can be instantialized</li>
+                            <li><code>afterEach(cb)</code> is theardown</li>
+                            <li><code>it(name, cb)</code> is a test case. It can be nested in other 'it' functions.
+                                <ul class="nested-list">
+                                    <li><code>expect(statement).matcher</code> is a function for a single test step. Below list of matchers:
+                                        <ul class="nested-list">
+                                            <li><code>toBe()</code> like === operator. Works for primitives, as it does not look inside nested parameters of objects</li>
+                                            <li><code>toEqual()</code> Looks deeply into object and compares objects</li>
+                                            <li><code>toMatch()</code> for RegExp</li>
+                                            <li><code>toBeDefined()</code> checks if value is defined</li>
+                                            <li><code>toBeUndefined()</code></li>
+                                            <li><code>toBeNull()</code></li>
+                                            <li><code>toBeTruthy(), toBeFalsy()</code> Casts expression to boolean and checks if casted expresion is true, false.
+                                                For expample <code>.toBe(true)</code> will only check if expressoin evaluates to true value, and lets say '1' is not true, so 
+                                                test will fail. In case of expect(1).toBeTruthy() test by spasował.
+                                            </li>
+                                            <li><code>toContain()</code> checks if array contains element</li>
+                                            <li><code>toBeLessThan(), toBeGreaterThen()</code></li>
+                                            <li><code>toBeCloseTo()</code> for example for PI checking. expect(Math.PI).toBeCloseTo(3)</li>
+                                            <li><code>toThrow()</code> if expression throws an error</li>
+                                            <li>Matchers can be customized</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code>xit()</code> is for suspending tests</li>
+                            <li><code>pendint(); is a function for suspendint test case. Just like xit(). Should be passed inside it block</code></li>
+                        </ul>
                     </li>
-                    <li>Through a parent component</li>
-                    <li>Through a service</li>
+                    <li><code>xdescribe()</code> is for suspending test suite</li>
                 </ul>
-                    <h3><a href="https://angular.io/guide/inputs-outputs">Using parent chid communication</a></h3>
-                    <p>
-                        <code>@input()</code> decorator (import {Input} from @angular/core) can be used for communication from parent to chid:
-                        <div class="note">
-                        <h4>in chid component</h4>
-                            <pre>
-import { Component, Input } from '@angular/core'; // First, import Input
-export class ItemDetailComponent {
-    @Input() item = ''; // decorate the property with @Input()
-}
-                            </pre>
-                            chid components template is 
-                            <pre>
-&lt;p>
-    Today's item: {{item}}
-&lt;/p>                               
-                            </pre>
-                            <h4>parent element will have:</h4>
-                            <pre>
-export class AppComponent {
-    currentItem = 'Television';
-}                                
-                            </pre>
-                            and its template whould include child component with a property binding:
-<pre>
-    &lt;app-item-detail [item]="currentItem">&lt;/app-item-detail>
-</pre>                            
-                        </div>
-                    </p>
-                <code>@output()</code> decorator (imprt {Input, EventEmitter} from @angular/core) can be used for comunication chid to parent with help of event.
-                <div class="note">
-                    <h4>Child component configuration:</h4>
-                    <pre>
-import { Output, EventEmitter } from '@angular/core';                        
-@Output() newItemEvent = new EventEmitter&lt;string>();
-
-addNewItem(value: string) {
-    this.newItemEvent.emit(value);
-  }
-                    </pre>
-                    EventEmitter&lt;string>() tells Angular, to create a new event emitter and that data it emits is of string type.
-                    Now template:
-                    <pre>
-&lt;label for="item-input">Add an item:&lt;/label>
-&lt;input type="text" id="item-input" #newItem>
-&lt;button (click)="addNewItem(newItem.value)">Add to parent's list&lt;/button>  
-                    </pre>
-                    #newItem is a template reference vairable. So on click event will be triggered and value passed with this event will be taken from input named #newItem
-                    <h4>Parent configuration</h4>
-                    <pre>
-export class AppComponent {
-    items = ['item1', 'item2', 'item3', 'item4'];
-    
-    addItem(newItem: string) {
-        this.items.push(newItem);
-    }
-    }
-                    </pre>
-                    Now a part of parents template. This event binding binds newItemEvent in child to addItem() function of parent.
-                    <pre>
-    &lt;app-item-output (newItemEvent)="addItem($event)">&lt;/app-item-output>
-                    </pre>
-
-                </div>
-            </div>
+        </div>
 
 
 
 
-
-            <div class="banner slide slide-extended" name="types" id="slide-4">
+        <div class="banner slide slide-extended" name="Installation" id="slide-">
+                <a href="#">
                     <div class="slide-title">
-                        Dummy slide
+                        Title
                     </div>
-                    <hr>
-                </div>
+                </a>
+                <hr> 
+        </div>
 
 
 
 
-
-            <div class="banner slide slide-extended" name="Dictionary" id="slide-1A">
+        <div class="banner slide slide-extended" name="Installation" id="slide-">
+                <a href="#">
                     <div class="slide-title">
-                        Dictionary
+                        Title
                     </div>
-                    <hr>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Phrase</th>
-                                <th>Meaning</th>
-                                <th>Example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    @ViewChild({selector, read, static})
-                                </td>
-                                <td>
-                                    Decorator used for referencing any element included in current components template (elements owned by 
-                                    children of current component or by parent cannot be referenced this way). It is similar to #someReferenceName
-                                    usage. Directives or services can be referenced this way as well.
-                                </td>
-                                <td>
-                                    <a href="https://blog.angular-university.io/angular-viewchild/">Link</a>
-                                    <pre>
-@ViewChid(ColorSampleComponent)
-primarySampleComponent: ColorSampleComponent;
-Now primarySampleComopnent has reference to 
-instance of ColorSampleComponent
-                                    </pre>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                </a>
+                <hr> 
+        </div>
 
 
 
-        <div class="banner slide slide-extended" name="loseRemarks" id="slide-4">
+
+        <div class="banner slide slide-extended" name="Installation" id="slide-">
+                <a href="#">
+                    <div class="slide-title">
+                        Title
+                    </div>
+                </a>
+                <hr> 
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
             <div class="slide-title">
-                Lose remarks
+                Dictionary:
             </div>
             <hr>
-            <div class="note">
-                <code>:host</code> selector can be used to reference component as a whole in css
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Meaning</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>TestBed</code></td>
+                        <td>Angular module responsible for tests</td>
+                        <td>
+                            <code>TestBed.configureTestingModule()</code>
+                            <code>TestBed.createComponent()</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>compileComponents()</code></td>
+                        <td>compile template and css. Not needed</td>
+                        <td>TestBed.configureTestingModule().compileComponents()</td>
+                    </tr>
+                    <tr>
+                        <td><b>Karma</b></td>
+                        <td>Test runner, oppening a server for tests and able to automaicly lauch all listed browsers. Runs on 9876 by defoult</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+
+
+
 
 
         <div class="banner-neg slide slide-blue" name="title-slide" id="slide-99">
@@ -1738,3 +1195,45 @@ instance of ColorSampleComponent
 </body>
 
 </html>
+
+
+
+
+<!-- <ul>
+    <li>
+        <span class="expand-all">
+            <b>Types</b>
+        </span>
+        <ul class="main show">
+            <li class = "expandable"><b> Any</b></li>
+            <li class = "expandable">
+                <b>Build-in types</b>
+                <ul class="subobject hidden">
+                    <li class = "expandable"><b>Number</b></li>
+                    <li><b>String</b></li>
+                    <li><b>Boolean</b></li>
+                    <li><b>Void</b></li>
+                    <li><b>Null</b></li>
+                    <li><b>Undefined</b></li>
+                </ul>
+            </li>
+            <li class = "expandable">
+                <b>User defined types</b>
+                <ul class="subobject hidden">
+                    <li><b>Interfaces</b></li>
+                    <li><b>Classes</b></li>
+                    <li><b>Arrays: arr<string> of arr[:string]</b> </li>
+                    <li><b>Enumerations</b></li>
+                    <li><b>Tuples: [string, number]</b></li>
+                    <li><b>Unions: |</b></li>
+                    <li><b>Insertion types</b></li>
+                    <li>Objects</li>
+                </ul>
+                <ul>
+                    <li>element</li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+</ul> -->
