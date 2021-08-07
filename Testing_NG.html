@@ -957,6 +957,7 @@
                 <li>Testing tools in NG</li>
                 <li>Step by step</li>
                 <li>Test Suite structure</li>
+                <li>Testing UI</li>
                 <li>Dictionary</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
@@ -1072,10 +1073,105 @@
         <div class="banner slide slide-extended" name="Installation" id="slide-">
                 <a href="#">
                     <div class="slide-title">
-                        Title
+                        Testing UI
                     </div>
                 </a>
                 <hr> 
+                <h3>Simplest way of creating element for test</h3>
+                <div class="note">
+<pre>
+    it('should do something after button clicked', ()=>{
+        cosnt component = new myComponent();  // no dependencies
+        const myElement = component.nativeElement.querySelector('.myClass');
+        myElement.click();
+        expect(myElement.innerHTML).toContain('some text');
+        expect(myElement.textContent).toContain('some text')
+    })
+</pre>
+In above case component is created in simpliest way: with new keyword. Some element from DOM is found with a .nativeElement. 
+In more complex examples this might not work. See below.
+                </div>
+
+                <h3>Using TestBed to create component instance:</h3>
+<div class="note">
+    If a component has dependencies, better way is to use TestBed, configure it, and inject all dependencies. Example is from
+    <a href="https://angular.io/guide/testing-components-basics" target="_blank">this source.</a>
+<pre>
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+          // provide the component-under-test and dependent service
+          providers: [
+            WelcomeComponent,
+            { provide: UserService, useClass: MockUserService }
+          ]
+        });
+        // inject both the component and the dependent service.
+        comp = TestBed.inject(WelcomeComponent);
+        userService = TestBed.inject(UserService);
+      }); 
+
+      describe('BannerComponent (minimal)', () => {
+        it('should create', () => {
+          TestBed.configureTestingModule({declarations: [BannerComponent]});
+          const fixture = TestBed.createComponent(BannerComponent);
+          const component = fixture.componentInstance;
+          expect(component).toBeDefined();
+        });
+      });
+</pre>    
+
+Note: After running <code>TestBed.createComponet</code>, no configuration shell be done on TestBed, or errors will osccure.
+</div>
+
+<h3>ComponentFixture</h3>
+<div class="note">
+    ComponentFixture is used for referencing component created for tests:
+<pre>
+    const component = fixture.comonentInstance;
+    expect(coponent).toBeDefined();
+</pre>
+</div>
+<h3>nativeElement</h3>
+Normally nativeElement is used to refer to DOM native elements. It has a type of any, as it is not possible to tell what the type of component will be.
+Application may be run in a non browser enviorement, on server or in WebWorker, where componet might not have a full API or may not exist at all.
+In this cases it is always safer to use <b>DebugElement.nativeElement</b> to get desired element.
+<div class="note">
+    <h4>nativeElement without DebugElement</h4>
+    <pre>
+        it('should have <p> with "banner works!"', () => {
+            const bannerElement: HTMLElement = fixture.nativeElement;
+            const p = bannerElement.querySelector('p')!;
+            expect(p.textContent).toEqual('banner works!');
+          });       
+    </pre>
+    <h4>nativeEleemnt with DegugElement</h4>
+<pre>
+    it('should find the <p> with fixture.debugElement.nativeElement)', () => {
+        const bannerDe: DebugElement = fixture.debugElement;
+        const bannerEl: HTMLElement = bannerDe.nativeElement;
+        const p = bannerEl.querySelector('p')!;
+        expect(p.textContent).toEqual('banner works!');
+      });
+</pre>    
+<mark>imort {DebugElement} from '@angular/core'</mark>
+</div>
+<h3>By.css('selector')</h3>
+Because some tests may be written for non browser environment (eg. a server, where code may be precompiled), there is a method
+used to get to desired elemetn withoug querySelector, that migh fail on such enviorement.
+<div class="note">
+    <pre>
+        it('should find the <p> with fixture.debugElement.query(By.css)', () => {
+            const bannerDe: DebugElement = fixture.debugElement;
+            const paragraphDe = bannerDe.query(By.css('p'));
+            const p: HTMLElement = paragraphDe.nativeElement;
+            expect(p.textContent).toEqual('banner works!');
+          });        
+    </pre>
+</div>
+
+
+
+
         </div>
 
 
