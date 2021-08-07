@@ -1188,6 +1188,149 @@ let someStringVariable: string = 'someString';
             <a href="https://indepth.dev/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error">Expression has changed after it was checked error - more</a>
 
             Order of operations during change detection is crutial.
+            <h3><a href = "https://indepth.dev/posts/1053/everything-you-need-to-know-about-change-detection-in-angular" target="_blank">View</a></h3>
+            View is a fundamental buidling block of the application UI. It si the smallest grouping of elements that are created and destroyed together. properties
+            of elements in view cna change, but structore (number or order of elements) cannot. Changing the structure of elements can be done with inserting,
+            moving or removing nested views via ViewContainerRef. Each view can contain many view containers.
+            View is tightly bounded to component in angular. <br>
+            Each view has a state. Based on this state angular takes decision if change detection of element and its children should be done or
+            skipped. There are 4 important states of view, based on this states angular takes decision if it should make change detetction:
+            <ul>
+                <li><code>FirstCheck</code>: </li>
+                <li><code>ChecksEnabled</code>: If it set to false, change detection is skipped</li>
+                <li><code>Errored</code>: If view is it this state change detection is skipped</li>
+                <li><code>Destroyed</code>: If view is in this state, change detection is skipped</li>
+            </ul>
+            By default <code>ChecksEnabled</code> is set to true, unless <code>ChengeDetectionStrategy.OnPush</code> is used. States can be combined.
+            <h3>Change detection operations:</h3>
+            <ol>
+                <li>set <code>ViewState.firstCheck</code> to true of a view is checked for the first time, and false if it was already checked before</li>
+                <li>Update bound properties for all chid components/directives</li>
+                <li>Update chid view change detection state</li>
+                <li>Run change detection for the embedded views (repeats steps in the list)</li>
+                <li>Calls <code>OnChange</code> lifecycle hook on child components if bindings changed</li>
+                <li>Calls <code>OnInit</code> and <code>ngDoCheck</code> on a chid component. <code>OnInit</code> is launched only during first check</li>
+                <li>Updates <code>ContentChildren</code> query list on a child view component instance</li>
+                <li>Calls <code>AfterContentInit</code> and <code>AfterContentChecked</code> lifecycle-hooks on child component instance. <code>AfterContentInit</code> is called only furing first check</li>
+                <!-- <li>call <code>ngOnInit</code>, <code>OnChanges</code>, <code>ngDoCheck</code> lifecycle hooks on all child components/directives</li> -->
+                <li>Update DOM for current view, if properties on current viwe component instance changed</li>
+                <li>run chage detection for a child components. Repeats steps from the list</li>
+                <li>Update <code>ViewChildren</code> query list on the current view component instance</li>
+                <li>call <code>ngAfterViewInit</code> and <code>AfterViewChecked</code> lifecycle hooks for all child components/directives
+                    <code>AfterVIewInint</code> is called only during first check.
+                </li>
+                <li>Disables checks for the current view.</li>
+            </ol>
+            <b>Important</b>
+            <ul>
+                <li><code>onChanges</code> is triggered on a child component before chid view is checked, and will be performed, even if chenged detection for child view will be skipped.
+                    This is done however <mark>only</mark> for most top element of the tree, so chideren of element having ChecksEnabled == false will not have 
+                    onChanges triggered.
+                </li>
+
+            </ul>
+
+            <b>Order of hooks triggered on A->B->C components:</b>
+            <ul>
+                <li>A: AfterContentInit</li>
+                <li>A: AfterContentChecked</li>
+                <li>A: Update bindings</li>
+                <ul>
+                    <li>B: AfterContentInit</li>
+                    <li>B: AfterContentChecked</li>
+                    <li>B: Update bindings</li>
+                    <ul>
+                        <li>C: AfterContentInit</li>
+                        <li>C: AfterContentChecked</li>
+                        <li>C: Update bindings</li>
+                        <li>C: AfterViewInit</li>
+                        <li>C: AfterViewChecked</li>
+                    </ul>
+                    <li>B: AfterViewInit</li>
+                    <li>B: AfterViewChecked</li>
+                </ul>
+                <li>A: AfterViewInit</li>
+                <li>A: AfterVIewChecked</li>
+            </ul>
+            <h3>Controlling change check</h3>
+            States of component view can be controlled with an api:
+            <div class="note">
+                <pre>
+@Component({
+    selector: 'a-comp, 
+    template: '&lt;span, {{changed}}&lt;/span>''
+})                    
+export class AComponent {
+    changed: boolean;
+    constructor(public cd: ChangeDetectorRef) {
+        this.changed = 'false'
+    }
+
+    setTimeout(() => {
+        this.cd.detach();
+        this.changed = 'true'
+    }, 2000)
+}
+                </pre>
+            A proper way to pass ChangeDetectorRef to a component and use api
+            </div>
+            <ul>
+                <li>
+                    <code>detach()</code> method turns change detection off by setting ChangeEnabled to false
+                    <b>note: </b>OnChange hook wil run only for most top component in subtree.
+                </li>
+                <li><code>reattach()</code> method turns change deteciton back on. 
+                <b>note</b> This is useful only for most top component. So if we use it on some component, but its parent 
+                has CheckEnabled set to false, this method will have no effect.
+                </li>
+                <li><code>markForCheck</code> This will enable checks in all parent components of component, it was lauched for.</li>
+                <li><code>detectChanges</code> This makes change detection run only once for current component and its children.
+                It will run check detection regardless components state (however I am not sure if it will run regardles parent component states)</li>
+                <li><code>checkNoChanges</code>: this method checks if there were changes made to a component, and if there were any changes, 
+                it does not update DOM, but instead it throws an excepion.</li>
+            </ul>
+            <h3>ExpressionChangedAfterItHasBeenCheckedError</h3>
+            There is an oldValues property, that stores all values used to perform change detection and view update. 
+            After change detection operation (described above), only in developement angular mode, there is a next check run, that ensures if:
+            <ul>
+                <li>values passed to the child components are the same as the values that would be used to update properties of these comonents now</li>
+                <li>values used to update DOM elements are the same as the values that would be used to update these elements now</li>
+                <li>checks are done for child elements.</li>
+            </ul>
+            If values are different, there will be an error: ExpressionChangedAfterItHasBeenCheckedError.
+            This means, that application state is not stable. View modifiactions could not last until state is stable, as 
+            this scenario is likely to never happen. Infnite loop is possible.
+            <div class="note">
+                If update happens in OnInit hook, there will be no error, as this hook launches before update. However if a change occures 
+                in eg. ngAfterViewInit() hook, there will be an error.<br>
+                Another case would be a child component wanting to update parent properties. As child views are updated after
+                parent view, there will be an error.
+            </div>
+            This error is likely to occure if:
+            <ul>
+                <li>Not proper lifecycle hooks are used</li>
+                <li>There is a shared service between child and a parent, and child updates services state, and service then updates parent</li>
+                <li>Synchronous event broadcasting. If event synchronously changes parent property, and this parent property is 
+                    used to update some child component (this may be a sibling to component initiating event)
+                </li>
+                <li>Dynamic component insertion: if a component is added to a parent in ngAfterViewInit, then this would cause view modifiacation
+                    after changes are done, and error will appear
+                </li>
+            </ul>
+            <h3>Possible fixes of ExpressionChangedAfterItHasBeenCheckedError</h3>
+            <ul>
+                <li>
+                    Change detection hook to create a dynamic component.
+                </li>
+                <li>Asynchronously update view on events. Can be done with <code>setTimeout(()->{do change})</code>. No second 
+                argument passed. This setTimeout launches callback asynchronously.</li>
+                <li>Force change detection between first verificatoin phase, and second verification phase. Best place is in 
+                    <code>ngAfterViewInit</code>
+                </li>
+            </ul>
+            <mark>If this error is not handeled in a proper way, view might not be updated when it is expected.</mark>
+
+
         </div>
 
 
