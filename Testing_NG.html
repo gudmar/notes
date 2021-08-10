@@ -998,6 +998,14 @@
                 </div>
             </a>
             <hr> 
+            <mark><h2>Remember what you are testing</h2></mark>
+            <ul class="nested-list">
+                <li>A component has not too much to test. Just see if bindings display all right</li>
+                <li>A directive, better to test with a dummy component. Test only this directive</li>
+                <li>Service: test only service</li>
+                <li>Component with dependencies: mock and stub dependencies. Do not use original, as this are only unit tests, and original services can cause trouble.</li>
+                <li>E2e tests are for everything. Do not forget this.</li>
+            </ul>
             <ul class="nested-list">
                 <li>import test utilities:
                     <ul class="nested-list">
@@ -1023,6 +1031,7 @@
                <li><code>fixture.detectChanges();</code> No binidnig is done in test mode automaticly. To lauch change detector and let internal component state be visible in browser, this has to 
             be launched</li>
                 <li><code>fixture.componentInstance.someProperty = someValue</code> This gives access to all tested object properties. No access to nested components! After this fixture.detectChanges needs to be run.</li>
+                <li><code>fixture.nativeElement.ownerDocument</code> This gives access to root DOM element in test environment! So from there test body can be found, events attached to document etc..</li>
                 <li><code>const hostElement: HTMLElement = fixture.nativeElement</code> Access to host !</li>
                 <li>It is usefull to write a wrapping component for tested component, or a mock component in case a directive is tested.</li>
                 <li><code>import {ComponentFixtureAutoDetect} from '@angular/core/testing'</code> and in TestBed configuration providers add <code>provide: ComponentFixtureAutoDetect, useValue: true</code>
