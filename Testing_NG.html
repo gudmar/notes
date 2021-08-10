@@ -981,6 +981,7 @@
                         <li><code>test.ts</code> Initialization file for jasmine tests in Angular. Tests are 
                         ran every file change. This file does not need to be modified</li>
                         <li><code>*.spec.ts</code>: Files, where jasmine tests are implemented for every directive, pipe, component or service</li>
+                        <li><code>/src/karma.comf.js</code>: a configuration file for unit tests. Eg browser can be chosen. </li>
                     </ul>
                 </li>
             </ul>
@@ -1014,6 +1015,37 @@
                 <li>beforeEach: set a TestBed for each spec file</li>
                 <li>write test and <code>ng test</code></li>
                 <li><code>ng test --no-watch --code-coverage</code>, can be puttet to angular.json for generating this reports every time</li>
+           </ul>
+           <h3>Testing a component</h3>
+           <ul>
+               <li><code>await TestBed.configureTestingModule({declarations: [modules, directives]}).compileComponents()</code> to configure TestBed api</li>
+               <li><code>fixture = TestBed.createComponent(SomeComponent);</code> for createing component. After this no configuration can be done to TestBed</li>
+               <li><code>fixture.detectChanges();</code> No binidnig is done in test mode automaticly. To lauch change detector and let internal component state be visible in browser, this has to 
+            be launched</li>
+                <li><code>fixture.componentInstance.someProperty = someValue</code> This gives access to all tested object properties. No access to nested components! After this fixture.detectChanges needs to be run.</li>
+                <li><code>const hostElement: HTMLElement = fixture.nativeElement</code> Access to host !</li>
+                <li>It is usefull to write a wrapping component for tested component, or a mock component in case a directive is tested.</li>
+                <li><code>import {ComponentFixtureAutoDetect} from '@angular/core/testing'</code> and in TestBed configuration providers add <code>provide: ComponentFixtureAutoDetect, useValue: true</code>
+                in order to gain auto change detection</li>
+                <li>
+                    To simulate user inputting a value:
+                    <ul>
+                        <li>Find input element with <code>let inp = fixture.nativeElement.querySelector('input')</code></li>
+                        <li>Input name like this <code>inp.value = 'some value'</code></li>
+                        <li>Manualy dispatch an event on input element, or else antular will never know event needs to be triggered. <code>inp.dispatchEvent(new Event('input'));</code></li>
+                    </ul>
+                </li>
+                <li>
+                    Testing a component with a service:
+                    <ul>
+                        <li>Never use an original service, write a stub. Real service is unpradictable, might want to connect to server etc. Purpose is to test a component, not a service</li>
+                        <li>Use declarations in configureTestingModule to declare tested component</li>
+                        <li>Use providers in configureTestingModule to provide a service stub: <code>providers: [{provide: UserService, useValue: userSrviceStub}]</code></li>
+                        <li>Inject service stub to TestBed <code>fixture.debutElemnt.injector.get(UserService)</code></li>
+                        <li>Service might be injected with <code>TestBedlinject(UserService)</code>, but this works only with tests root injector</li>
+                    </ul>
+                </li>
+
            </ul>
         </div>
 

@@ -961,7 +961,7 @@
                 <li>Services and dependency injection</li>
                 <li>Modules</li>
                 <li>Components</li>
-                <li>Nested components</li>
+                <li>Referencing a component from itself</li>
                 <li>Directives</li>
                 <li>Pipes</li>
                 <li>Custom directives</li>
@@ -1473,9 +1473,43 @@ export class RandomGeneratorService {
 
         <div class="banner slide slide-extended" name="nestedComponents" id="slide-7">
             <div class="slide-title">
-                Nested components
+                Referencing a component from itself
             </div>
             <hr>
+            <h3>ChildView decorator</h3>
+            Can be used to reference a element in component. If element in angular template is marked with a <code>#someReferenceName</code>
+            it can be accessed from component class with a <code>ChildView('someReferenceName') variableHoldingSomeReference</code>.
+            There are 2 arguments supported:
+            <ul>
+                <li>selector: a selector of element that we want reference to. Supported selectors:
+                    <ul>
+                        <li>Class with @Component or @Directive decorator</li>
+                        <li>A template reference variable as string (#name)</li>
+                        <li>Provider defined in child component tree of current component. Any injected service</li>
+                    </ul>
+                </li>
+                <li>read: Used to read a different token from queryed elements</li>
+            </ul>
+
+            <h3>ChildrenView</h3>
+            Works similar as ChildView, but supports a list of element.
+
+            <h3>ElementRef</h3>
+            Reference to object itself. Just inject dependency, and use nativeElement:
+            <div class="note">
+                <pre>
+@Component({
+    selector: 'ble',
+    template: '&lt;div class="test">&lt;/div>'
+})                    
+class BleComponent {
+    constructor(referenceName: ElementRef){
+        console.log(referenceName.nativeElement); // prints whole object
+        referenceName.nativeElement.offsetTop = 10; // this. should place elemnet 10 px from top of page. Should work already in constructor
+    }
+}
+                </pre>
+            </div>
         </div>
 
 
