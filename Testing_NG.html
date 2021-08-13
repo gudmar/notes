@@ -958,6 +958,7 @@
                 <li>Step by step</li>
                 <li>Test Suite structure</li>
                 <li>Testing UI</li>
+                <li>Testing component</li>
                 <li>Dictionary</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
@@ -1221,10 +1222,80 @@ used to get to desired elemetn withoug querySelector, that migh fail on such env
         <div class="banner slide slide-extended" name="Installation" id="slide-">
                 <a href="#">
                     <div class="slide-title">
-                        Title
+                        Testing component
                     </div>
                 </a>
                 <hr> 
+                <ol>
+                    <li>There should be only component testd, no related services or directives</li>
+                    <li>Aspecially bindings, binding effects, changing stats and events should be tested</li>
+                    <li>All services should be mocked</li>
+                    <li>Outputs with events should be tested with spyOn method, and it should be checked if assigned method was called</li>
+                </ol>
+                <div class="note">
+                    Testing if event is fired on component click:
+                    Component looks like below
+                    <pre>
+@Component({
+    selector: 'tab',
+    templateUrl: './tab.component.html',
+    styleUrls: ['./tab.component.css'],
+    providers: [UniqueIdProviderService]
+    })
+    export class TabComponent implements OnInit {
+    idProviderInstance = new UniqueIdProviderService();
+    private _isActive: boolean = false;
+    tabShapeClasses: any = {
+        'active': false
+    }
+    
+    @Input() tabTitle: string = "newTab";
+    @Input() uniqueId: string = this.idProviderInstance.getUniqueId();
+    @Input() bgColor: string = 'white'
+    @Input() set isActive(val: boolean) {
+        this.tabShapeClasses.active = val;
+        this._isActive = val;
+    };
+    get isActive() {return this._isActive}
+    @Output() tabChosen: EventEmitter<string> = new EventEmitter();
+    
+    constructor(private idProvider: UniqueIdProviderService,) { }
+    
+    @HostListener('click')
+    onThisTabSelect(){
+        this.tabChosen.emit(this.uniqueId)
+        
+    }
+    
+    ngOnInit(): void {
+    }
+    }
+                    </pre>
+                    Test looks like this:
+                    <pre>
+describe('TabComponent', () => {
+    let component: TabComponent;
+    let fixture: ComponentFixture<TabComponent>;
+    let shapeElement: HTMLElement;
+    
+    beforeEach(async () => {
+        fixture = await TestBed.configureTestingModule({
+        declarations: [ TabComponent ]
+        }).createComponent(TabComponent)
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+        shapeElement = fixture.nativeElement.querySelector('.tab-shape');
+    });
+    
+    it('Should launch an event when clicked', fakeAsync(()=>{
+        let eventWasLaunched = false;
+        fixture.componentInstance.uniqueId = 'someID'
+        spyOn(component, 'onThisTabSelect')
+        fixture.nativeElement.click();
+        expect(component.onThisTabSelect).toHaveBeenCalled();
+    }))});                 
+                    </pre>
+                </div>
         </div>
 
 
