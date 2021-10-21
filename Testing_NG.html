@@ -1119,6 +1119,16 @@
                     </div>
                 </a>
                 <hr> 
+                <h3>Shourtcuts</h3>
+                <ul>
+                    <li><code>fixture.nativeElement</code> to get access to host as HTMLElement</li>
+                    <li><code>fixture.nativeElement.querySelector(..)</code> works</li>
+                    <li><mark>There is no possiblity to look inise a nested component, as there is no component rendered</mark>
+                        There is only a mock without events etc...
+                    </li>
+                    <li>No possibility to mock a child component in unit tests</li>
+                    <li></li>
+                </ul>
                 <h3>Simplest way of creating element for test</h3>
                 <div class="note">
 <pre>
