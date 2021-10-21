@@ -534,8 +534,8 @@
             let year = d.getFullYear();
             let date = day + '/' + month + '/' + year;
 
-            let message = `
-		   					${date}  &copy;  Marek Gualewicz
+            var message = `
+		   					${date}  &copy; Marek Gualewicz
 		  				`
             let items = document.querySelectorAll('.slide')
             var pNum = 0;
@@ -932,11 +932,12 @@
 <body>
     <div class="slide-wrapper  slide-extended" id="wrapper">
         <div class="banner-neg slide slide-blue" name="title-slide" id="slide-0">
+
             <div class="title">
-                <span>GIT</br>
+                <span>SCSS</br>
                 </span>
                 <span class="title-comment">
-                        by Marek Gudalewicz
+                    by Marek Gudalewicz
 
                 </span>
             </div>
@@ -953,7 +954,9 @@
                 <hr>
             </div>
             <ul class="content">
-                <li>Use case</li>
+                <li>Slide 1</li>
+                <li>Slide 2</li>
+                <li>Additional information</li>
                 <!-- Exect the same title here and the same innerText in .slide-title div for auto linking -->
            </ul>
         </div>
@@ -961,100 +964,48 @@
 
 
 
-        <div class="banner slide slide-extended" name="use case" id="slide-4">
+
+        <div class="banner slide slide-extended" name="scf-content" id="slide-2">
             <div class="slide-title">
-                Use case
+                Slide 1
+                <hr>
+            </div>
+
+
+
+        </div>
+
+
+        
+
+        <div class="banner slide slide-extended" name="Installation" id="slide-3">
+            <a href="#">
+                <div class="slide-title">
+                    Slide 2
+                </div>
+            </a>
+            <hr> 
+        </div>
+
+
+
+
+        <div class="banner slide slide-extended" name="types" id="slide-4">
+            <div class="slide-title">
+                Additional infomation
             </div>
             <hr>
-            <a href="https://www.youtube.com/watch?v=RGOj5yH7evk">Link</a>
-            <h3>Clone or Fork</h3>
             <ul class="nested-list">
-                <li><code>git fork repository</code> is used in case I don't have any rights for a repo and I want to work with it</li>
-                <li><code>git clone repo</code> can be used to make copy of repo I have so I can work with it. It is cloned into pwd</li>
-            </ul>
-            <h3>Create a new branch</h3>
-            <ul class="nested-list">
-                <li>One should not merge to a master on local computer</li>
-                <li><code>git checkout -b branchName</code> is used to create a local branch. This will automaticly switch to a new branch</li>
-
-            </ul>
-            <h3>Add to stagging area</h3>
-            <ul class="nested-list">
-                <li>After some changes are made to a file on a local computer this file could be added to stagging area</li>
-                <li>Only files from stagging area will be added during commit</li>
-                <li><code>git add file</code>, <code>git add .</code> (for a whole directory) can be used to add file or dir to stagging area</li>
-                <li><code>git commit -am message(what, why)</code> can be used to add to stagging area and commit in one step, however this can be done <b>only on existing files</b>, not on new</li>
-            </ul>
-            <h3>commit</h3>
-            <ul class="nested-list">
-                <li>Used to add changes to used branch. Without this changes will not be available in repo</li>
-                <li><code>git commit -m shortMessage(what, why) -m longerDescription</code> instead only one m can be used in shorter version</li>
-            </ul>
-            <h3>Everyday pull and merge master into branch I am working with</h3>
-            <ul class="nested-list">
-                <li>variant 1:
-                    <ul class="nested-list">
-                        <li><code>git checkout master</code></li>
-                        <li><code>git pull</code></li>
-                        <li><code>checkout **branchName**</code></li>
-                        <li><code>git rebase master</code></li>
-                    </ul>
+                <li>
+                    <b>%placeholder_name{ position .... }</b>
+                    This is a placeholder. This will not be rednered to css output. This will 
+                    be only available if it is extended: <code>.something{color:red; @extend %placeholder_name}</code>
                 </li>
-                <li>variant 2:
-                    <ul class="nested-list">
-                        <li><code>git diff master</code> - this shows differences between master and currnet branch</li>
-                        <li><code>git merge master</code> - everyday merge - will have to resolve conflicts</li>
-                    </ul>
+                <li>
+                    When $font-size is in re <code>height: calc( #{$font-size} + 2px )</code>. #{} evaluates
+                    variable, so value under this variable is passed
                 </li>
-                <li>Very important, as if it is too far away after master, it will be inpossible to merge</li>
-            </ul>
-            <h3>Pushing to remote repo</h3>
-                <ul class="nested-list">
-                    <li><code>git push origin master</code> Will not work, as git does not know where to push <b>if local repo was not cloned from remote earlier</b></li>
-                    <li><code>git push origin msater nameOfRemoteRepo</code> tells to merge to remote repo</li>
-                    <li>
-                        <code>git push --set-upstream origin master</code> === <code>git push -u origin master</code> - thanks to this this <i>upstream</i> or <i>u</i>
-                        <b>origin master</b> will not have to be written, and later only <code>git push branch</code> will do
-                    </li>
-                </ul>
-            <h3>Delete branch</h3>
-            <ul class="nested-list">
-                <li>After bugFix or feature branch is merged to master or dev it should be deleted</li>
-                <li>Only <b>master</b> and <b>dev</b> branches should remain untouched all through developement proces</li>
-                <li><code>git reset</code> will remove all stagget changes</li>
-                <li><code>git reset file</code> will remove all stagged changes from certain file</li>
-                <li><code>git reset HEAD~1</code> will remove wll changes made after commit -1, so 1 after head</li>
-                <li><code>git log</code> lists all commits from latest to first</li>
-                <li><code>git reset d65f7s65df876s5df76as</code> will drop all chagnes made to repository after commit wiht certain hash number</li>
-            </ul>
-            
-            <h3>Push request PM</h3>
-            <p>This is done in order to push changes. Then some people might have some comments and I should resolve them before I can do merge</p>
-            
-            <h3>Conflicts</h3>
-            <ul class="nested-list">
-                <li>Can be resolved in gitHub GUI</li>
-                <li>Can be resolved from terminal</li>
-                <li>Best way to resolve them is from good text editor. Just delete unwanted stuff and commit</li>
-            </ul>
-            <h3>In case repo on HDD exists and needs to be added to remote repo:</h3>
-            <ul class="nested-list">
-                <li><code>git remote add origin https://github.com/gudmar/somerepo.git</code></li>
-                <li><code>git remote -b</code>: check if I have push right</li>
-                <li><code>git remote set-url origin https://github.com/gudmar/somerepo.git</code></li>
-            </ul>
-            now <code>git push -u oriin someBranch</code> can be used to push a repo to github.
-            <h3>Changes branch checkout master</h3>
-            If there are unsaved changes on a branch, and master is checked out, changes will be visible. They have to be stashed
-            first, to make use of any other branch. To do this:
-            <ul class="nested-list">
-                <li><code>git checkout branch-with-unsaved-changes</code></li>
-                <li><code>git add .</code></li>
-                <li><code>git stash save 'name-where-to-save'</code></li>
-                <li><code>git checkout master</code> or any other branch we want to use</li>
-                <li><code>git checkout branch-with-unsaved-chenges</code>, however now changes are saved</li>
-                <li><code>git stash list</code> to list add available boxes with saved changes</li>
-                <li><code>git stash pop</code> to pop last from the list</li>
+                <li>rem and px are incompatible, so cannot be added. Calc function is a proper one to handle this task</li>
             </ul>
         </div>
 
