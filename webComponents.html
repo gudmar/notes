@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/svg+xml;base64" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggc3R5bGU9ImZpbGw6I0ZGNjYwMDsiIGQ9Ik0yNTYsMEMxMTQuNjA4LDAsMCwxMTQuNjA4LDAsMjU2czExNC42MDgsMjU2LDI1NiwyNTZzMjU2LTExNC42MDgsMjU2LTI1NlMzOTcuMzkyLDAsMjU2LDB6TTE3OS42NjQsMjAyLjA2NGwtMTI1LjA0LDYyLjY3MnYwLjY3MmwxMjUuMDQsNjIuNjcydjIyLjA2NGwtMTQ4LjQtNzYuNDMydi0xNy4yNjRsMTQ4LjQtNzYuNDMyVjIwMi4wNjR6IE0yMjEuODcyLDM2Mi45MjhoLTIxLjQ0bDg5LjIzMi0yMzEuODcyaDIxLjcyOEwyMjEuODcyLDM2Mi45Mjh6IE0zMzEuNTY4LDM1MC4xMjh2LTIyLjA2NGwxMjYtNjIuNjcydi0wLjY3MmwtMTI2LTYyLjY3MlYxODBsMTQ4LjQsNzYuMDk2djE3LjkzNkwzMzEuNTY4LDM1MC4xMjh6Ii8+PGc+PC9nPjwvc3ZnPg==">
+    <title>Custom WebComponent</title>
+    <style>
+            *{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            td{
+                text-align: center;
+                vertical-align: middle;
+                border: solid thin black;
+                padding: 1rem;
+            }
+            td:nth-child(3){
+                text-align: left;
+            }
+            table{
+                border-collapse: collapse;
+            }
+            .table{
+                max-width: 500px;
+                position: relative;
+            }
+            .left td{
+                text-align: left;
+            }
+            .uml td{
+                text-align: left;
+            }
+            .uml ul{
+                list-style-type: none;
+                text-align: left;
+            }
+            .uml th {
+                border: solid black thin;
+                text-align: center;
+            }
+            code{
+                background-color: black;
+                color: lightgray;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            p{
+                line-height: 1.75rem;
+            }
+            li{
+                line-height: 1.75rem;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .button{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                padding: 5px;
+                border: solid black thin;
+                border-radius: 5px;
+                transition: 0.3s;
+                position: relative;
+                max-width: 90px;
+            }
+            .button-hide {
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+            }
+            .button:hover{
+                background-color: gray;
+                color: white;
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            .pointer:hover{
+                cursor: pointer;
+                background-color: lightgray;
+            }
+            .title {
+                display: flex;
+                margin-top: 60px;
+                margin-bottom: 15px;
+            }
+            .title > * {
+                margin: 0;
+                margin-right: 20px;
+            }
+            .hidable{
+                border: solid thick black;
+                border-left: none;
+                border-right: none;
+                border-radius: 0.5rem;
+                margin: 1rem;
+                padding: 1rem;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hidden{
+                position: relative;
+                height: 0;
+                transition: 0.3s;
+                overflow: hidden;
+            }
+            .wrapper{
+                position: relative;
+                max-width: 1200px;
+                min-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1 {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 5rem;
+                font-weight: 100;
+                text-align: center;
+            }
+            .note{
+                display: inline-block;
+                margin: 1rem;
+                background-color: gray;
+                color: white;
+                position: relative;
+                padding: 1rem;
+                padding-left: 2rem;
+            }
+            .note>.example{
+                color: black;
+            }
+            .note>.code{
+                color: white;
+            }
+            .note:before{
+                content: '!';
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+            .explanation{
+                margin: 1rem;
+                padding: 1rem;
+                background: rgb(180, 220, 180);
+            }
+            .example{
+                margin: 1rem;
+                padding: 1rem;
+                background: rgb(220, 220, 220);
+                overflow: auto;
+            }
+            .example>pre{
+                font-family: 'Courier New', Courier, monospace;
+                color: black;
+            }
+
+
+        </style>
+        <!-- <script src="index.js"></script> -->
+</head>
+<body>
+<div class="wrapper">
+    <h1 id = "home"><a href ="https://developers.google.com/web/fundamentals/web-components/customelements">Custom web components</a></h1>
+    <div class="content">
+        <h3>Contenet</h3>
+        <ul>
+            <li class="pointer"><a href="#idea"><b>Idea of custom webComponent</b></a></li>
+            <li class="pointer"><a href="#structure"><b>Structure</b></a></li>
+            <li class="pointer"><a href="#shadow"><b>Shadow DOM / slots</b></a></li>
+            <li class="pointer"><a href="#template"><b>Template/slot</b></a></li>
+            <li class="pointer"><a href="#styling"><b>Styling</b></a></li>
+            <li class="pointer"><a href="#native"><b>Custom from native HTML elements</b></a></li>
+            <li class="pointer"><a href="#comunication"><b>Comunication</b></a></li>
+            <li class="pointer"><a href="#events"><b>Custom events</b></a></li>
+            <li class="pointer"><a href="#standards"><b>Coding standards</b></a></li>
+            <li class="pointer"><a href="#innerHTML"><b>Changing innerHTML</b></a></li>
+            <li class="pointer"><a href="#commonErrors"><b>Comon errors</b></a></li>
+            
+        </ul>
+    </div>
+
+
+    <div class="hidable-wrapper">
+        <div class="title"><div class="button button-hide">+</div><h3 id = "idea">Idea</h3><a href="#home"><div class="button">Home</div></a></div>
+        <div class="hidable">
+        <p>Custom web components are used to encapsulate code, including css. Custom web components use shadow DOM to hide their css. Even if there exists calss with the same 
+            name in light DOM, it will not interfere with cudstom web components dom
+        </p>
+        <p>
+            Possibility to just write &lt;my-custom-element&gt; and it will expand to a whole component.
+        </p>
+
+        </div>
+    </div> <!--hidable-wrapper-->
+
+    <div class="hidable-wrapper">
+    <div class="title"><div class="button button-hide">+</div><h3 id = "structure">Structure</h3><a href="#home"><div class="button">Home</div></a></div>
+    
+            <div class="hidable">
+                <ul>
+                    <li><code>class extends HTMLElement{}</code></li>
+                    <li><code>window.customElements.define('my-element', class extneds HTMLElement{})</code> also valid</li>
+                    <li>Optional constructor. If exists - must contain <code>super();</code></li>
+                    <li>Callbacks:
+                        <ul>
+                            <li><code>connectedCallback()</code>: executed on element placement <b>inside DOM</b>. Executed <b>after</b> element is placed in DOM
+                                <div class="example">
+<pre>
+    let myElement = document.createElemnet('myCustomeElement');
+    // do something with this element;
+    someParent.appendChild(myElement); // Here connectedCallback is executed
+</pre>                                    
+                                </div>
+                            </li>
+                            <li>
+                                <code>attributeChangedCallback(attrName, oldVal, newVal)</code>: on attrubute change callback
+                            </br>
+                                <div class="note">
+                                    If certain attribute change should call this callback, it must be registered in <code>observerAttributes</code> array.
+                                    This is for efficiency improvement. Attributes like 'style' can be changed without calling callback (ex 2)
+                                </div>
+                            </li>
+                            <li><code>disconnectedCallback()</code> on element removal. Beware: this will never be called if user closes tab. <b>Executed just before</b> element is removed from DOM</li>
+                            <li>reaction callbacks are synchronus. Called immediately.</li>
+                        </ul>
+                    </li>
+
+                    <li>Template and shadowDOM can be used to create a component (in constructor)</li>
+                    <li></li>
+                </ul>
+                <div class="note">
+                    <ul>
+                        <li>
+                            Custom element does not have to be defined immediately after creation, but much later in code. There is a:<br>
+                            <code>cudtomElements.whedDefined('my-element').then(()=>{})</code> promise that becomes fullfilled after custom element becomed defined.
+                        </li>
+                        <li>Cusotm element must have a beginning tag and ending tag: <code>&lt;my-element&gt;&lt;/mk-element&gt;</code>. It may not be one tag element like <code>&lt;/br&gt;</code></li>
+                        <li>Cudtom element html tags must have 2 parts separated with '-': <code>&lt;my-element&gt</code> is good, where <code>&lt;myElement&gt</code> is not proper</li>
+                        <li>A simple custom element does not have to contain all listed elements. It may be like on example 1.</li>
+                        <li><b>Setting attribute in js like: <code>someDiv.id = 'id'</code> will update HTML!</b> No need to someDiv.setAttribute('id', 'id') later. This refers <b>only</b> to native attributes. Will not set value of attribure that is not defined yet.
+           <div class="example">
+<pre>  
+    let div = document.createElement('div');
+    document.querySelecto('body').applendChild(div);
+    div.id = 'someId'
+</pre>
+</div>             
+                        </li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Example 1: simple element</h4>
+                    <pre>
+window.customElements.define('my-element', class extends HTMLElement{
+    constructor(){
+        super();
+        this.innerHTML = "I am a simple custom element"
+    }
+}
+                    </pre>
+                </div>
+                <div class="example">
+                    <h4>Example 2: addign a element to observer</h4>
+                    <pre>
+class MyElement extends HTMLElement{
+    ...
+    static get observedAttributes() {
+        return ['my-attribute-1', 'attribute2']
+    }
+    ...
+}
+                    </pre>
+                </div>
+                <div class="example">
+                <h4>Example 3: whole template for customElemnet</h4>
+                <pre>
+class MyElement{
+    constructor(id, args){
+        super(args);
+        if (!this.id) then {
+          id==undefined?Math.random().toString(36).substr(2, 9):this.id=id;  
+        } // if id in html defined it will be visible in js as well
+        ... // set all attributes here
+
+        let templ = document.createElement('template');
+        templ.innerHTML = `
+        &lt;style&gt; ... &lt;/style&gt;
+        here some html content
+        `
+
+        let shadowRoot = this.attachSadow({mode: 'open'});
+        shadowRoot.appendChild(templ.content.cloneNode(true));
+    }
+    
+    static get observedAttributes() {
+        return [ 'att1', 'att2'];
+    }
+
+    connectedCallback() {
+
+    }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+
+    }
+
+    disconnectedCallback() {
+
+    }
+}
+
+window.customElements.define('my-element', MyElement); // !! beware. Do not use window.addEventListener('DOMContentLoaded' (e){})
+                    // Otherwise content will load, it will be visible a part of second before target styling is applied!
+                </pre>
+                </div>
+            </div>
+    </div> <!--hidable-wrapper-->
+
+
+    <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "shadow">Shadow DOM</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <div class="note">
+                    <mark>Always attaching a shadow to an element removes all present children of this element.</mark> So attaching a shadow root 
+                    means that there is no necessity to remove content already present in element shadow is applied to. Only <b>exception</b> to this are <mark>
+                        slots </mark>
+                </div>
+                <p>
+                    Shadow DOM is separated form normal (light) DOM. Sytles inside shadow will not interfere with light DOM styles. Moreover finding a element in shadow 
+                    will require construction like this: <code>document.getElementById('shadowElement').shadowRoot.querySelector('[id = 'someId'])</code>.
+                    Normal querySelecotor('someId') will not work, because shadow DOM is separated, and querySelector does not seem to work inside shadow.
+                    Shadow DOM elements are created because of encapsulation purposes.
+                </p>
+                <ul>
+                    <li><b>Shadow host</b>: regular DOM element that shadow root is attached to</li>
+                    <li><b>Shadow tree</b>: DOM tree inside shadow DOM</li>
+                    <li><b>Shadow boundry</b>: place where shadow DOM ends and regular DOM begins</li>
+                    <li><b>Shadow root</b>: root node of shadow DOM</li>
+                </ul>
+                <h4>element.attachShadow({mode: 'open'})</h4>
+                <p>Mode open allows to access shadow root with: <code>document.getElementById('shadowElement').shadowRoot.querySelector('[id = 'someId'])</code>
+                    and manipulate it
+                </p>
+
+
+                <h4><a href="https://blog.revillweb.com/open-vs-closed-shadow-dom-9f3d7427d1af">element.attachShadow({mode: 'closed'})</a></h4>
+
+                <p>Element created this way is closed for modifications, so element.shadowRoot will return null. Accessing elemnts inside this shadow root requires using:
+                    <code>element._root</code> instead of shadowRoot. So in reality this mode does not hide anything.<br>
+                    If shadowRoot creation is encapsulated in IFEE this can be worked around in this manner:
+                </p>
+                <div class="example">
+                    <pre>
+    class MyWebComponent extends HTMLElement {
+        constructor() {
+            super();
+            this._root = this.attachShadow({ mode: "closed" });
+        }
+        connectedCallback() {
+            this._root.innerHTML = `
+                <p>I'm in the closed Shadow Root!</p>
+            `;
+        }
+    }
+    window.customElements.define("my-web-component", MyWebComponent);
+                    </pre>
+                    call this before:
+                    <pre>
+    const $myWebComponent = document.querySelector("my-web-component");
+    $myWebComponent.shadowRoot // null
+    $myWebComponent._root // shadow-root (closed)
+                    </pre>
+                </div>
+
+        Inner of shadow root may contain a <code>&lt;syle&gt;</code> node.
+
+            
+
+            <h4>Slots</h4>
+            <p>
+                Slots are placeholders in shadow DOM template for content that is left in custom element markup. Later, when custom element is rendered content form custom element is rendered inside 
+                slots. Styling for content that will be puttet in slots will be taken from light DOM, as those elements are left in light dom. They are only rendered inside shadow.
+            </p>
+            <p>
+                In case there is only one slot content inside custom elements markup will be taken and rednered into template into this one slot. In case more slotes are used content that should be
+                placed inside slots shluld be named with a <i>slot</i> attribute.
+            </p>
+            <div class="example">
+                <h4>Only one slot</h4>
+                <pre>
+&lt;custom-slot&gt;
+&lt;span&gt;Slot 1&lt;/span&gt;
+&lt;span&gt;slot 2&lt;/span&gt;
+&lt;/custom-slot&gt;
+
+
+&lt;script&gt;
+    class CustomSlot extends HTMLElement{
+        constructor() {
+            super();
+            let iH = this.querySelectorAll('span');
+            let template = document.createElement('template');
+            template.innerHTML = `
+            &lt;div id="HereAllContentWillBePlaced">&lt;slot>&lt;/slot>&lt;/div>
+            &lt;div id="HereNoContentWillBePlaced" >&lt;slot>&lt;/slot>&lt;/div>
+            &lt;style&gt;
+                div{
+                    position: relative;
+                    display: flex;
+                    justify-items: center;
+                    align-items: center;
+                    border: solid black thin;
+                    border-radius: 5px;
+                    padding: 2rem;
+                    width: 50px;
+                }
+            &lt;/style>
+            `
+            
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+            console.log(iH)
+        }
+    }
+    window.customElements.define('custom-slot', CustomSlot)
+&lt;/script>                    
+                </pre>
+                <div class="exploanation">
+                    In above example all content will be placed in firs solt, as slots are not named. In case on not named solts all content of custom element goes to first slot.
+                    Content is still visible in DOM in dev tools, however it is not in borwser tab.
+                </div>
+            </div>
+            <div class="example">
+                <p>In case of a few slots, they must be named.</p>
+                Example form <a href="https://www.html.am/tags/html-slot-tag.cfm">Link</a>
+                <pre>
+&lt;template class='template-ex-1'>
+        &lt;h1>&lt;slot name="heading">&lt;/slot>&lt;/h1>
+        &lt;dl>
+            &lt;dt>&lt;slot name="term-1">       &lt;/slot>&lt;/dt>
+            &lt;dd>&lt;slot name="description-1">&lt;/slot>&lt;/dd>
+            &lt;dt>&lt;slot name="term-2">       &lt;/slot>&lt;/dt>
+            &lt;dd>&lt;slot name="description-2">&lt;/slot>&lt;/dd>
+            &lt;dt>&lt;slot name="term-3">       &lt;/slot>&lt;/dt>
+            &lt;dd>&lt;slot name="description-3">&lt;/slot>&lt;/dd>
+        &lt;/dl>
+        &lt;style>
+            h1 { 
+                font-size: 1.2em;
+                font-family: sans-serif;
+                color: darkorange;
+                }
+            dl { 
+                border-left: 3px solid darkorange; 
+                padding-left: 1em; }
+            dt { font-weight: bold; }
+            dd { color: darkslategray; }
+        &lt;/style>
+    &lt;/template>
+    &lt;h1>Source: &lt;a href="https://www.html.am/tags/html-slot-tag.cfm">Link&lt;/a>&lt;/h1>
+    &lt;div class="div-ex-1">
+        &lt;span slot="heading">Fitness Terms&lt;/span>
+        &lt;span slot="term-1">BMI&lt;/span>
+        &lt;span slot="description-1">Body Mass Index&lt;/span>
+        &lt;span slot="term-2">HIIT&lt;/span>
+        &lt;span slot="description-2">High-Intensity Interval training&lt;/span>
+        &lt;span slot="term-3">MHR&lt;/span>
+        &lt;span slot="description-3">Maximum Heart Rate&lt;/span>
+        &lt;div>This div should be removed. All children are removed on shadow attachement&lt;/div>
+    &lt;/div&gt;
+    &lt;div class="div-ex-1">
+        &lt;span slot="heading">Financial Terms&lt;/span
+        &lt;span slot="term-1">AIR&lt;/span
+        &lt;span slot="description-1">Assumed Interest Rate&lt;/span
+        &lt;span slot="term-3">EFT&lt;/span
+        &lt;span slot="description-3">Electronic Funds Transfer&lt;/span
+        &lt;span slot="term-2">ETF&lt;/span
+        &lt;span slot="description-2">Exchange Traded Funds&lt;/span
+    &lt;/div>
+    
+    &lt;script>
+        var dlTemplate = document.querySelector('.template-ex-1').content;
+        var divs = document.querySelectorAll('.div-ex-1');
+        
+        divs.forEach(function(div){
+        div.attachShadow({  mode: 'open' }).appendChild(
+            dlTemplate.cloneNode(true))
+        });
+    &lt;/script>                    
+                </pre>
+            </div>
+        </div>
+    </div> <!--hidable-wrapper-->
+
+
+    <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "template">Template</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <p>
+                    Template elements are rednered only once, on page load, and can be used later. This is ideal for creating custom elements, because it does not 
+                    cause element being rednered multiple times and does not cause performance degradation.<br>
+                    Template element can already have a style node included.
+                </p>
+            </div>
+    </div> <!--hidable-wrapper-->
+
+    <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "styling">Styling</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <p>
+                    <ul>
+                        <li>Styling can be done inside a shodow root. This will always have a specifity over other stylings</li>
+                        <li>Custom element can be styled using normal css by selecting a tag, or a class (Example)</li>
+                        <li>Custom elements can be styled even before they are defined (example)</li>
+                        <li>Custom elements can influence behavior of their parent (parent of shadow root) with <code>:host(selector)</code>. However styling influencing shadow root host element 
+                        defined in light DOM will have a greater specifity and will override behavior defined inside shadow. </li>
+                        <li><code>:host-context(selector)</code> is a way to define parent of shadow root behavior based on any of shadow root ancessors behavior</li>
+                        <li>Slotted content (content rednered into slots) can be styled with <code>::slotted(selector){}</code></li>
+                        <li>Custom elemets are by default set to <code>display: inline</code></li>
+                        <li>A custom element with default display style <code>:host {display: block}</code> will override build in hidden attribute. Add <code>:host([hidden]){visibility: hidden}</code> to overcome</li>
+                    </ul>
+                </p>
+                <div class="example">
+                    <h5>Styling custom elements with css</h5>
+<pre>
+    my-element {
+        display: flex; ...
+    }
+
+    or 
+
+    &lt;my-element class="my-class"&gt;&lt;/my-element&gt;
+
+    and 
+    .my-class {
+        ...
+    }
+</pre>
+                </div>
+                <div class="example">
+                    <h5>Styling custom elements before / after defining</h5>
+<pre>
+    my-element:defined{
+        ...
+    }
+    my-element:not(:defined){
+        ...
+    }
+</pre>
+                </div>
+                <div class="example">
+<pre>
+    :host {
+        ... // this will influence all elements inside parent of this shadow root
+    }
+    :host(:hover) {
+        ... // this will influence parent of shadow root when it has a hover behavior defined.
+    }
+    :host(.blue) {
+        ... // this will influence parent of shadow root when it has blue class
+    }
+    :host([disabled]) {
+        ... // this will influence parent of shafow root when it has a disabled attribute
+    }
+</pre>
+<h5>There is a way to influence host behavior if host or any of its ancessors meets a condition:</h5>
+<pre>
+    :host-context(.darktheme){
+        ... // if any of ancessors has a class darktheme this behavior will be applied
+    }
+</pre>
+                </div>
+            </div>
+    </div> <!--hidable-wrapper-->
+
+    <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "native">Extending native HTML elements</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <p>Extending elements gives all methods and styles from native element</p>
+                <div class="example">
+                    <h4>Declaration</h4>
+                    <pre>
+class FancyButton extends HTMLButtonElement {
+    constructor() {
+        super();
+        // extend button here
+    }
+}
+customElement.define('fancy-button', FancyButton, {extends: 'button'}); 
+                    </pre>
+                    now in html this would be:
+                    <pre>
+&lt;button is="fancy-button">Fancy Button&lt;/button>
+
+or js:
+
+document.createElement('button',  {is: 'fancy-button'});
+
+or 
+
+new FancyButton
+                    </pre>
+                </div>
+            </div>
+        </div> <!--hidable-wrapper-->
+<script>
+    console.error('Can I create any element with attributes at once?  document.createElement("div", {id: "someId",...} ?')
+</script>
+
+    <div class="hidable-wrapper">
+        <div class="title"><div class="button button-hide">+</div><h3 id = "comunication">Comunication</h3><a href="#home"><div class="button">Home</div></a></div>
+        <div class="hidable">
+            <a href="https://stackoverflow.com/questions/55001211/how-to-communicate-between-web-components-native-ui">stackoverflow link</a>
+            <ul>
+                <li>Components in HTML do not talk to each other! Only can have props</li>
+                <li>Custom events may be used to let componens comunicate</li>
+                <li>Never allow siblings to talk to each other. Better use parent component as evenet listener and funciton invocator</li>
+                <li></li> 
+            </ul>
+        </div>
+    </div> <!--hidable-wrapper-->
+    <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "standards">Coding standards</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <div class="note">
+                    <ul>
+                        <li><b>Attribute</b> is in html (e.g. &lt;div id = "some">)</li>
+                        <li><b>Properties</b> are in js. They are passed as method arguments.</li>
+                    </ul>
+                </div>
+                <table class = "left">
+                    <thead>
+                        <tr>
+                            <th>What</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Do not touch elements of lightDOM inside custom components constructor.</td>
+                            <td>They may not be available yet</td>
+                        </tr>
+                        <tr>
+                            <td>connectedCallback should be used for:</td>
+                            <td>
+                                <ul>
+                                    <li>Event listeners</li>
+                                    <li> <a href="https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex tabindexes"></a> (decisions of keyboard accessibility)</li>
+                                    <li>role (aria)</li>
+                                    <li>internal states</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reset properties that have a setter defined</td>
+                            <td>
+<pre>
+connectedCallback() {
+    ...
+    this._upgradeProperty('checked');
+    }
+    
+    _upgradeProperty(prop) {
+    if (this.hasOwnProperty(prop)) {
+        let value = this[prop];
+        delete this[prop];
+        this[prop] = value;
+    }
+    }
+</pre>    
+        Angular might attempt to set custom elements properties before elements definition was loaded. In order not to allow this shadow the costom elements own property setter this property should be 
+        resetted in a way shown above                                  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> disconnectedCallback</td>
+                            <td>release references, remove event listeners.</td>
+                        </tr>
+                        <tr>
+                            <td>Avoid reentrancy issues</td>
+                            <td>
+                                    defining a setter for a attirbute and changing its value in connectedCallback can lead to problems with infinit loops
+
+                                    setter for a 'checked' attirbute might look like this:
+                                    set checked() {
+                                    
+                                    }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Remove tabindex attribute if it must not be focussable.</td>
+                            <td>In case of tabindex == -1 element is focussable, but not available with tab button.
+                                    This.blur() - unfocus element.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Create a shadow root in a constructor</b></td>
+                            <td>
+                                <ul>
+                                    <li>Other elements will not mess around with this</li>
+                                    <li>If done in connected callback then disconnectedCallback will remove it when detached and it may not be not applied when it is attached again</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Slots for project light DOM content into shadow DOM</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Use :host for changing diaplay to flex or inline-block of a parent</td>
+                            <td>By default it is inline. Changing this in external css kills encapsulation.</td>
+                        </tr>
+                        <tr>
+                            <td>Add a :host([hidden]) css</td>
+                            <td>Seting e.g. :host {display: block} may overwritte default lower specifity build-in hidden attribute. </td>
+                        </tr>
+                        <tr>
+                            <td>Do not override autor-set global attrigutes</td>
+                            <td>Before setting a attribute always check if it is not set already externaly</td>
+                        </tr>
+                        <tr>
+                            <td>Attributes and properties should be linked</td>
+                            <td>
+                                Custom element can be created both with a constructor or with html (or documnet.createElement()). That is why support both for properties and attributes should be available.
+                                This data should be syncronized.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Accept ritch data as properties</td>
+                            <td>Ritch data like arrays or objects can be passed via attributes as well. However it is not the best practice, as it will kill performance.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Do not apply classes to parent element</b></td>
+                            <td>Configuration of parent element should be left to user. Take all native elements as an example.</td>
+                        </tr>
+                        <tr>
+                            <td>Dispatch events on internal element state change</td>
+                            <td>If data finishes downloading, or animation finishes it is usefull to inform components neighbourhood about it.</td>
+                        </tr>
+                        <tr>
+                            <td>Do not dispatch events when host does something (downward data flow)</td>
+                            <td>It is already known to neighbourhood</td>
+                        </tr>
+                    </tbody>
+                </table>     
+
+    
+            </div>
+        </div> <!--hidable-wrapper-->
+        <div class="hidable-wrapper">
+            <div class="title"><div class="button button-hide">+</div><h3 id = "innerHTML">Setting innerHTML</h3><a href="#home"><div class="button">Home</div></a></div>
+            <div class="hidable">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe">MutationObserver link</a>
+                <p>
+                    When element is treated in below order: 
+                    <ul>
+                        <li>Class declaration and element registration</li>
+                        <li>Occurence of custom tag in HTML with some innerHTML content</li>
+                    </ul>
+                    when class refers to innerHTML it still does not exist in DOM, so value will be ''. If referred by <code>console.dir(this)</code> innerHTML will be not empty, because 
+                    this innerHTML property will be filled finally, and it will be available via <code>document.querySelector('custom-element')</code> later, but at the moment of invocing class
+                    it is unavailable.
+                </p>
+                <p>To do something with innerHTML there is a need to construct a <code>MutationObserver</code> instance</p>
+                <div class="example">
+<pre>
+    class CustomElement extends HTMLElement {
+        constructor(){
+            const observer = new MutationObserver(this.onInnerHTMLChange.bind(this))
+            observer.observe(this, 
+                {
+                    subtree: false, // no nested elements are observed
+                    childList: true // for inner HTML
+                }
+            )
+        }
+        onInnerHTMLChange() {
+            this.message = this.innerHTML;
+            try {
+                // here this.innerHTML is available
+            } catch (e) {
+                // expected - at this moment modalMessageHolder is null;
+            }
+        }
+    }
+</pre>                    
+                </div>
+            </div>
+    </div> <!--hidable-wrapper-->
+
+
+    <div class="hidable-wrapper">
+        <div class="title"><div class="button button-hide">+</div><h3 id = "commonErrors">Common errors</h3><a href="#home"><div class="button">Home</div></a></div>
+        <div class="hidable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Uncaught DOMException: Failed to construct 'CustomElement': The result must not have attributes</td>
+                        <td>Construcor is not supposed to change either attributes or innerHTML of custom web component. It is not behavour customer expects. Set those in connectedCallback if
+                            there is a necessity. InnerHTML should be handeled by mutationObserver, because it may not exist still on element creation.
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>Passing a class as data-attribute in HTML - bridge pattern</td>
+                            <td>
+<pre>
+
+</pre>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div> <!--hidable-wrapper-->
+
+</div> <!--wrapper-->
+
+
+</body>
+<script>
+
+    (function() {
+    console.group('Links worth visithng');
+        console.table({
+            'Patterns good examples': 'https://www.joezimjs.com/javascript/javascript-design-patterns-chain-of-responsibility/'
+        })
+    console.groupEnd();
+    })()
+    window.addEventListener("DOMContentLoaded", (e) => {
+        let hideAllHidable = () => {
+            let allHidable = document.querySelectorAll('.hidable');
+            let allHideButtons = document.querySelectorAll('.button-hide');
+            for (let item of allHidable) {
+                item.classList.add('hidden');
+            }
+            for (let button of allHideButtons){
+                button.innerHTML = '+';
+            }
+        }
+        let showAllHidable = () => {
+            let allHidable = document.querySelectorAll('.hidable');
+            let allHideButtons = document.querySelectorAll('.button-hide');
+            for (let item of allHidable) {
+                item.classList.remove('hidden');
+            }
+            for (let button of allHideButtons){
+                button.innerHTML = '-';
+            }
+        }        
+        let hideSingleHidable = (element) => {
+            // element is a hidable wrapper class member. Takes first title member and first button hide member in title an attaches hide first hidable in it
+            let title = element.querySelector('.title');
+            let hideButton = title.querySelector('.button-hide');
+            let hidable = element.querySelector('.hidable');
+            let toggleState = (e) => {
+                let isHidden = hideButton.innerHTML == '+'?true:false;
+                if (isHidden) {
+                    hideButton.innerHTML = '-';
+                    hidable.classList.remove('hidden');
+                } else {
+                    hideButton.innerHTML = "+";
+                    hidable.classList.add('hidden');
+                }
+            }
+            hideButton.addEventListener('click', toggleState);
+        }
+        let allHidableWrappers = document.querySelectorAll('.hidable-wrapper');
+        for (let item of allHidableWrappers) {
+            hideSingleHidable(item);
+        }
+        hideAllHidable();
+        let content = document.querySelector('.content');
+        let a = content.querySelectorAll('a');
+        for (let item of a) {
+            item.addEventListener('click', (e) => {showAllHidable()})
+        }
+
+
+        
+    })
+
+
+</script>
+</html>
