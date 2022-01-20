@@ -1,0 +1,59 @@
+width height są jedynymi atrybutami. Można ustawić jet CSSem, ale jeżeli nie będą proporcjonalne do wartości 
+domyślnych (300 x 150 px) to zostanie zniekształcony.Dlatego lepiej ustawić atrybuty w HTML lub JS
+
+Można oczywiście stosować class i id, bo są common dla każdego HTMLElement
+
+Wartość zastępcza może być określona poprzez zagnieżdżenie elementu w <canvas><img...></canvas>
+Nowsze przeglądarki to zignorują i wyświetlą canvas, a starsze wartość zagnieżdżoną
+
+let canvas = document.getElementById('canvasId')
+var ctx = canvas.getContext('2d'); // for gaining access to canvas
+
+
+if (canvas.getContext) will check if browser supports canvas
+
+
+Cordinances: basic unit is pixel, 0.0 point is in upper left corner
+
+fillRect(x, y, width, height) - Draws filled rectangle without border
+strokeRect(x, y, width, height) - draws border
+clearRect(x, y, width, height) - clears area, like a rubber in paint
+
+
+Rectangles are created and added instantly after calling command, but paths are not:
+
+ctx.beginPath();// starts empty path, not visible in canvas yet
+ctx.moveTo(x, y); // select starting point. Always first command after beginPath will be treated like moveTo
+ctx.lineTo(x, y); // draws streight line, start position is current position
+ctx.lintTo(...);
+ctx.fill(); // fills path
+ctx.stroke(); // notes that path needs to be stroked !
+ctx.closePath(); should be called ? this closes path. In case of filled tirangle not needed, as fillment will 
+close tirangle visualy. As for only stroke triangle this is needed, otherwise it will be angle, not a triangle
+
+
+ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+arcTo(x1, y1, x2, y2, radius) - arc from point to point
+NOTE: angle is measured in radians! Not degrees. radians=(Math.PI/180)*degrees
+Each angle must be a part of path
+
+quadraticCurveTo(cp1x, cp1y, x, y) - a part of path, draws a quadratic Beier curve from current po position to end point specified by X, Y. Control point is cp
+
+beizerCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) 
+
+
+new Path2d()  creates an empty path
+new Path2d(somePath) copies a path
+new Path2d(svg) creates a path from SVG
+All methods, like moveTo, lineTo.. are available under this object. 
+ctx = canvas.getContext('2d')
+let rectangle = new Path2D();
+rectangle.rect(...)
+ctx.stroke(rectangle)  // this adds created path to canvas
+let  p = new Path2D("M10 10 h 80 v 80 h -10 Z")
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors
+
+
